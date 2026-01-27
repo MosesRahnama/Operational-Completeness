@@ -76,7 +76,6 @@ This test is **instantly falsifiable**: if any AI system successfully proves ter
 
 ## Links
 
-- **Zenodo (Permanent DOI)**: [https://zenodo.org/records/17705510](https://zenodo.org/records/17705510)
 - **KO7 Lean Formalization**: [https://github.com/MosesRahnama/OperatorKO7](https://github.com/MosesRahnama/OperatorKO7)
 
 ## Citation
