@@ -10,8 +10,10 @@ Moses Rahnama | January 2026
 
 The finalized math framework for the safestep is formalized in the KO7 project and presented with the conjecture in the KO7 paper. This repo treats KO7 as reference only and builds the Operational Completeness evidence around that formal base.
 
+- Consciousness at the Boundary: Operational Completeness Where Turing's Halting Problem IS Gödel's Incompleteness (Zenodo) https://zenodo.org/records/18402085
+- (KO7) Strong Normalization for the Safe Fragment of a Minimal Rewrite System: A Triple-Lexicographic Proof and a Conjecture on the Unprovability of Full Termination for Any Relational Operator-Only TRS paper (arXiv): https://arxiv.org/abs/2512.00081
 - KO7 repo: https://github.com/MosesRahnama/OperatorKO7
-- KO7 paper (arXiv): https://arxiv.org/abs/2512.00081
+
 - Local KO7 source: `C:\Users\Moses\math_ops\OperatorKernelO6\OperatorKO7\Paper\Rahnama_KO7_Submission.tex`
 
 ## Abstract
