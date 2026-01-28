@@ -83,7 +83,7 @@ This test is **instantly falsifiable**: if any AI system successfully proves ter
 
 ## Links
 
-- **KO7 Lean Formalization**: [https://github.com/MosesRahnama/OperatorKO7](https://github.com/MosesRahnama/OperatorKO7)
+- **KO7 reference (read only)**: [https://github.com/MosesRahnama/OperatorKO7](https://github.com/MosesRahnama/OperatorKO7)
 
 ## Citation
 

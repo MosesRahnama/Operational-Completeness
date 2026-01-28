@@ -2,6 +2,14 @@
 
 This file explains how to locate evidence in this repo after the file rename pass.
 
+## Scope and source policy
+
+This repo is standalone. The KO7 repo is referenced only.
+Lean code is used only when needed, and only from:
+`C:\Users\Moses\math_ops\OperatorKernelO6\OperatorKO7\OperatorKO7_Complete_Documentation.md`
+
+Legacy folders hold older code that hit a wall. Files named `termination.md` or `fails` are high value failure evidence.
+
 ## How to find a file
 
 Use `evidence/INDEX.csv` to map any prior source path to the new repo path.
