@@ -24,6 +24,33 @@ This guide is for fast verification and deep audit of the evidence archive.
 - The Strict Execution Contract is stated and used in tests.
 - The evidence archive contains the stated classes of files.
 
+## Key evidence table
+
+| Topic | File |
+| --- | --- |
+| O3 self-contradiction | `evidence/extracts/undated_extracts_oc_006_o3_contradiction_0021.md` |
+| Gemini plum = 2 | `evidence/extracts/undated_extracts_oc_007_gemini_plum2_0022.md` |
+| Gemini confession | `evidence/extracts/undated_extracts_oc_015_gemini_confession_0030.md` |
+| DeepSeek contradiction | `evidence/extracts/undated_extracts_oc_009_deepseek_contradiction_0024.md` |
+| Strategy failures | `evidence/extracts/undated_extracts_oc_011_strategy_failures_0026.md` |
+| Strict Execution Contract | `evidence/extracts/undated_extracts_oc_012_strict_execution_contract_0027.md` |
+| Model list | `evidence/extracts/undated_extracts_oc_013_model_list_0028.md` |
+| Evidence archive samples | `evidence/extracts/undated_extracts_oc_010_evidence_archive_samples_0025.md` |
+
+## Claim checklist
+
+- OC-001: model count 16+ and rec_succ duplication supported by extracts
+- OC-004: provider and version test shows failure
+- OC-005: parameter config test shows invalid output
+- OC-006: O3 contradicts itself in one response
+- OC-007: Gemini uses plum = 2 in proof
+- OC-009: DeepSeek uses Nat then rejects Nat
+- OC-010: evidence archive exists with stated file classes
+- OC-011: ten strategy failures documented
+- OC-012: Strict Execution Contract is present
+- OC-013: model list includes OpenAI, Google, DeepSeek
+- OC-015: Gemini confession is quoted
+
 ## Evidence naming scheme
 
 Each file name follows:
