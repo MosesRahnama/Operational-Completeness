@@ -13,7 +13,7 @@ This guide is for fast verification and deep audit of the evidence archive.
 
 1. Read `evidence/maps/undated_maps_02_claim_list_0006.md` for the full claim list.
 2. Read `evidence/docket` for failure summaries and method notes.
-3. Verify transcripts in `evidence/transcripts`.
+3. Verify extracts in `evidence/extracts`.
 4. Review analyses in `evidence/analysis`.
 5. Review failed proof attempts in `evidence/lean_graveyard`.
 

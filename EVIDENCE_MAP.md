@@ -8,7 +8,8 @@ This repo is standalone. The KO7 repo is referenced only.
 Lean code is used only when needed, and only from:
 `C:\Users\Moses\math_ops\OperatorKernelO6\OperatorKO7\OperatorKO7_Complete_Documentation.md`
 
-Legacy folders hold older code that hit a wall. Files named `termination.md` or `fails` are high value failure evidence.
+Legacy sources hold older code that hit a wall. Files named `termination.md` or `fails` are high value failure evidence.
+HTML exports are excluded in favor of the original MD or PDF sources.
 
 ## How to find a file
 
@@ -21,10 +22,8 @@ Each row includes `source_path` and `dest_rel` so you can locate the file.
 - `evidence/docket` holds failure docket and method notes.
 - `evidence/extracts` holds short extracts used in the paper.
 - `evidence/tests` holds model test artifacts.
-- `evidence/transcripts` holds raw chat logs.
 - `evidence/lean_graveyard` holds failed proof attempts.
 - `evidence/analysis` holds diagnostics and autopsies.
-- `evidence/archive` holds legacy or uncategorized files.
 
 ## Index files
 

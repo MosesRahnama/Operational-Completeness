@@ -26,10 +26,8 @@ Operational-Completeness/
 │   ├── docket/                    # Failure docket and methods
 │   ├── extracts/                  # Short evidence extracts
 │   ├── tests/                     # Model test artifacts
-│   ├── transcripts/               # Raw chat logs
 │   ├── lean_graveyard/            # Failed termination proof attempts
 │   ├── analysis/                  # Diagnostics and autopsies
-│   ├── archive/                   # Legacy or uncategorized files
 │   ├── CROSSWALK.md               # Source path to repo path guidance
 │   ├── INDEX.md                   # Counts by category
 │   └── INDEX.csv                  # Source path, size, hash, time
@@ -39,7 +37,7 @@ Operational-Completeness/
 ## Key Finding: The rec_succ Rule
 
 ```lean
-R_rec_succ : ∀ b s n, Step (recΔ b s (δ n)) (app s (recΔ b s n))
+R_rec_succ : ∀ b s n, Step (recΔ b s (δ n)) (merge s (recΔ b s n))
 ```
 
 This rule contains:
@@ -59,10 +57,12 @@ This defeats every termination strategy attempted by AI.
 
 | Category | Files | Key Evidence |
 |----------|-------|-------------|
-| AI Transcripts | 50+ | Verbatim failure logs from GPT-4o through GPT-5.2, Claude Opus 4-4.5, Gemini 2.5-3, O3, DeepSeek R1 |
-| Failed Lean Code | 5,748 lines | 7+ termination modules, all containing `sorry` or `False.elim` |
-| Strategy Failures | 10 | Every approach fails at duplication |
-| Cognitive Autopsies | 5+ | AI self-analysis of why it failed |
+| Extracts | 37 | Short, citable evidence snippets used in the paper |
+| Tests | 43 | Model test artifacts and prompts |
+| Failed Lean Code | 23 | Termination proof attempts and compile failures |
+| Analysis | 129 | Diagnostics, autopsies, and reasoning failure notes |
+
+See `evidence/INDEX.md` for current counts by category.
 
 ## Three Failure Modes
 
