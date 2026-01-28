@@ -6,6 +6,14 @@ Moses Rahnama | January 2026
 
 ---
 
+## KO7 Formalization and Conjecture
+
+The finalized math framework for the safestep is formalized in the KO7 project and presented with the conjecture in the KO7 paper. This repo treats KO7 as reference only and builds the Operational Completeness evidence around that formal base.
+
+- KO7 repo: https://github.com/MosesRahnama/OperatorKO7
+- KO7 paper (arXiv): https://arxiv.org/abs/2512.00081
+- Local KO7 source: `C:\Users\Moses\math_ops\OperatorKernelO6\OperatorKO7\Paper\Rahnama_KO7_Submission.tex`
+
 ## Abstract
 
 We asked AI: "Is it possible to build a complete operator-only mathematical system with no axioms, no meta encoding, no borrowed logic, where everything, including logic and numbers, all emerge from within?" Through nearly four months of documentation, we discovered that every single one of the 16+ tested AI systems fails at exactly the same point: when **self-referential operator duplication** meets **decidability**.
