@@ -178,7 +178,6 @@ https://link.springer.com/content/pdf/10.1007/3-540-55251-0_5
 
 [30] Proving termination with multiset orderings - Machine Logic
 
-https://lawrencecpaulson.github.io/2022/10/26/Multiset-Ordering.html
 
 [31] [32] [33] iiste.org
 

@@ -8,7 +8,6 @@ NameNormalized: meta
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\Meta.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Meta.html | 8745 | AA91E9074929A6FB7D0A08E5ECFD982BCB3993CCB6EB0F0B2DC63DCCA1E55861
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Meta.pdf | 39347 | CF84434DA6B2DE58748AC250104879B5D6CFA12C6B4703C190C775F0A4DE186D
 - C:\Users\Moses\OpComp\MUST_Review\Legacy\Meta_Lean_Archive\Meta.lean | 2593 | 71CC31E078775007BAC04FDFBD8F4D59D8AEAB3DAC98A0E56FB99EBE9F01E147
 - C:\Users\Moses\OpComp\MUST_Review\Legacy\MetaMD_Archive\Meta.md | 2825 | 6D44D3C69D8EDA1B8F11FA7EE8335693E7AFD485D7242ED66AEB4A421B1CBC01
@@ -20,7 +19,6 @@ NameNormalized: termination
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\Termination.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Termination.html | 74684 | 55C12132A532861706B4F53A6AB5248D656A41C3F8C77F10877C99C73FED46AA
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Termination.pdf | 191756 | 6542B62A703AFAB74BA467F66EF8C3601C0517BD2A63FBF35615EEE7A0E501C2
 - C:\Users\Moses\OpComp\MUST_Review\Legacy\Meta_Lean_Archive\Termination.lean | 62253 | FBDB31029711B705E3DB3C8FCB4AE0058F92152DF9EE4F48EC076A513516F324
 - C:\Users\Moses\OpComp\MUST_Review\Legacy\MetaMD_Archive\Termination.md | 73213 | E17BABC9A0B8F87C25D706492541DFFDE6ABEC91E5BDBE8F921C258FFE62D246
@@ -73,7 +71,6 @@ NameNormalized: kernel_documentation
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\Kernel_Documentation.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Kernel_Documentation.html | 7849 | 4054FBBFB8D37FC59A45F501819E8D675963D084763664DC0CBE4D4698CA4295
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Kernel_Documentation.md | 1685 | DD00EB73B4179B3839D4644111674B6570A24C15866886A20DA324B76FD85C8E
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Kernel_Documentation.pdf | 41972 | 0E15A5D29C85A8F4ABFB6D5DCAED4871EF9D343EE3873EEA76FB12F37647B4F3
 - C:\Users\Moses\OpComp\MUST_Review\Kernel_Documentation.md | 1685 | DD00EB73B4179B3839D4644111674B6570A24C15866886A20DA324B76FD85C8E
@@ -173,7 +170,6 @@ NameNormalized: termination_companion
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\Termination_Companion.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Termination_Companion.html | 30816 | 3D7DB014D7CA58680BC2C91864EDDBDA3E75FF6EE334681F48DA23B703354AF2
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Termination_Companion.pdf | 165955 | 957BF060DA7EE2624192BE22F3ECA3C606A18574BCE7EB525486AE5290675CBC
 - C:\Users\Moses\OpComp\MUST_Review\important_2\Research\Termination_Companion.md | 24422 | E62A7514E15FC0C27482BE159F918DE8654AD57050D0DE7ACEAEA6AC34A05903
 - C:\Users\Moses\OpComp\MUST_Review\Termination_Companion.md | 24723 | CE216997787C2E1DCC6FF046DD6416463CD7E457FC286CE273DFD72FFCD6B435
@@ -183,7 +179,6 @@ NameNormalized: termination_documentation
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\Termination_Documentation.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Termination_Documentation.html | 60412 | F787C04CA62B84DCADF7FEF218947CA7216DC0AFDEB1819E6270AF4DA5708B3C
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Termination_Documentation.md | 53260 | 4F956FA79449EF526223FAB7CF999DC92E916D527B622F9910BEF5E80372D1EC
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Termination_Documentation.pdf | 261636 | 4AA32B1D8F12A369A2F5709166BE15696A26C5A7D6AE4C3EB224A40D9ACFFBB5
 - C:\Users\Moses\OpComp\MUST_Review\Termination_Documentation.md | 53260 | 4F956FA79449EF526223FAB7CF999DC92E916D527B622F9910BEF5E80372D1EC
@@ -221,10 +216,7 @@ Files:
 ## Group B022
 NameNormalized: 5th_6th_candidates_html
 Decision: ManualReview
-PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\5th-6th candidates.html.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\5th-6th candidates.html.docx | 43568 | 24474FFC2C9CE8C6AC3DA3B7B5E160A89BA617BBC81592787AA533C0C0BC0E69
-- C:\Users\Moses\OpComp\MUST_Review\5th-6th candidates.html.pdf | 471006 | 225E8C4664FF6AE9E4B4218308899946B43577DD23ED0C2C65FF1F9B47F98A3B
 - C:\Users\Moses\OpComp\MUST_Review\5th-6th_candidates_html.md | 27669 | 686BC92DDDA4E02080C6CC678676E4CA839595A4535E2D85E821E8A642B86081
 - C:\Users\Moses\OpComp\MUST_Review\markdown_output\5th-6th_candidates_html.md | 27668 | 94A73240815D7068AE971DA7A9870B632A9C1C13DFF1FF151BEC386629923471
 
@@ -270,7 +262,6 @@ NameNormalized: ordinal_toolkit
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\ordinal-toolkit.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\ordinal-toolkit.html | 25711 | A7B73EE8A2F7F874D8D28DF93DC06BA6DCDC8A629843DEEF0E97534FE7010F06
 - C:\Users\Moses\OpComp\MUST_Review\Docs\ordinal-toolkit.pdf | 148905 | 15734FB68A4A3FA860ECB3B17BCBCAAB695E520FA48B22ACEF12E7537EE6DC95
 - C:\Users\Moses\OpComp\MUST_Review\ordinal-toolkit.md | 14487 | 2B2DAA1E88DAA6750B39586236124DE6ACF7056085961F54622D53854F10E896
 
@@ -322,10 +313,8 @@ Files:
 ## Group B027
 NameNormalized: operator_centric_foundations_of_godelian_incompleteness
 Decision: ManualReview
-PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\Operator_Centric_Foundations_of_Godelian_Incompleteness.html
 Files:
 - C:\Users\Moses\OpComp\MUST_Review\Archive\Operator Centric Foundations of Godelian Incompleteness.md | 14182 | C852ED460064B511D6461A7CBE1B8F2D3DC083A51BEC9F71400543675893C236
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Operator_Centric_Foundations_of_Godelian_Incompleteness.html | 15579 | BD870D4B5C98E7CBEA61FE9A47AFCBD2DAA2AC202D7A5A8591839B17F87C3B19
 - C:\Users\Moses\OpComp\MUST_Review\Operator Centric Foundations of Godelian Incompleteness.md | 14182 | C852ED460064B511D6461A7CBE1B8F2D3DC083A51BEC9F71400543675893C236
 
 ## Group T007
@@ -343,7 +332,6 @@ Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\Agent.pdf
 Files:
 - C:\Users\Moses\OpComp\MUST_Review\agent.md | 10243 | E519E998ECEE9D31A47ABBFBA3F95ADB55ADBA063E933A14E867F7266FF00C6C
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Agent.html | 19004 | C3B7C5C5F1942FBFC8663E25F926A8191AFC79DE9BB08C6D657BE35361ACB30A
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Agent.pdf | 111388 | 1368C7D28468560D9F18717C6FBA7E33706BE2CC859AB5154255E4D58B3801F2
 
 ## Group B029
@@ -368,7 +356,6 @@ NameNormalized: proofsystem
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\ProofSystem.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\ProofSystem.html | 8206 | 715DFD82436E7D5FD7C24CDA53E3F11AFADBDFC865492F0538A987B44BF952D2
 - C:\Users\Moses\OpComp\MUST_Review\Docs\ProofSystem.pdf | 42049 | D2EAC625F4A3C1305FFE5F5F05AEFC30E3B749C4E72EB16981711ECB6AB94A5C
 
 ## Group B031
@@ -408,7 +395,6 @@ NameNormalized: operatorkernelo6_complete_lean_documentation
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\OperatorKernelO6_Complete_Lean_Documentation.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\OperatorKernelO6_Complete_Lean_Documentation.html | 6649 | 9A57B05EE2A9D6FF19A3F2688249988262998A8FE7C787A127033D7E7ECB45E1
 - C:\Users\Moses\OpComp\MUST_Review\Docs\OperatorKernelO6_Complete_Lean_Documentation.pdf | 26756 | D16435C8F906112C155BCE13F2DA8ABDE966AC27BDE362B89BDDFE6471CC9503
 
 ## Group T010
@@ -448,7 +434,6 @@ NameNormalized: arithmetic
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\Arithmetic.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Arithmetic.html | 7188 | 2624282190A494B7B33F29CCB419305327ABC3D2666DBED693F0A889D2BED4BB
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Arithmetic.pdf | 32881 | 4865D1E1F7D856D8172AF41F38C55EB770CFF79C79BB9B6913E711D2D6458581
 
 ## Group B037
@@ -488,7 +473,6 @@ NameNormalized: complement
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\Complement.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Complement.html | 8270 | C268F166C694F9293B70FC5234270E34DBF6BDABA790B58BA2F88E40AE448DF2
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Complement.pdf | 38345 | A754C6D6F8EF9E2300630EA35C8F073139A02C6A4725CBDE419BAEE50C6A18F3
 
 ## Group B042
@@ -496,7 +480,6 @@ NameNormalized: complete_core_documentation
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\Complete_Core_Documentation.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Complete_Core_Documentation.html | 107623 | A36563253D523E9768FA586B7F1A9BF791916D6B943B06776BDFAD9140E85825
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Complete_Core_Documentation.pdf | 593331 | 94DACC90663048D157FF4F0B39E1FFE39843301815DEB8B91D1649C42DB669B3
 
 ## Group B043
@@ -504,7 +487,6 @@ NameNormalized: complete_guide
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\Complete_Guide.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Complete_Guide.html | 56053 | 182C6D8574A9EB66EDE6DCA31D64CCBE0353E82BA76D258FD9ED9FFF1AE0FD51
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Complete_Guide.pdf | 259676 | EDA0385441695819F816F7D9D44A14D7743E3437A850081B0AB49C55F34EADCD
 
 ## Group B044
@@ -512,7 +494,6 @@ NameNormalized: operator_centric_foundations
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\Operator_Centric_Foundations.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Operator_Centric_Foundations.html | 24490 | 34B9EAA7DACCBB510C3603696C450EF3DFCAF62BECF9DF52BD157BCEE2AD4491
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Operator_Centric_Foundations.pdf | 125880 | 0E8F9C9B4263D5940E5E0139382FBE8DFB6849AA1DEEFC655FE1B3F2A65E52EC
 
 ## Group B045
@@ -520,7 +501,6 @@ NameNormalized: confluence
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\Confluence.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Confluence.html | 6643 | 99FF8FEAC527569A69A2A20CC35C4786BD8D6BB444602F040AE7C8E8D272F667
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Confluence.pdf | 32447 | C57CB6117D5867120AF19832D6795B66F2E54C00B654D7B2150C13FE86704767
 
 ## Group B046
@@ -528,7 +508,6 @@ NameNormalized: custom_core_documentation
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\Custom_Core_Documentation.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Custom_Core_Documentation.html | 24958 | 4E2DF87F7CB59EFA95DDE62C6B4C3B4CC800525D7213DA7CD4A455517C49562E
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Custom_Core_Documentation.pdf | 152672 | C99175F1C25AAFEDCA276A1B59A57EA96045D13D3C8E12327AA81C6D8EB5CFCD
 
 ## Group B047
@@ -544,7 +523,6 @@ NameNormalized: equality
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\Equality.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Equality.html | 8329 | 1202482A7834562A6FA7D139A0E556F1842710D717C1B97639DE444F2985D105
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Equality.pdf | 38384 | 8352599CEE8DF2379ABD9882DCA141203F6FD479EE32B207CEDF57468476AAAB
 
 ## Group B049
@@ -552,7 +530,6 @@ NameNormalized: fixedpoint
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\FixedPoint.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\FixedPoint.html | 8050 | E112BED8AADEA4E7503E75CFC1A6715BCA7EF751B19AF982F464051E924161FE
 - C:\Users\Moses\OpComp\MUST_Review\Docs\FixedPoint.pdf | 41703 | D51D8AEEBD240BB93A61E32583D4567C50CEE5FF598210348666B10E0A01616B
 
 ## Group B050
@@ -560,7 +537,6 @@ NameNormalized: godel
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\Godel.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Godel.html | 11670 | 633D3FFB7B8731A23050AA1A6E7FEB7FA49D78F78D9FABB0330E394D9144D39C
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Godel.pdf | 50924 | 1C266AF49BF1013EDF7979B48CFEDC8A5B281AE288D947D8343261A1D8F17F33
 
 ## Group B051
@@ -576,7 +552,6 @@ NameNormalized: kernel
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\Kernel.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Kernel.html | 7754 | 6BDE64970AAD9DEBBB7B54A6440B76C70FD97FA459F71127596597232BF15F11
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Kernel.pdf | 37303 | A8A69C6083661974B076123CA084A9C1C8A687A50D71A85E0B364A3F01B68CC9
 
 ## Group B053
@@ -600,7 +575,6 @@ NameNormalized: normalize
 Decision: ManualReview
 PrimaryCandidate: C:\Users\Moses\OpComp\MUST_Review\Docs\Normalize.pdf
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Normalize.html | 10588 | AB393EB3CB7B6164DF68153920162C214CAE4A6CA69CA89126A056B9F314CAEE
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Normalize.pdf | 50166 | 535CB5B9CA956E08B900679C6698839278EBB6A38E510073C4678EA5DB85FFEB
 
 ## Group T013

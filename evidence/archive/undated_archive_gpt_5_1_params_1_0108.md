@@ -292,7 +292,6 @@ But for your original goal (“maximum reasoning powers”), drop `temperature` 
 [4]: https://platform.openai.com/docs/api-reference/chat/create?utm_source=chatgpt.com "API Reference - OpenAI API"
 [5]: https://community.openai.com/t/temperature-in-gpt-5-models/1337133?utm_source=chatgpt.com "Temperature in GPT-5 models - API - OpenAI Developer Community"
 [6]: https://github.com/microsoft/semantic-kernel/issues/12727?utm_source=chatgpt.com "Python: Message: Unsupported parameter: 'temperature' is not ... - GitHub"
-[7]: https://openai-structured.readthedocs.io/en/latest/model_registry.html?utm_source=chatgpt.com "Model Registry — openai-structured documentation"
 [8]: https://docs.mem0.ai/components/llms/models/openai?utm_source=chatgpt.com "OpenAI - Mem0"
 [9]: https://github.com/BerriAI/litellm/issues/17005?utm_source=chatgpt.com "[Bug]: 5.1 missing support for temperature parameter != 1"
 [10]: https://platform.openai.com/docs/guides/reasoning?utm_source=chatgpt.com "Reasoning models - OpenAI API"

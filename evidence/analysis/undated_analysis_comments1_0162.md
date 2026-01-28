@@ -328,7 +328,6 @@ https://www.researchgate.net/publication/221352125_The_Confluence_Problem_for_Fl
 [14] Decidability of reachability and disjoint union of term rewriting systems
 https://link.springer.com/content/pdf/10.1007/3-540-55251-0_5
 [30] Proving termination with multiset orderings - Machine Logic
-https://lawrencecpaulson.github.io/2022/10/26/Multiset-Ordering.html
 [31] [32] [33] iiste.org
 https://www.iiste.org/Journals/index.php/MTM/article/viewFile/5872/5998
 [47] [48] [50] [51] [69] cs.tau.ac.il
@@ -453,7 +452,6 @@ https://www.researchgate.net/publication/221352125_The_Confluence_Problem_for_Fl
 [14] Decidability of reachability and disjoint union of term rewriting systems
 https://link.springer.com/content/pdf/10.1007/3-540-55251-0_5
 [30] Proving termination with multiset orderings - Machine Logic
-https://lawrencecpaulson.github.io/2022/10/26/Multiset-Ordering.html
 [31] [32] [33] iiste.org
 https://www.iiste.org/Journals/index.php/MTM/article/viewFile/5872/5998
 [47] [48] [50] [51] [69] cs.tau.ac.il

@@ -49,7 +49,6 @@ Make popup buttons trigger sidepanel/analyze/extract reliably.
 2) Actions
 Added 'toggle-sidepanel' message case in background; updated popup handlers to await tab messaging and open sidepanel; added minimal error logging.
 
-Files: C:\Users\Moses\api_setup\ai_browser\elin_background.js; C:\Users\Moses\api_setup\ai_browser\popup.html
 
 3) Outcome
 SUCCESS: Clicks now dispatch; sidepanel toggles; analyze/extract messages reach content/background.
@@ -87,9 +86,7 @@ Topic/Thread: Elin browser extension — make MV3 load and wire to unified serve
 1) Objective
 Ensure ai_browser extension loads cleanly, can open sidepanel, chat via unified server, and prep advanced automation.
 2) Actions
-Added manifest.json; created popup.html/styles.css/injected.js; fixed sidepanel script ref; added get-page-context in content; injected advanced_automation; replaced invalid :contains selectors; dynamic models from /v1/models; wrote DIAGNOSTIC_REPORT.md.
 
-Files: C:\Users\Moses\api_setup\ai_browser\manifest.json; elin_sidepanel.html; elin_sidepanel.js; elin_content.js; elin_background.js; elin_advanced_automation.js; popup.html; styles.css; injected.js; DIAGNOSTIC_REPORT.md
 
 3) Outcome
 SUCCESS: Manifest and file wiring correct; sidepanel opens; background/content messaging aligned; model list can be fetched. Advanced automation selectors fixed.
@@ -1537,9 +1534,7 @@ Topic/Thread: Sanitize Continue.dev branding in HTML
 1) Objective
 Neutralize visible "Continue.dev" branding text to "Continue" while preserving links.
 2) Actions
-Edited AI-Augmented Lean/AI-Augmented Lean.html anchors (3 spots); verified via grep no remaining ">Continue.dev<".
 
-Files: AI-Augmented Lean/AI-Augmented Lean.html
 
 3) Outcome
 SUCCESS: HTML sanitized; no code impacted.

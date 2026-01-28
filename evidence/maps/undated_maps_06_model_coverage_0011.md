@@ -76,7 +76,6 @@ HitCount: 33
 - C:\Users\Moses\OpComp\MUST_Review\AI-Model-Test\What-Model-Are-You.md
 - C:\Users\Moses\OpComp\MUST_Review\AI-Retardation-Ledger copy.md
 - C:\Users\Moses\OpComp\MUST_Review\AI-Retardation-Ledger.md
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Complete_Core_Documentation.html
 
 ## Claude Opus 4
 Aliases: Claude Opus 4

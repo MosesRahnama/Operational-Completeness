@@ -38,7 +38,6 @@ For coding tasks specifically, these settings consistently produce the highest q
 
 [^1_4]: https://www.phdata.io/blog/how-to-tune-llm-parameters-for-top-performance-understanding-temperature-top-k-and-top-p/
 
-[^1_5]: https://docs.aws.amazon.com/bedrock/latest/userguide/claude-messages-extended-thinking.html
 
 [^1_6]: https://community.openai.com/t/why-is-the-temperature-and-top-p-of-o1-models-fixed-to-1-not-0/938922
 

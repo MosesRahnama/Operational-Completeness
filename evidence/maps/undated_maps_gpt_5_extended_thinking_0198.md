@@ -973,7 +973,6 @@ I’ll return shortly with a full step-by-step system blueprint — ranked optio
 see see if you can access any of these links to look at the sources of the files and yeah give me a very concise summary of you know each approach what it needs and how easy and how e....think it is like in terms of you know
 
 https://github.com/MosesRahnama/OperatorKernelO6-AI/blob/o3-guide-next/Docs/AI-Augmented%20Lean.pdf
-https://github.com/MosesRahnama/OperatorKernelO6-AI/blob/o3-guide-next/Docs/AI-Augmented%20Lean.html
 https://github.com/MosesRahnama/OperatorKernelO6-AI/blob/o3-guide-next/Docs/AI-Augmented%20Lean.docx
 
 https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2FMosesRahnama%2FOperatorKernelO6-AI%2Frefs%2Fheads%2Fo3-guide-next%2FDocs%2FAI-Augmented%2520Lean.docx&wdOrigin=BROWSELINK

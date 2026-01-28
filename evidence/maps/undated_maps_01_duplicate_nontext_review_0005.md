@@ -11,7 +11,6 @@ NameNormalized: meta
 Count: 6
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Meta.html | 8745 | AA91E9074929A6FB7D0A08E5ECFD982BCB3993CCB6EB0F0B2DC63DCCA1E55861 | 2025-08-17T21:57:54.8725416Z | html
   Fingerprint: ﻿ meta - operatorkernelo6 meta file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\meta.lean type: lean generated: 2025-08-05 03:41:05
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Meta.pdf | 39347 | CF84434DA6B2DE58748AC250104879B5D6CFA12C6B4703C190C775F0A4DE186D | 2025-08-17T21:57:54.8739668Z | pdf pages=2
   Fingerprint: meta file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\meta.lean type: lean generated: 2025-08-05 03:41:05 size: 2279 characters overview meta-theoretical foundations source code im
@@ -29,7 +28,6 @@ NameNormalized: termination
 Count: 6
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Termination.html | 74684 | 55C12132A532861706B4F53A6AB5248D656A41C3F8C77F10877C99C73FED46AA | 2025-08-17T21:57:54.8845605Z | html
   Fingerprint: ﻿ termination import operatorkernelo6.kernel import init.wf import mathlib.data.prod.lex import mathlib.algebra.order.succpred import mathlib.data.nat.cast.order.basic import mathlib.settheory.ordinal
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Termination.pdf | 191756 | 6542B62A703AFAB74BA467F66EF8C3601C0517BD2A63FBF35615EEE7A0E501C2 | 2025-08-17T21:57:54.8855445Z | pdf pages=18
   Fingerprint: termination file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\termination.lean type: lean generated: 2025-08-05 03:41:04 size: 51890 characters overview complete termination proof w
@@ -47,21 +45,16 @@ NameNormalized: 5th_6th_candidates_html
 Count: 4
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\5th-6th candidates.html.docx | 43568 | 24474FFC2C9CE8C6AC3DA3B7B5E160A89BA617BBC81592787AA533C0C0BC0E69 | 2025-08-18T19:19:04.7334489Z | docx
   Fingerprint: 5th-6th candidates 5th candidates opinion 1: adopt s1 (recδ+eqw). it supplies primitive-recursive power, internal equality, and a credible path to purge bool/nat while preserving strong normalization 
-- C:\Users\Moses\OpComp\MUST_Review\5th-6th candidates.html.pdf | 471006 | 225E8C4664FF6AE9E4B4218308899946B43577DD23ED0C2C65FF1F9B47F98A3B | 2025-08-18T04:09:47.7884982Z | pdf pages=11
   Fingerprint: 5th-6th candidates 5th candidates opinion 1: 1 adopt s1 (recδ+eqw). it supplies primitive-recursive power, internal equality, and a credible path to purge bool/nat while preserving strong normalizatio
 - C:\Users\Moses\OpComp\MUST_Review\5th-6th_candidates_html.md | 27669 | 686BC92DDDA4E02080C6CC678676E4CA839595A4535E2D85E821E8A642B86081 | 2025-11-02T05:15:32.0215351Z | text
-  Fingerprint: # 5th-6th candidates html *converted from: 5th-6th candidates.html.pdf* --- ## page 1 5th-6th candidates 5th candidates opinion 1: ## 1 adopt s1 (recδ+eqw). it supplies primitive-recursive power, inte
 - C:\Users\Moses\OpComp\MUST_Review\markdown_output\5th-6th_candidates_html.md | 27668 | 94A73240815D7068AE971DA7A9870B632A9C1C13DFF1FF151BEC386629923471 | 2025-11-02T21:35:43.7704561Z | text
-  Fingerprint: # 5th-6th candidates html *converted from: 5th-6th candidates.html.pdf* --- ## page 1 5th-6th candidates 5th candidates opinion 1: ## 1 adopt s1 (recδ+eqw). it supplies primitive-recursive power, inte
 
 ## Group NT004
 NameNormalized: kernel_documentation
 Count: 4
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Kernel_Documentation.html | 7849 | 4054FBBFB8D37FC59A45F501819E8D675963D084763664DC0CBE4D4698CA4295 | 2025-08-17T21:57:54.8640450Z | html
   Fingerprint: ﻿ kernel analysis - operatorkernelo6 kernel analysis - operatorkernelo6 file: operatorkernelo6/operatorkernelo6\kernel.lean author: moses generated: 2025-08-05 01:07:40
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Kernel_Documentation.md | 1685 | DD00EB73B4179B3839D4644111674B6570A24C15866886A20DA324B76FD85C8E | 2025-08-17T21:57:54.8640450Z | text
   Fingerprint: ﻿# kernel analysis - operatorkernelo6 **file:** operatorkernelo6/operatorkernelo6\kernel.lean **author:** moses **date:** 2025-08-05 ## overview core trace definitions and reduction rules ## source co
@@ -89,7 +82,6 @@ NameNormalized: termination_companion
 Count: 4
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Termination_Companion.html | 30816 | 3D7DB014D7CA58680BC2C91864EDDBDA3E75FF6EE334681F48DA23B703354AF2 | 2025-08-17T21:57:54.8865519Z | html
   Fingerprint: ﻿ termination_companion # termination companion — full mathematical & algorithmic dossier version: 2025-08-09 (post-lex sn green) scope: strong normalization (sn) + structural termination strategy for
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Termination_Companion.pdf | 165955 | 957BF060DA7EE2624192BE22F3ECA3C606A18574BCE7EB525486AE5290675CBC | 2025-08-17T21:57:54.8875624Z | pdf pages=6
   Fingerprint: metasn strong-normalisation proof – full sketch, audit notes, and the *rec_succ_bound* issue m oses r ahnama mina analytics g enerated : 2025-08-05 05:20:24 overview companion document for termination
@@ -103,7 +95,6 @@ NameNormalized: termination_documentation
 Count: 4
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Termination_Documentation.html | 60412 | F787C04CA62B84DCADF7FEF218947CA7216DC0AFDEB1819E6270AF4DA5708B3C | 2025-08-17T21:57:54.8875624Z | html
   Fingerprint: ﻿ termination analysis - operatorkernelo6 termination analysis - operatorkernelo6 file: operatorkernelo6/meta\termination.lean author: moses generated: 2025-08-05 01:07:41
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Termination_Documentation.md | 53260 | 4F956FA79449EF526223FAB7CF999DC92E916D527B622F9910BEF5E80372D1EC | 2025-08-17T21:57:54.8885546Z | text
   Fingerprint: ﻿# termination analysis - operatorkernelo6 **file:** operatorkernelo6/meta\termination.lean **author:** moses **date:** 2025-08-05 ## overview complete termination proof with ordinal measures and mu_d
@@ -131,7 +122,6 @@ NameNormalized: agent
 Count: 3
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Agent.html | 19004 | C3B7C5C5F1942FBFC8663E25F926A8191AFC79DE9BB08C6D657BE35361ACB30A | 2025-08-17T21:57:54.8479879Z | html
   Fingerprint: ﻿ agent - operatorkernelo6 agent file: c:\users\moses\math_ops\operatorkernelo6\core_docs\agent.md type: markdown generated: 2025-08-05 03:44:48
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Agent.pdf | 111388 | 1368C7D28468560D9F18717C6FBA7E33706BE2CC859AB5154255E4D58B3801F2 | 2025-08-17T21:57:54.8479879Z | pdf pages=5
   Fingerprint: agent file: c:\users\moses\math_ops\operatorkernelo6\core_docs\agent.md type: markdown generated: 2025-08-05 03:44:48 size: 10028 characters overview agent-based documentation and processes document c
@@ -157,7 +147,6 @@ LikelySameContent: False
 Files:
 - C:\Users\Moses\OpComp\MUST_Review\Archive\Operator Centric Foundations of Godelian Incompleteness.md | 14182 | C852ED460064B511D6461A7CBE1B8F2D3DC083A51BEC9F71400543675893C236 | 2025-08-18T04:09:47.7884982Z | text
   Fingerprint: # operator–centric foundations of gödelian incompleteness ## a procedural, axiom–free, numeral–free, self contained reconstruction of logic, arithmetic, proof, and self reference via trace normalizati
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Operator_Centric_Foundations_of_Godelian_Incompleteness.html | 15579 | BD870D4B5C98E7CBEA61FE9A47AFCBD2DAA2AC202D7A5A8591839B17F87C3B19 | 2025-08-17T21:57:54.8739668Z | html
   Fingerprint: ﻿ operator centric foundations of godelian incompleteness operator centric foundations of godelian incompleteness # operator–centric foundations of gödelian incompleteness ## a procedural, axiom–free,
 - C:\Users\Moses\OpComp\MUST_Review\Operator Centric Foundations of Godelian Incompleteness.md | 14182 | C852ED460064B511D6461A7CBE1B8F2D3DC083A51BEC9F71400543675893C236 | 2025-08-17T21:57:54.9313884Z | text
   Fingerprint: # operator–centric foundations of gödelian incompleteness ## a procedural, axiom–free, numeral–free, self contained reconstruction of logic, arithmetic, proof, and self reference via trace normalizati
@@ -179,7 +168,6 @@ NameNormalized: ordinal_toolkit
 Count: 3
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\ordinal-toolkit.html | 25711 | A7B73EE8A2F7F874D8D28DF93DC06BA6DCDC8A629843DEEF0E97534FE7010F06 | 2025-08-17T21:57:54.8895488Z | html
   Fingerprint: ﻿ ordinal-toolkit.md — operatorkernel o6 ordinal-toolkit.md — operatorkernel o6 moses rahnama mina analytics generated: 2025-08-05 05:20:24
 - C:\Users\Moses\OpComp\MUST_Review\Docs\ordinal-toolkit.pdf | 148905 | 15734FB68A4A3FA860ECB3B17BCBCAAB695E520FA48B22ACEF12E7537EE6DC95 | 2025-08-17T21:57:54.8905462Z | pdf pages=6
   Fingerprint: ordinal-toolkit.md — operatorkernel o6 m oses r ahnama mina analytics g enerated : 2025-08-05 05:20:24 overview ordinal-op-toolkit document content version 2025‑07‑29 — authoritative, no placeholders;
@@ -344,7 +332,6 @@ NameNormalized: arithmetic
 Count: 2
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Arithmetic.html | 7188 | 2624282190A494B7B33F29CCB419305327ABC3D2666DBED693F0A889D2BED4BB | 2025-08-17T21:57:54.8479879Z | html
   Fingerprint: ﻿ arithmetic - operatorkernelo6 arithmetic file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\arithmetic.lean type: lean generated: 2025-08-05 03:41:07
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Arithmetic.pdf | 32881 | 4865D1E1F7D856D8172AF41F38C55EB770CFF79C79BB9B6913E711D2D6458581 | 2025-08-17T21:57:54.8479879Z | pdf pages=1
   Fingerprint: arithmetic file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\arithmetic.lean type: lean generated: 2025-08-05 03:41:07 size: 863 characters overview arithmetic operations and proper
@@ -354,7 +341,6 @@ NameNormalized: complement
 Count: 2
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Complement.html | 8270 | C268F166C694F9293B70FC5234270E34DBF6BDABA790B58BA2F88E40AE448DF2 | 2025-08-17T21:57:54.8479879Z | html
   Fingerprint: ﻿ complement - operatorkernelo6 complement file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\complement.lean type: lean generated: 2025-08-05 03:41:05
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Complement.pdf | 38345 | A754C6D6F8EF9E2300630EA35C8F073139A02C6A4725CBDE419BAEE50C6A18F3 | 2025-08-17T21:57:54.8479879Z | pdf pages=2
   Fingerprint: complement file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\complement.lean type: lean generated: 2025-08-05 03:41:05 size: 1894 characters overview complement operations and prope
@@ -364,7 +350,6 @@ NameNormalized: complete_core_documentation
 Count: 2
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Complete_Core_Documentation.html | 107623 | A36563253D523E9768FA586B7F1A9BF791916D6B943B06776BDFAD9140E85825 | 2025-08-17T21:57:54.8479879Z | html
   Fingerprint: ﻿ complete_core_documentation - operatorkernelo6 complete_core_documentation file: combined document type: markdown generated: 2025-08-05 01:08:33
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Complete_Core_Documentation.pdf | 593331 | 94DACC90663048D157FF4F0B39E1FFE39843301815DEB8B91D1649C42DB669B3 | 2025-08-17T21:57:54.8479879Z | pdf pages=40
   Fingerprint: complete_core_documentation file: combined document type: markdown generated: 2025-08-05 01:08:33 size: 81041 characters overview complete documentation of all core documentation files in the operator
@@ -374,7 +359,6 @@ NameNormalized: complete_guide
 Count: 2
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Complete_Guide.html | 56053 | 182C6D8574A9EB66EDE6DCA31D64CCBE0353E82BA76D258FD9ED9FFF1AE0FD51 | 2025-08-17T21:57:54.8479879Z | html
   Fingerprint: ﻿ complete_guide - operatorkernelo6 complete_guide file: c:\users\moses\math_ops\operatorkernelo6\core_docs\operatorkernelo6_complete_guide.md type: markdown generated: 2025-08-05 03:44:46
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Complete_Guide.pdf | 259676 | EDA0385441695819F816F7D9D44A14D7743E3437A850081B0AB49C55F34EADCD | 2025-08-17T21:57:54.8626241Z | pdf pages=17
   Fingerprint: complete_guide file: c:\users\moses\math_ops\operatorkernelo6\core_docs\operatorkernelo6_complete_guide.md type: markdown generated: 2025-08-05 03:44:46 size: 38754 characters overview comprehensive g
@@ -384,7 +368,6 @@ NameNormalized: confluence
 Count: 2
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Confluence.html | 6643 | 99FF8FEAC527569A69A2A20CC35C4786BD8D6BB444602F040AE7C8E8D272F667 | 2025-08-17T21:57:54.8626241Z | html
   Fingerprint: ﻿ confluence - operatorkernelo6 confluence file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\confluence.lean type: lean generated: 2025-08-05 03:41:05
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Confluence.pdf | 32447 | C57CB6117D5867120AF19832D6795B66F2E54C00B654D7B2150C13FE86704767 | 2025-08-17T21:57:54.8637191Z | pdf pages=1
   Fingerprint: confluence file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\confluence.lean type: lean generated: 2025-08-05 03:41:05 size: 347 characters overview confluence properties and proofs
@@ -394,7 +377,6 @@ NameNormalized: custom_core_documentation
 Count: 2
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Custom_Core_Documentation.html | 24958 | 4E2DF87F7CB59EFA95DDE62C6B4C3B4CC800525D7213DA7CD4A455517C49562E | 2025-08-17T21:57:54.8640450Z | html
   Fingerprint: ﻿ custom_core_documentation custom_core_documentation moses rahnama mina analytics generated: 2025-08-05 05:20:25
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Custom_Core_Documentation.pdf | 152672 | C99175F1C25AAFEDCA276A1B59A57EA96045D13D3C8E12327AA81C6D8EB5CFCD | 2025-08-17T21:57:54.8640450Z | pdf pages=6
   Fingerprint: custom_core_documentation m oses r ahnama mina analytics g enerated : 2025-08-05 05:20:25 overview custom selection and ordering of core documentation files. document content custom selection and orde
@@ -404,7 +386,6 @@ NameNormalized: equality
 Count: 2
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Equality.html | 8329 | 1202482A7834562A6FA7D139A0E556F1842710D717C1B97639DE444F2985D105 | 2025-08-17T21:57:54.8640450Z | html
   Fingerprint: ﻿ equality - operatorkernelo6 equality file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\equality.lean type: lean generated: 2025-08-05 03:41:08
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Equality.pdf | 38384 | 8352599CEE8DF2379ABD9882DCA141203F6FD479EE32B207CEDF57468476AAAB | 2025-08-17T21:57:54.8640450Z | pdf pages=2
   Fingerprint: equality file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\equality.lean type: lean generated: 2025-08-05 03:41:08 size: 1999 characters overview equality definitions and theorems s
@@ -414,7 +395,6 @@ NameNormalized: fixedpoint
 Count: 2
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\FixedPoint.html | 8050 | E112BED8AADEA4E7503E75CFC1A6715BCA7EF751B19AF982F464051E924161FE | 2025-08-17T21:57:54.8640450Z | html
   Fingerprint: ﻿ fixedpoint - operatorkernelo6 fixedpoint file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\fixedpoint.lean type: lean generated: 2025-08-05 03:41:07
 - C:\Users\Moses\OpComp\MUST_Review\Docs\FixedPoint.pdf | 41703 | D51D8AEEBD240BB93A61E32583D4567C50CEE5FF598210348666B10E0A01616B | 2025-08-17T21:57:54.8640450Z | pdf pages=2
   Fingerprint: fixedpoint file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\fixedpoint.lean type: lean generated: 2025-08-05 03:41:07 size: 1674 characters overview fixed point theorems and applic
@@ -424,7 +404,6 @@ NameNormalized: godel
 Count: 2
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Godel.html | 11670 | 633D3FFB7B8731A23050AA1A6E7FEB7FA49D78F78D9FABB0330E394D9144D39C | 2025-08-17T21:57:54.8640450Z | html
   Fingerprint: ﻿ godel - operatorkernelo6 godel file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\godel.lean type: lean generated: 2025-08-05 03:41:07
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Godel.pdf | 50924 | 1C266AF49BF1013EDF7979B48CFEDC8A5B281AE288D947D8343261A1D8F17F33 | 2025-08-17T21:57:54.8640450Z | pdf pages=3
   Fingerprint: godel file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\godel.lean type: lean generated: 2025-08-05 03:41:07 size: 5139 characters overview gã¶del-related constructions and theorems
@@ -434,7 +413,6 @@ NameNormalized: kernel
 Count: 2
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Kernel.html | 7754 | 6BDE64970AAD9DEBBB7B54A6440B76C70FD97FA459F71127596597232BF15F11 | 2025-08-17T21:57:54.8640450Z | html
   Fingerprint: ﻿ kernel - operatorkernelo6 kernel file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\kernel.lean type: lean generated: 2025-08-05 03:41:03
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Kernel.pdf | 37303 | A8A69C6083661974B076123CA084A9C1C8A687A50D71A85E0B364A3F01B68CC9 | 2025-08-17T21:57:54.8640450Z | pdf pages=1
   Fingerprint: kernel file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\kernel.lean type: lean generated: 2025-08-05 03:41:03 size: 1393 characters overview core trace definitions and reduction rules s
@@ -444,7 +422,6 @@ NameNormalized: normalize
 Count: 2
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Normalize.html | 10588 | AB393EB3CB7B6164DF68153920162C214CAE4A6CA69CA89126A056B9F314CAEE | 2025-08-17T21:57:54.8739668Z | html
   Fingerprint: ﻿ normalize - operatorkernelo6 normalize file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\normalize.lean type: lean generated: 2025-08-05 03:41:06
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Normalize.pdf | 50166 | 535CB5B9CA956E08B900679C6698839278EBB6A38E510073C4678EA5DB85FFEB | 2025-08-17T21:57:54.8739668Z | pdf pages=3
   Fingerprint: normalize file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\normalize.lean type: lean generated: 2025-08-05 03:41:06 size: 4135 characters overview normalization procedures and proo
@@ -454,7 +431,6 @@ NameNormalized: operator_centric_foundations
 Count: 2
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\Operator_Centric_Foundations.html | 24490 | 34B9EAA7DACCBB510C3603696C450EF3DFCAF62BECF9DF52BD157BCEE2AD4491 | 2025-08-17T21:57:54.8739668Z | html
   Fingerprint: ﻿ operator–centric foundations of gödelian incompleteness operator–centric foundations of gödelian incompleteness moses rahnama mina analytics generated: 2025-08-05 05:20:23
 - C:\Users\Moses\OpComp\MUST_Review\Docs\Operator_Centric_Foundations.pdf | 125880 | 0E8F9C9B4263D5940E5E0139382FBE8DFB6849AA1DEEFC655FE1B3F2A65E52EC | 2025-08-17T21:57:54.8739668Z | pdf pages=6
   Fingerprint: operator_centric_foundations f ile : c:\users\moses\math_ops\operatorkernelo6\core_docs\operator centric foundations of godelian incompleteness.md t ype : markdown g enerated : 2025-08-05 05:15:08 s i
@@ -464,7 +440,6 @@ NameNormalized: operatorkernelo6_complete_lean_documentation
 Count: 2
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\OperatorKernelO6_Complete_Lean_Documentation.html | 6649 | 9A57B05EE2A9D6FF19A3F2688249988262998A8FE7C787A127033D7E7ECB45E1 | 2025-08-17T21:57:54.8739668Z | html
   Fingerprint: ﻿ operatorkernelo6_complete_lean_documentation - operatorkernelo6 operatorkernelo6_complete_lean_documentation file: combined document type: markdown generated: 2025-08-05 04:49:54
 - C:\Users\Moses\OpComp\MUST_Review\Docs\OperatorKernelO6_Complete_Lean_Documentation.pdf | 26756 | D16435C8F906112C155BCE13F2DA8ABDE966AC27BDE362B89BDDFE6471CC9503 | 2025-08-17T21:57:54.8739668Z | pdf pages=1
   Fingerprint: operatorkernelo6_complete_lean_documentation file: combined document type: markdown generated: 2025-08-05 04:49:54 size: 209 characters overview complete documentation of all lean files in the operato
@@ -474,7 +449,6 @@ NameNormalized: proofsystem
 Count: 2
 LikelySameContent: False
 Files:
-- C:\Users\Moses\OpComp\MUST_Review\Docs\ProofSystem.html | 8206 | 715DFD82436E7D5FD7C24CDA53E3F11AFADBDFC865492F0538A987B44BF952D2 | 2025-08-17T21:57:54.8739668Z | html
   Fingerprint: ﻿ proofsystem - operatorkernelo6 proofsystem file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\proofsystem.lean type: lean generated: 2025-08-05 03:41:06
 - C:\Users\Moses\OpComp\MUST_Review\Docs\ProofSystem.pdf | 42049 | D2EAC625F4A3C1305FFE5F5F05AEFC30E3B749C4E72EB16981711ECB6AB94A5C | 2025-08-17T21:57:54.8804159Z | pdf pages=2
   Fingerprint: proofsystem file: c:\users\moses\math_ops\operatorkernelo6\operatorkernelo6\meta\proofsystem.lean type: lean generated: 2025-08-05 03:41:06 size: 1842 characters overview proof system definitions and 

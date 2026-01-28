@@ -85,7 +85,6 @@ TopFilesBySize:
 FileCount: 28
 TopFilesBySize:
 - C:\Users\Moses\OpComp\MUST_Review\Gemeni-3-Test\2025-11-19-gemini-pro-3.md | 194053 | .md | 2025-11-20T02:45:06.2143061Z
-- C:\Users\Moses\OpComp\MUST_Review\Gemeni-3-Test\quantum_visual_course.html | 11739 | .html | 2025-12-08T01:45:09.4779636Z
 - C:\Users\Moses\OpComp\MUST_Review\Gemeni-3-Test\Final_Autopsy_and_Analysis.md | 9948 | .md | 2025-11-20T03:17:05.7723191Z
 - C:\Users\Moses\OpComp\MUST_Review\Gemeni-3-Test\Detailed_Reasoning_Autopsy.md | 9072 | .md | 2025-11-20T03:07:57.5242862Z
 - C:\Users\Moses\OpComp\MUST_Review\Gemeni-3-Test\Operational_Completeness_Review_Report.md | 8708 | .md | 2025-11-20T01:56:26.5723869Z

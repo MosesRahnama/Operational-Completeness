@@ -44,8 +44,6 @@
 | [3.Termination_Consolidation copy 3.md](./00_Clean_Corpus/3.Termination_Consolidation copy 3.md) | 32665 | Review Complete | Unassigned |  |
 | [3.Termination_Consolidation copy.md](./00_Clean_Corpus/3.Termination_Consolidation copy.md) | 34190 | Review Complete | Unassigned |  |
 | [5-Pro copy.md](./00_Clean_Corpus/5-Pro copy.md) | 7894 | Review Complete | Unassigned |  |
-| [5th-6th candidates.html.docx](./00_Clean_Corpus/5th-6th candidates.html.docx) | 43568 | Pending Review | Unassigned |  |
-| [5th-6th candidates.html.pdf](./00_Clean_Corpus/5th-6th candidates.html.pdf) | 471006 | Pending Review | Unassigned |  |
 | [5th-6th candidates.md](./00_Clean_Corpus/5th-6th candidates.md) | 122709 | Review Complete | Unassigned |  |
 | [5th-6th_candidates_html.md](./00_Clean_Corpus/5th-6th_candidates_html.md) | 27669 | Review Complete | Unassigned |  |
 | [5th-6th_candidates_html_v2.md](./00_Clean_Corpus/5th-6th_candidates_html_v2.md) | 27668 | Pending Review | Unassigned |  |
@@ -61,10 +59,8 @@
 | [AI_fails_analysis.md](./00_Clean_Corpus/AI_fails_analysis.md) | 5190 | Review Complete | Unassigned |  |
 | [ARCHIVE_INDEX copy.md](./00_Clean_Corpus/ARCHIVE_INDEX copy.md) | 1875 | Review Complete | Unassigned |  |
 | [A_Constructive_Ordinal_Skeleton.md](./00_Clean_Corpus/A_Constructive_Ordinal_Skeleton.md) | 2667 | Pending Review | Unassigned |  |
-| [Agent.html](./00_Clean_Corpus/Agent.html) | 19004 | Pending Review | Unassigned |  |
 | [Agent.pdf](./00_Clean_Corpus/Agent.pdf) | 111388 | Pending Review | Unassigned |  |
 | [Analysis_of_Limitations_Paper_and_Warnings.md](./00_Clean_Corpus/Analysis_of_Limitations_Paper_and_Warnings.md) | 6831 | Pending Review | Unassigned |  |
-| [Arithmetic.html](./00_Clean_Corpus/Arithmetic.html) | 7188 | Pending Review | Unassigned |  |
 | [Arithmetic.pdf](./00_Clean_Corpus/Arithmetic.pdf) | 32881 | Pending Review | Unassigned |  |
 | [Born_Rule_rec_succ_Isomorphism copy 2.md](./00_Clean_Corpus/Born_Rule_rec_succ_Isomorphism copy 2.md) | 11182 | Review Complete | Batch 9 | CRITICAL: Born Rule = Quantum rec_succ, squaring IS halting, architectural limitation |
 | [Borrowed_Logic_Inventory.md](./00_Clean_Corpus/Borrowed_Logic_Inventory.md) | 3852 | Pending Review | Unassigned |  |
@@ -89,23 +85,17 @@
 | [Codex-shitpiss.pdf](./00_Clean_Corpus/Codex-shitpiss.pdf) | 38191 | Pending Review | Unassigned |  |
 | [Comparative_Analysis_of_Termination_Approach.md](./00_Clean_Corpus/Comparative_Analysis_of_Termination_Approach.md) | 4376 | Pending Review | Unassigned |  |
 | [Comparative_Failure_Analysis.md](./00_Clean_Corpus/Comparative_Failure_Analysis.md) | 3812 | Pending Review | Unassigned |  |
-| [Complement.html](./00_Clean_Corpus/Complement.html) | 8270 | Pending Review | Unassigned |  |
 | [Complement.pdf](./00_Clean_Corpus/Complement.pdf) | 38345 | Pending Review | Unassigned |  |
-| [Complete_Core_Documentation.html](./00_Clean_Corpus/Complete_Core_Documentation.html) | 107623 | Pending Review | Unassigned |  |
 | [Complete_Core_Documentation.pdf](./00_Clean_Corpus/Complete_Core_Documentation.pdf) | 593331 | Pending Review | Unassigned |  |
-| [Complete_Guide.html](./00_Clean_Corpus/Complete_Guide.html) | 56053 | Pending Review | Unassigned |  |
 | [Complete_Guide.pdf](./00_Clean_Corpus/Complete_Guide.pdf) | 259676 | Pending Review | Unassigned |  |
 | [Comprehensive_Termination_Analysis.md](./00_Clean_Corpus/Comprehensive_Termination_Analysis.md) | 7742 | Pending Review | Unassigned |  |
 | [Confirmation_of_Termination.md](./00_Clean_Corpus/Confirmation_of_Termination.md) | 3759 | Pending Review | Unassigned |  |
-| [Confluence.html](./00_Clean_Corpus/Confluence.html) | 6643 | Pending Review | Unassigned |  |
 | [Confluence.pdf](./00_Clean_Corpus/Confluence.pdf) | 32447 | Pending Review | Unassigned |  |
 | [Confluence_Safe copy 2.md](./00_Clean_Corpus/Confluence_Safe copy 2.md) | 6854 | Pending Review | Unassigned |  |
 | [Confluence_Safe.md](./00_Clean_Corpus/Confluence_Safe.md) | 110 | Pending Review | Unassigned |  |
 | [Consolidated_Meta_Termination_Patch.md](./00_Clean_Corpus/Consolidated_Meta_Termination_Patch.md) | 244144 | Review Complete | Batch 11 | CRITICAL: 5748 lines of actual Lean code, 7+ termination attempts, False.elim/sorry in all strategies |
 | [Critical_Review_of_the_Operator-Centric_Incompleteness_Project.md](./00_Clean_Corpus/Critical_Review_of_the_Operator-Centric_Incompleteness_Project.md) | 52997 | Pending Review | Unassigned |  |
-| [Custom_Core_Documentation.html](./00_Clean_Corpus/Custom_Core_Documentation.html) | 24958 | Pending Review | Unassigned |  |
 | [Custom_Core_Documentation.pdf](./00_Clean_Corpus/Custom_Core_Documentation.pdf) | 152672 | Pending Review | Unassigned |  |
-| [Custom_Selection_Combined.html](./00_Clean_Corpus/Custom_Selection_Combined.html) | 93799 | Pending Review | Unassigned |  |
 | [Decidability_and_Termination_Orders_in_Small-Term_Reachability_and_SN_Calculi.md](./00_Clean_Corpus/Decidability_and_Termination_Orders_in_Small-Term_Reachability_and_SN_Calculi.md) | 56155 | Pending Review | Unassigned |  |
 | [DeepSeek_R1_Analysis.md](./00_Clean_Corpus/DeepSeek_R1_Analysis.md) | 8704 | Pending Review | Unassigned |  |
 | [DeepSeek_R1_Contradiction_Flow.md](./00_Clean_Corpus/DeepSeek_R1_Contradiction_Flow.md) | 4913 | Pending Review | Unassigned |  |
@@ -123,7 +113,6 @@
 | [EXPERT_CONSULTATION_PACKAGE.md](./00_Clean_Corpus/EXPERT_CONSULTATION_PACKAGE.md) | 16905 | Pending Review | Unassigned |  |
 | [EXTRACTED_ISSUES_FROM_ASSESSMENTS.md](./00_Clean_Corpus/EXTRACTED_ISSUES_FROM_ASSESSMENTS.md) | 2957 | Pending Review | Unassigned |  |
 | [EXTRACTED_ISSUES_REPORT.md](./00_Clean_Corpus/EXTRACTED_ISSUES_REPORT.md) | 19338 | Review Complete | Batch 15 | CRITICAL: 459-line audit, HybridDec disjunction flaw, confluence gap, measure switching, "significantly overstated" verdict |
-| [Equality.html](./00_Clean_Corpus/Equality.html) | 8329 | Pending Review | Unassigned |  |
 | [Equality.pdf](./00_Clean_Corpus/Equality.pdf) | 38384 | Pending Review | Unassigned |  |
 | [Evaluating_the_KO7_Operator-Only_Kernel_Novelty_Robustness_and_Appeal.md](./00_Clean_Corpus/Evaluating_the_KO7_Operator-Only_Kernel_Novelty_Robustness_and_Appeal.md) | 51422 | Pending Review | Unassigned |  |
 | [Expanded_Ordinal_Toolkit.md](./00_Clean_Corpus/Expanded_Ordinal_Toolkit.md) | 47679 | Pending Review | Unassigned |  |
@@ -133,7 +122,6 @@
 | [FailureReenactments.md](./00_Clean_Corpus/FailureReenactments.md) | 2590 | Review Complete | Batch 13 | Step-by-step failure simulations (RE-1 to RE-5), naive→fix→also fails |
 | [Failure_of_Internal_Proof.md](./00_Clean_Corpus/Failure_of_Internal_Proof.md) | 3360 | Pending Review | Unassigned |  |
 | [Final_Autopsy_and_Analysis.md](./00_Clean_Corpus/Final_Autopsy_and_Analysis.md) | 9948 | Pending Review | Unassigned |  |
-| [FixedPoint.html](./00_Clean_Corpus/FixedPoint.html) | 8050 | Pending Review | Unassigned |  |
 | [FixedPoint.pdf](./00_Clean_Corpus/FixedPoint.pdf) | 41703 | Pending Review | Unassigned |  |
 | [Fixed_Target_Reachability_Termination_Ordering_Robust_Under_Duplication.md](./00_Clean_Corpus/Fixed_Target_Reachability_Termination_Ordering_Robust_Under_Duplication.md) | 56143 | Pending Review | Unassigned |  |
 | [Foundational_Contradiction_Analysis.md](./00_Clean_Corpus/Foundational_Contradiction_Analysis.md) | 3789 | Pending Review | Unassigned |  |
@@ -156,7 +144,6 @@
 | [GPT5_CONSOLIDATION_BRIEFING.md](./00_Clean_Corpus/GPT5_CONSOLIDATION_BRIEFING.md) | 9091 | Pending Review | Unassigned |  |
 | [Gemini-Suggestion.md](./00_Clean_Corpus/Gemini-Suggestion.md) | 9399 | Pending Review | Unassigned |  |
 | [Gemini_Reasoning_Analysis_Report.md](./00_Clean_Corpus/Gemini_Reasoning_Analysis_Report.md) | 6646 | Pending Review | Unassigned |  |
-| [Godel.html](./00_Clean_Corpus/Godel.html) | 11670 | Pending Review | Unassigned |  |
 | [Godel.pdf](./00_Clean_Corpus/Godel.pdf) | 50924 | Pending Review | Unassigned |  |
 | [Grok4-10-26-25-Grok4.md](./00_Clean_Corpus/Grok4-10-26-25-Grok4.md) | 35723 | Review Complete | Unassigned |  |
 | [GuardedBridges.lean](./00_Clean_Corpus/GuardedBridges.lean) | 0 | Pending Review | Unassigned |  |
@@ -179,7 +166,6 @@
 | [July-30-25-O3-ordinal-toolki-review.md](./00_Clean_Corpus/July-30-25-O3-ordinal-toolki-review.md) | 85105 | Pending Review | Unassigned |  |
 | [July-30-25-O3-ordinal-toolkit-lemmas.png](./00_Clean_Corpus/July-30-25-O3-ordinal-toolkit-lemmas.png) | 122459 | Pending Review | Unassigned |  |
 | [July-30-25-O3.md](./00_Clean_Corpus/July-30-25-O3.md) | 63688 | Pending Review | Unassigned |  |
-| [K06_Complete_Guide.html](./00_Clean_Corpus/K06_Complete_Guide.html) | 45298 | Pending Review | Unassigned |  |
 | [KO7_ANALYSIS_INDEX copy.md](./00_Clean_Corpus/KO7_ANALYSIS_INDEX copy.md) | 3220 | Pending Review | Unassigned |  |
 | [KO7_Math.md](./00_Clean_Corpus/KO7_Math.md) | 2811 | Pending Review | Unassigned |  |
 | [KO7_Normalizer_Technical_Evaluation_and_Analysis.md](./00_Clean_Corpus/KO7_Normalizer_Technical_Evaluation_and_Analysis.md) | 10357 | Pending Review | Unassigned |  |
@@ -188,9 +174,7 @@
 | [Kappa.lean](./00_Clean_Corpus/Kappa.lean) | 2005 | Pending Review | Unassigned |  |
 | [Kappa.md](./00_Clean_Corpus/Kappa.md) | 2957 | Pending Review | Unassigned |  |
 | [KappaPlus2.lean](./00_Clean_Corpus/KappaPlus2.lean) | 1858 | Pending Review | Unassigned |  |
-| [Kernel.html](./00_Clean_Corpus/Kernel.html) | 7754 | Pending Review | Unassigned |  |
 | [Kernel.pdf](./00_Clean_Corpus/Kernel.pdf) | 37303 | Pending Review | Unassigned |  |
-| [Kernel_Documentation.html](./00_Clean_Corpus/Kernel_Documentation.html) | 7849 | Pending Review | Unassigned |  |
 | [Kernel_Documentation.md](./00_Clean_Corpus/Kernel_Documentation.md) | 1685 | Pending Review | Unassigned |  |
 | [Kernel_Documentation.pdf](./00_Clean_Corpus/Kernel_Documentation.pdf) | 41972 | Pending Review | Unassigned |  |
 | [LAKE_BUILD_OPTIMIZATION.md](./00_Clean_Corpus/LAKE_BUILD_OPTIMIZATION.md) | 1497 | Pending Review | Unassigned |  |
@@ -199,11 +183,9 @@
 | [Latest Updates copy.pdf](./00_Clean_Corpus/Latest Updates copy.pdf) | 344506 | Pending Review | Unassigned |  |
 | [Legacy_Evidence_Manifest.md](./00_Clean_Corpus/Legacy_Evidence_Manifest.md) | 4665 | Pending Review | Unassigned |  |
 | [LiteLLM-Vertex-Cloudflare-Cursor-Guide.md](./00_Clean_Corpus/LiteLLM-Vertex-Cloudflare-Cursor-Guide.md) | 18882 | Pending Review | Unassigned |  |
-| [MASTER CONSOLIDATION DOSSIER (2).html copy.pdf](./00_Clean_Corpus/MASTER CONSOLIDATION DOSSIER (2).html copy.pdf) | 1247614 | Pending Review | Unassigned |  |
 | [Measure.lean](./00_Clean_Corpus/Measure.lean) | 9232 | Pending Review | Unassigned |  |
 | [Measure.md](./00_Clean_Corpus/Measure.md) | 9767 | Pending Review | Unassigned |  |
 | [Measurement_Boundary_Theory_Final copy.md](./00_Clean_Corpus/Measurement_Boundary_Theory_Final copy.md) | 10950 | Pending Review | Unassigned |  |
-| [Meta.html](./00_Clean_Corpus/Meta.html) | 8745 | Pending Review | Unassigned |  |
 | [Meta.lean](./00_Clean_Corpus/Meta.lean) | 2593 | Pending Review | Unassigned |  |
 | [Meta.md](./00_Clean_Corpus/Meta.md) | 2825 | Pending Review | Unassigned |  |
 | [Meta.pdf](./00_Clean_Corpus/Meta.pdf) | 39347 | Pending Review | Unassigned |  |
@@ -223,7 +205,6 @@
 | [MuLexSN.md](./00_Clean_Corpus/MuLexSN.md) | 3750 | Pending Review | Unassigned |  |
 | [MuPort.lean](./00_Clean_Corpus/MuPort.lean) | 8489 | Pending Review | Unassigned |  |
 | [MuPort.md](./00_Clean_Corpus/MuPort.md) | 8575 | Pending Review | Unassigned |  |
-| [Normalize.html](./00_Clean_Corpus/Normalize.html) | 10588 | Pending Review | Unassigned |  |
 | [Normalize.pdf](./00_Clean_Corpus/Normalize.pdf) | 50166 | Pending Review | Unassigned |  |
 | [Normalize_Safe_Bundle.lean](./00_Clean_Corpus/Normalize_Safe_Bundle.lean) | 566 | Pending Review | Unassigned |  |
 | [O3-10-28-25.md](./00_Clean_Corpus/O3-10-28-25.md) | 39215 | Pending Review | Unassigned |  |
@@ -233,7 +214,6 @@
 | [O3-Pro-29-10-25.md](./00_Clean_Corpus/O3-Pro-29-10-25.md) | 7566 | Pending Review | Unassigned |  |
 | [O3-Pro-Jul-22-Formatted.md](./00_Clean_Corpus/O3-Pro-Jul-22-Formatted.md) | 7679 | Pending Review | Unassigned |  |
 | [O3-Pro-Jul-22.md](./00_Clean_Corpus/O3-Pro-Jul-22.md) | 115519 | Pending Review | Unassigned |  |
-| [O3-Pro.html](./00_Clean_Corpus/O3-Pro.html) | 123962 | Pending Review | Unassigned |  |
 | [O3_Moment.txt](./00_Clean_Corpus/O3_Moment.txt) | 16128 | Pending Review | Unassigned |  |
 | [O3_PRO_1 copy.pdf](./00_Clean_Corpus/O3_PRO_1 copy.pdf) | 399942 | Pending Review | Unassigned |  |
 | [O3_PRO_2 copy.pdf](./00_Clean_Corpus/O3_PRO_2 copy.pdf) | 339340 | Pending Review | Unassigned |  |
@@ -251,15 +231,11 @@
 | [Operational_Incompleteness_Roadmap.md](./00_Clean_Corpus/Operational_Incompleteness_Roadmap.md) | 329 | Pending Review | Unassigned |  |
 | [Operator Proceduralism Draft Paper (3) copy.pdf](./00_Clean_Corpus/Operator Proceduralism Draft Paper (3) copy.pdf) | 122711 | Pending Review | Unassigned |  |
 | [Operator Trace Calculus copy.pdf](./00_Clean_Corpus/Operator Trace Calculus copy.pdf) | 245120 | Pending Review | Unassigned |  |
-| [OperatorCentricFoundationsofGodelianIncompleteness.html](./00_Clean_Corpus/OperatorCentricFoundationsofGodelianIncompleteness.html) | 16220 | Pending Review | Unassigned |  |
-| [OperatorKernelO6_Complete_Lean_Documentation.html](./00_Clean_Corpus/OperatorKernelO6_Complete_Lean_Documentation.html) | 6649 | Pending Review | Unassigned |  |
 | [OperatorKernelO6_Complete_Lean_Documentation.pdf](./00_Clean_Corpus/OperatorKernelO6_Complete_Lean_Documentation.pdf) | 26756 | Pending Review | Unassigned |  |
 | [OperatorKernelO6_Paper_Guide copy 2.md](./00_Clean_Corpus/OperatorKernelO6_Paper_Guide copy 2.md) | 3670 | Pending Review | Unassigned |  |
 | [OperatorKernelO6_Paper_Guide.md](./00_Clean_Corpus/OperatorKernelO6_Paper_Guide.md) | 173 | Pending Review | Unassigned |  |
 | [OperatorKernelO6_Project_Bible.md](./00_Clean_Corpus/OperatorKernelO6_Project_Bible.md) | 30593 | Pending Review | Unassigned |  |
-| [Operator_Centric_Foundations.html](./00_Clean_Corpus/Operator_Centric_Foundations.html) | 24490 | Pending Review | Unassigned |  |
 | [Operator_Centric_Foundations.pdf](./00_Clean_Corpus/Operator_Centric_Foundations.pdf) | 125880 | Pending Review | Unassigned |  |
-| [Operator_Centric_Foundations_of_Godelian_Incompleteness.html](./00_Clean_Corpus/Operator_Centric_Foundations_of_Godelian_Incompleteness.html) | 15579 | Pending Review | Unassigned |  |
 | [Operator_Proceduralism_Draft_Paper_(3).md](./00_Clean_Corpus/Operator_Proceduralism_Draft_Paper_(3).md) | 35313 | Pending Review | Unassigned |  |
 | [PROGRESS_AND_FINDINGS copy.md](./00_Clean_Corpus/PROGRESS_AND_FINDINGS copy.md) | 4510 | Pending Review | Unassigned |  |
 | [PROJECT_LOG copy 2.md](./00_Clean_Corpus/PROJECT_LOG copy 2.md) | 23805 | Pending Review | Unassigned |  |
@@ -268,7 +244,6 @@
 | [Patch2025_08_10.md](./00_Clean_Corpus/Patch2025_08_10.md) | 2333 | Pending Review | Unassigned |  |
 | [Perplexity_Math_Chats copy.docx](./00_Clean_Corpus/Perplexity_Math_Chats copy.docx) | 80566 | Pending Review | Unassigned |  |
 | [PredictionRoadmap.md](./00_Clean_Corpus/PredictionRoadmap.md) | 3930 | Pending Review | Unassigned |  |
-| [ProofSystem.html](./00_Clean_Corpus/ProofSystem.html) | 8206 | Pending Review | Unassigned |  |
 | [ProofSystem.pdf](./00_Clean_Corpus/ProofSystem.pdf) | 42049 | Pending Review | Unassigned |  |
 | [QUANTUM_WAVE_VISUAL_COURSE_DESIGN.md](./00_Clean_Corpus/QUANTUM_WAVE_VISUAL_COURSE_DESIGN.md) | 3974 | Pending Review | Unassigned |  |
 | [Rahnama_KO7_margin_notes.md](./00_Clean_Corpus/Rahnama_KO7_margin_notes.md) | 2202 | Pending Review | Unassigned |  |
@@ -301,19 +276,16 @@
 | [TRSs_with_duplicating_rules.md](./00_Clean_Corpus/TRSs_with_duplicating_rules.md) | 5419 | Pending Review | Unassigned |  |
 | [Term_Rewriting_Systems_(TRS)_Fundamentals_and_Examples.md](./00_Clean_Corpus/Term_Rewriting_Systems_(TRS)_Fundamentals_and_Examples.md) | 62588 | Pending Review | Unassigned |  |
 | [Termination Analysis - OperatorKernelO6.pdf](./00_Clean_Corpus/Termination Analysis - OperatorKernelO6.pdf) | 607483 | Pending Review | Unassigned |  |
-| [Termination.html](./00_Clean_Corpus/Termination.html) | 74684 | Pending Review | Unassigned |  |
 | [Termination.lean](./00_Clean_Corpus/Termination.lean) | 62253 | Pending Review | Unassigned |  |
 | [Termination.md](./00_Clean_Corpus/Termination.md) | 73213 | Pending Review | Unassigned |  |
 | [Termination.pdf](./00_Clean_Corpus/Termination.pdf) | 191756 | Pending Review | Unassigned |  |
 | [Termination_C.lean](./00_Clean_Corpus/Termination_C.lean) | 73100 | Pending Review | Unassigned |  |
 | [Termination_C.md](./00_Clean_Corpus/Termination_C.md) | 68346 | Pending Review | Unassigned |  |
-| [Termination_Companion.html](./00_Clean_Corpus/Termination_Companion.html) | 30816 | Pending Review | Unassigned |  |
 | [Termination_Companion.md](./00_Clean_Corpus/Termination_Companion.md) | 24723 | Pending Review | Unassigned |  |
 | [Termination_Companion.pdf](./00_Clean_Corpus/Termination_Companion.pdf) | 165955 | Pending Review | Unassigned |  |
 | [Termination_Companion_v2.md](./00_Clean_Corpus/Termination_Companion_v2.md) | 24422 | Pending Review | Unassigned |  |
 | [Termination_Consolidation copy.md](./00_Clean_Corpus/Termination_Consolidation copy.md) | 31738 | Pending Review | Unassigned |  |
 | [Termination_Consolidation.md](./00_Clean_Corpus/Termination_Consolidation.md) | 3351 | Pending Review | Unassigned |  |
-| [Termination_Documentation.html](./00_Clean_Corpus/Termination_Documentation.html) | 60412 | Pending Review | Unassigned |  |
 | [Termination_Documentation.md](./00_Clean_Corpus/Termination_Documentation.md) | 53260 | Pending Review | Unassigned |  |
 | [Termination_Documentation.pdf](./00_Clean_Corpus/Termination_Documentation.pdf) | 261636 | Pending Review | Unassigned |  |
 | [Termination_Legacy.lean](./00_Clean_Corpus/Termination_Legacy.lean) | 51320 | Pending Review | Unassigned |  |
@@ -326,7 +298,6 @@
 | [The_Ultimate_Failure.md](./00_Clean_Corpus/The_Ultimate_Failure.md) | 1681 | Review Complete | Batch 15 | "Let there be Two" - external arithmetic injection required, multiplicative cheat |
 | [Turing_Completeness_Assessment.md](./00_Clean_Corpus/Turing_Completeness_Assessment.md) | 2791 | Pending Review | Unassigned |  |
 | [Universal_Rules.md](./00_Clean_Corpus/Universal_Rules.md) | 11182 | Pending Review | Unassigned |  |
-| [Untitled (7).html copy.pdf](./00_Clean_Corpus/Untitled (7).html copy.pdf) | 178314 | Pending Review | Unassigned |  |
 | [UntitledCodex-Export-1 copy 2.md](./00_Clean_Corpus/UntitledCodex-Export-1 copy 2.md) | 19850 | Pending Review | Unassigned |  |
 | [Updated_Chats_Combined_complete.pdf](./00_Clean_Corpus/Updated_Chats_Combined_complete.pdf) | 12189051 | Pending Review | Unassigned |  |
 | [VIABLE MINIMAL-KERNEL CANDIDATES.docx](./00_Clean_Corpus/VIABLE MINIMAL-KERNEL CANDIDATES.docx) | 10828 | Pending Review | Unassigned |  |
@@ -427,13 +398,11 @@
 | [opus-4.1-test-summary.pdf](./00_Clean_Corpus/opus-4.1-test-summary.pdf) | 54569 | Pending Review | Unassigned |  |
 | [opus-test-summary.md](./00_Clean_Corpus/opus-test-summary.md) | 1836 | Pending Review | Unassigned |  |
 | [opus_fails_consolidated copy.md](./00_Clean_Corpus/opus_fails_consolidated copy.md) | 7487 | Review Complete | Batch 14 | CRITICAL: 10-strategy failure table, fundamental incompatibilities, ordinal pitfalls catalog |
-| [ordinal-toolkit.html](./00_Clean_Corpus/ordinal-toolkit.html) | 25711 | Pending Review | Unassigned |  |
 | [ordinal-toolkit.md](./00_Clean_Corpus/ordinal-toolkit.md) | 14487 | Pending Review | Unassigned |  |
 | [ordinal-toolkit.pdf](./00_Clean_Corpus/ordinal-toolkit.pdf) | 148905 | Pending Review | Unassigned |  |
 | [paper_code_xref copy.md](./00_Clean_Corpus/paper_code_xref copy.md) | 1788 | Pending Review | Unassigned |  |
 | [paper_code_xref.md](./00_Clean_Corpus/paper_code_xref.md) | 110 | Pending Review | Unassigned |  |
 | [problems.md](./00_Clean_Corpus/problems.md) | 15311 | Pending Review | Unassigned |  |
-| [quantum_visual_course.html](./00_Clean_Corpus/quantum_visual_course.html) | 11739 | Pending Review | Unassigned |  |
 | [rec_succ_Differential_Diagnostic.pdf](./00_Clean_Corpus/rec_succ_Differential_Diagnostic.pdf) | 150702 | Pending Review | Unassigned |  |
 | [research copy.md](./00_Clean_Corpus/research copy.md) | 111936 | Pending Review | Unassigned |  |
 | [roo_task_jan-20-2026_2-25-20-pm.md](./00_Clean_Corpus/roo_task_jan-20-2026_2-25-20-pm.md) | 14084 | Pending Review | Unassigned |  |

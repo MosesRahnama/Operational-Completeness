@@ -118,7 +118,6 @@ Federal Register - Publication of Iran General License G[^1_2]
 
 [^1_20]: https://www.reddit.com/r/qubitsok/
 
-[^1_21]: https://protocols-made-fun.com/lean/2025/06/10/lean-epfd-completeness.html
 
 [^1_22]: https://citeseerx.ist.psu.edu/document?doi=ef70d0bdebb612cb951acf69ea5bb0af825ec76f\&repid=rep1\&type=pdf
 
@@ -126,11 +125,9 @@ Federal Register - Publication of Iran General License G[^1_2]
 
 [^1_24]: https://leanprover.github.io/theorem_proving_in_lean/theorem_proving_in_lean.pdf
 
-[^1_25]: https://www.ps.uni-saarland.de/~schaefer/thesis/html/semantics.f.strongnorm.html
 
 [^1_26]: http://fisica.ufpr.br/renato/Artigos/PRA_Caetano_2024.pdf
 
-[^1_27]: https://recognitionphysics.org/lean-training.html
 
 [^1_28]: https://www.bohrium.com/paper-details/synthesizing-third-normal-form-relations-from-functional-dependencies/811172528981540867-2651
 
@@ -176,7 +173,6 @@ Federal Register - Publication of Iran General License G[^1_2]
 
 [^1_49]: https://mjiri.iums.ac.ir/page/75/Guidelines-for-Authors
 
-[^1_50]: https://exports.northwestern.edu/federal-regulations/ofac-sanctions/iran.html
 
 [^1_51]: https://zenodo.org/records/1266898/files/article.pdf
 
@@ -188,11 +184,9 @@ Federal Register - Publication of Iran General License G[^1_2]
 
 [^1_55]: https://ijeee.iust.ac.ir/page/142/Guide-for-Authors
 
-[^1_56]: https://www.rochester.edu/orpa/compliance/export/ofac/page_03.html
 
 [^1_57]: https://zenodo.org/records/6638340
 
-[^1_58]: https://colorectalresearch.sums.ac.ir/page_32.html
 
 [^1_59]: https://sanctions.org/turbofac/research/OFAC-exemptions-ieepa-Iran-General-License-G
 
@@ -392,7 +386,6 @@ I am in New York / [Your Location Context].
 
 [^3_39]: https://www.academia.edu/122319955/Artificial_Intelligence_and_Peace_A_Living_Systems_Approach_to_AI_Ethics
 
-[^3_40]: https://citec.repec.org/s/2024/eeeappene.html
 
 [^3_41]: https://www.ece.utoronto.ca/graduates/oral-exams/
 

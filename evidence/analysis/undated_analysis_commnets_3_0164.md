@@ -332,7 +332,6 @@ A reviewer-mindset walk-through
    • Cite IsaFoR certifier suite, Coq’s `Certified Rewriter`, recent FSCD papers on path orders.  
 
 9.  Final polish check-list  
-   • Make every Lean lemma cited in the PDF clickable (hyperref to .html rendering).  
    • Table mapping Section ↔ Lean file/lemma.  
    • One running example term that normalizes through the certified function; show trace before/after.
 

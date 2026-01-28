@@ -160,7 +160,6 @@ Because the target inequality is built on that false premise, there is no legal 
 ## Please revisit the measure design or restate the theorem so it avoids comparing μ (recΔ …) with μ (δ n) or μ s. Once a corrected goal is available, a proof following the standard payload ladder in ordinal-toolkit.md can be supplied.
 
 You said:
-Untitled (1).html
 File
 Untitled.pdf
 PDF

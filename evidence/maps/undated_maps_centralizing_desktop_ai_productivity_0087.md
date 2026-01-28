@@ -293,7 +293,6 @@ Works cited
 
 - PyGPT – Open‑source Desktop AI Assistant for Windows, macOS, Linux, accessed August 23, 2025, https://pygpt.net/
 
-- Introduction — PyGPT 2.5.98 documentation, accessed August 23, 2025, https://pygpt.readthedocs.io/en/latest/intro.html
 
 - szczyglis-dev/py-gpt: Desktop AI Assistant powered by GPT-5, o1, o3, GPT-4, Gemini, Claude, Ollama, DeepSeek, Perplexity, Grok, Bielik, chat, vision, voice control, image generation and analysis, agents, tools, file upload/download, speech - GitHub, accessed August 23, 2025, https://github.com/szczyglis-dev/py-gpt
 
@@ -343,7 +342,6 @@ Works cited
 
 - Customize Copilot and Create Agents | Microsoft Copilot Studio, accessed August 23, 2025, https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio
 
-- Reviews and Awards - Braina - Brainasoft, accessed August 23, 2025, https://www.brainasoft.com/braina/reviews.html
 
 - Braina Pro review - TechRadar, accessed August 23, 2025, https://www.techradar.com/reviews/braina-pro
 
@@ -359,7 +357,6 @@ Works cited
 
 - Desktop Search | Next Gen eDiscovery Law & Tech Blog, accessed August 23, 2025, https://blog.x1discovery.com/category/desktop-search-2/
 
-- Work modes — PyGPT 2.6.12 documentation, accessed August 23, 2025, https://pygpt.readthedocs.io/en/latest/modes.html
 
 - Mintplex-Labs/anything-llm: The all-in-one Desktop & Docker AI application with built-in RAG, AI agents, No-code agent builder, MCP compatibility, and more. - GitHub, accessed August 23, 2025, https://github.com/Mintplex-Labs/anything-llm
 
@@ -399,7 +396,6 @@ Works cited
 
 - Connect to Google Vertex | Elastic Docs, accessed August 23, 2025, https://www.elastic.co/docs/solutions/security/ai/connect-to-google-vertex
 
-- Step 2. Configure and publish the Google Vertex AI connection - Informatica Documentation, accessed August 23, 2025, https://docs.informatica.com/integration-cloud/application-integration/current-version/evaluate-agent-responses-for-genai-applications/using-the-evaluate-agent-responses-for-genai-applications-recipe/step-2--configure-and-publish-the-google-vertex-ai-connection.html
 
 - LlamaIndex Managed Integration: Vertex AI - Llama Hub, accessed August 23, 2025, https://llamahub.ai/l/indices/llama-index-indices-managed-vertexai?from=indices
 

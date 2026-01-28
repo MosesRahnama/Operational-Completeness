@@ -180,7 +180,6 @@ Confluence_Safe.md
 file://file-DaKtMpgfEgXnYW2ABk6Pzt
 
 Mathlib.Data.Multiset.DershowitzManna
-https://leanprover-community.github.io/mathlib4_docs/Mathlib/Data/Multiset/DershowitzManna.html
 
 
 # Executive Summary 
@@ -291,7 +290,6 @@ https://www.researchgate.net/publication/221352125_The_Confluence_Problem_for_Fl
 [14] Decidability of reachability and disjoint union of term rewriting systems
 https://link.springer.com/content/pdf/10.1007/3-540-55251-0_5
 [30] Proving termination with multiset orderings - Machine Logic
-https://lawrencecpaulson.github.io/2022/10/26/Multiset-Ordering.html
 [31] [32] [33] iiste.org
 https://www.iiste.org/Journals/index.php/MTM/article/viewFile/5872/5998
 [47] [48] [50] [51] [69] cs.tau.ac.il
@@ -333,11 +331,9 @@ http://termination-portal.org/wiki/TPDB
 [3] cedric.cnam.fr
 https://cedric.cnam.fr/~pons/PAPERS/contejean11rta.pdf
 [4] [5]  [Termtools] "unknown method String reversal" (in TRS relative certified) 
-https://verify.rwth-aachen.de/termtools/2014-July/000976.html
 [6] A combination framework for complexity - ScienceDirect.com
 https://www.sciencedirect.com/science/article/pii/S0890540115001376
 [9] [10]  relative termination 
-https://www.jaist.ac.jp/project/saigawa/25cade/relative/index.html
 [11] Certification of Complexity Proofs using CeTA - DROPS
 https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.RTA.2015.23
 [12] AProVE

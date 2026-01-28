@@ -1986,7 +1986,8 @@ Best,
 Moses
 
 Calomiris, Charles (gsb.columbia.edu)
-Hi Professor- I just had a call with our lawyers about this and the potential IP. I have been running non-stop tests (with different controls) and have been getting 100% consistent results (really 100%). I have another call with them tomorrow at 3:30, and it would be great to have you on the call. 
+
+Hi Professor- I just had a call with our lawyers about this and the potential IP. I have been running non-stop tests (with different controls) and have been getting 100% consistent results (really 100%). I have another call with them tomorrow at 3:30, and it would be great to have you on the call. 
 It would be great if we could have a call beforehand, so I can give you more background and even show you live examples. My Initial understanding is that there are potentially a lot of immediate use cases for this, but I also don't want to get ahead of myself. Would be really helpful to hear your objective assessment.
 
 Best,
@@ -6053,7 +6054,6 @@ But yes, the pattern you're seeing is really there in the documentation.
 Oh that 03 documents was just when I spotted this when I just spotted the flaw. I still have no clue what's causing it what it means I just saw that moment when O3 Oh this is the path green light and then within the same output it was generating set immediate correction. nope. not possible...BUT Multiset ordering works! (spoiler alert, it does not).
 These are just some documents again as you can see
 C:\Users\Moses\math_ops\OperatorKernelO6\Review\opus_fails_consolidated.md;
-C:\Users\Moses\math_ops\OperatorKernelO6\Review\5th-6th candidates.html.docx;
 C:\Users\Moses\math_ops\OperatorKernelO6\Review\OperatorKernelO6_Project_Bible.md;
 
 Even instructions designed by AI written by I didn't do I just copy pasted and just let you guys do what you do I even had town centers basically with AI is like not because I will I wanted to test this because I wanted to have my own fucking proof. This is I follow the eye because I knew AI know is better. How could AI be able to do this. 

@@ -7315,7 +7315,6 @@ Safety check: we never touched the first 550 compiling lines or the μ definitio
 With the helper lemmas in place, completing mu_lt_rec_succ and mu_lt_eq_diff should take ~15 Lean lines each, and the Strong-Normalization file will compile cleanly end-to-end.
 
 You said:
-trace.Meta.isDefEq.html
 File
 Diagnostics & Error log below.
 set_option diagnostics.threshold 100
@@ -7327,7 +7326,6 @@ set_option trace.compiler.ir.result true
 set_option autoImplicit false
 set_option maxRecDepth 1000
 
-- Separate report for  trace.Meta.isDefEq in the attached html trace.Meta.isDefEq.html
 
 
 set_option trace.Meta.Tactic.simp trueTermination.lean:550:0 

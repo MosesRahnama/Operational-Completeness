@@ -313,7 +313,6 @@ That combo (temp 0.0, top_k 1, extended thinking on, generous thinking budget) i
 [2]: https://aclanthology.org/2024.findings-emnlp.432/?utm_source=chatgpt.com "The Effect of Sampling Temperature on Problem Solving in Large Language ..."
 [3]: https://scalablehuman.com/2025/09/03/anthropics-v1-messages-endpoint-parameters-openai-comparison-more/?utm_source=chatgpt.com "Anthropic’s /v1/messages Endpoint: Parameters, OpenAI Comparison & More ..."
 [4]: https://www.promptfoo.dev/docs/providers/anthropic/?utm_source=chatgpt.com "Anthropic | Promptfoo"
-[5]: https://docs.aws.amazon.com/bedrock/latest/userguide/claude-messages-extended-thinking.html "Extended thinking - Amazon Bedrock"
 
 ---
 **Moses**: Are you sure the combination of temperature top_k or thinking are compatible? 
@@ -407,7 +406,6 @@ If you hit Bedrock’s “temperature must be 1” error, the fix is to:
 
 [1]: https://www.vellum.ai/llm-parameters/temperature?utm_source=chatgpt.com "LLM Temperature: How It Works and When You Should Use It"
 [2]: https://scalablehuman.com/2025/09/03/anthropics-v1-messages-endpoint-parameters-openai-comparison-more/?utm_source=chatgpt.com "Anthropic’s /v1/messages Endpoint: Parameters, OpenAI Comparison & More ..."
-[3]: https://docs.aws.amazon.com/bedrock/latest/userguide/claude-messages-extended-thinking.html "Extended thinking - Amazon Bedrock"
 [4]: https://github.com/BerriAI/litellm/issues/9524?utm_source=chatgpt.com "[Bug]: Bedrock Sonnet 3.7 with thinking model - temperature should ..."
 [5]: https://github.com/anthropics/anthropic-sdk-typescript/blob/main/examples/thinking.ts?utm_source=chatgpt.com "anthropic-sdk-typescript/examples/thinking.ts at main - GitHub"
 

@@ -305,11 +305,9 @@ http://termination-portal.org/wiki/TPDB
 cedric.cnam.fr
 https://cedric.cnam.fr/~pons/PAPERS/contejean11rta.pdf
 [Termtools] "unknown method String reversal" (in TRS relative certified)
-https://verify.rwth-aachen.de/termtools/2014-July/000976.html
 A combination framework for complexity - ScienceDirect.com
 https://www.sciencedirect.com/science/article/pii/S0890540115001376
 relative termination
-https://www.jaist.ac.jp/project/saigawa/25cade/relative/index.html
 Certification of Complexity Proofs using CeTA - DROPS
 https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.RTA.2015.23
 AProVE

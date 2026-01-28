@@ -108,7 +108,6 @@ https://github.com/MosesRahnama/OperatorKernelO6/blob/7b785e137252e5319514cd566d
 
 file://file-PoMQshuMuE7KjDiyXcfDtY
 
-[52] 5th-6th candidates.html.pdf
 
 file://file-1k2XUGvmPNYxHmKfaqjinJ
 

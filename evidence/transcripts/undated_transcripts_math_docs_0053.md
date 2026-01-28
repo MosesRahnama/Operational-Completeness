@@ -564,9 +564,7 @@ If you’d like, I can annotate the Lean file with these same bullets inline (as
 
 ---
 
-## FILE: SN_Math.html
 
-**AI_REVIEW_SECTION**: SN_Math.html
 
 ---
 

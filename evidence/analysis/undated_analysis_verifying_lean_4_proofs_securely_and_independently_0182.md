@@ -93,7 +93,6 @@ https://lean-lang.org/
 
 [2] User Guide — LeanDojo 2.2.0 documentation
 
-https://leandojo.readthedocs.io/en/stable/user-guide.html
 
 [3] [8] Lean 4.11.0 — Lean
 
@@ -121,9 +120,7 @@ https://github.com/digama0/lean4lean
 
 [11] [12] Lecture 37: Demo of Slim Check
 
-https://course.ccs.neu.edu/cs2800sp23/l37.html
 
 [13] Zulip Chat Archive
 
-https://leanprover-community.github.io/archive/stream/270676-lean4/topic/LSpec.3A.20A.20testing.20framework.20for.20Lean.html
 

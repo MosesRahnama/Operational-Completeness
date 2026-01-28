@@ -1,6 +1,5 @@
 # 5th-6th candidates html
 
-*Converted from: 5th-6th candidates.html.pdf*
 
 ---
 

@@ -226,5 +226,4 @@ file://file-DaKtMpgfEgXnYW2ABk6Pzt
 
 Mathlib.Data.Multiset.DershowitzManna
 
-https://leanprover-community.github.io/mathlib4_docs/Mathlib/Data/Multiset/DershowitzManna.html
 

@@ -105,7 +105,6 @@ This plan respects all repository rules, uses only the sanctioned ordinal API, a
 ---
 
 You said:
-trace.Meta.isDefEq.html
 File
 Progress Recap — μ-decrease project
 Confirmed the actual μ offsets in Termination.lean
@@ -237,7 +236,6 @@ set_option trace.compiler.ir.result true
 set_option autoImplicit false
 set_option maxRecDepth 1000
 
-- Separate report for trace.Meta.isDefEq in the attached html trace.Meta.isDefEq.html
 
 set*option trace.Meta.Tactic.simp trueTermination.lean:550:0
 No info found.

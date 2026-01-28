@@ -2065,7 +2065,6 @@ Final pass & axiom scan
 
 Once those three land, your central claim shifts from aspirational to structurally valid. Then fill the provability
 & dual unprovability gap to seal incompleteness.
-MASTER CONSOLIDATION DOSSIER (1).html
 File
 yeah my point is theoretically/eventually? not the current state. these are all the codes rn. basic complies but
 need to get rid of actual boolean math along the way. The codes are all in the md file. now I also need you
