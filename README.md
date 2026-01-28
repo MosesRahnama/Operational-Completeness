@@ -18,6 +18,7 @@ We call this missing capability *Operational Completeness*: the computational Bo
 Operational-Completeness/
 ├── README.md                      # This file
 ├── EVIDENCE_MAP.md               # How to find evidence after rename pass
+├── REVIEWER_GUIDE.md             # Audit guide
 ├── Paper/                         # PDF only
 │   └── OpComp_new.pdf
 ├── evidence/                      # Evidence archive
