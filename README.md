@@ -57,10 +57,14 @@ This defeats every termination strategy attempted by AI.
 
 | Category | Files | Key Evidence |
 |----------|-------|-------------|
+| Maps | 19 | Claim lists, claim maps, and coverage tables |
+| Docket | 2 | Failure summaries and method notes |
 | Extracts | 37 | Short, citable evidence snippets used in the paper |
 | Tests | 43 | Model test artifacts and prompts |
+| Transcripts | 0 | No raw transcripts included in this repo |
 | Failed Lean Code | 23 | Termination proof attempts and compile failures |
 | Analysis | 129 | Diagnostics, autopsies, and reasoning failure notes |
+| Archive | 0 | No legacy or uncategorized files included |
 
 See `evidence/INDEX.md` for current counts by category.
 
