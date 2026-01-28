@@ -1,0 +1,1045 @@
+==== 01_Kernel.md ====
+  13: | integrate : Trace → Trace
+  14: | merge : Trace → Trace → Trace
+  16: | recΔ : Trace → Trace → Trace → Trace
+  17: | eqW : Trace → Trace → Trace
+  22: | R_int_delta : ∀ t, Step (integrate (delta t)) void
+  23: | R_merge_void_left : ∀ t, Step (merge void t) t
+  24: | R_merge_void_right : ∀ t, Step (merge t void) t
+  25: | R_merge_cancel : ∀ t, Step (merge t t) t
+  26: | R_rec_zero : ∀ b s, Step (recΔ b s void) b
+  27: | R_rec_succ : ∀ b s n, Step (recΔ b s (delta n)) (app s (recΔ b s n))
+  28: | R_eq_refl : ∀ a, Step (eqW a a) void
+  29: | R_eq_diff : ∀ {a b}, a ≠ b → Step (eqW a b) (integrate (merge a b))
+
+==== 03_Termination_KO7.md ====
+  18: -- This file treats `b` in `recΔ b s n` as κ-relevant for κᴹ to support DM drops on rec_zero.
+  21: /-- **Weight** of a trace: recursion-depth of each `recΔ` node. -/
+  23: | recΔ _ _ n => weight n + 1
+  27: @[simp] def kappaM : Trace → Multiset ℕ
+  29: | delta t         => kappaM t
+  30: | integrate t     => kappaM t
+  31: | merge a b       => kappaM a ∪ kappaM b
+  33: | app   a b       => kappaM a ∪ kappaM b
+  34: | recΔ b s n      => (weight n + 1) ::ₘ (kappaM n ∪ kappaM s) + kappaM b
+  35: | eqW  a b        => kappaM a ∪ kappaM b/-- Well-foundedness of the DM multiset order (requires base type to have WellFoundedLT). -/
+  43:   (kappaM t, MetaSN.mu t)
+  46: @[simp] def LexDM : (Multiset ℕ × Ordinal) → (Multiset ℕ × Ordinal) → Prop :=
+  49: lemma wf_LexDM : WellFounded LexDM :=
+  53: /-- κᴹ ties on `integrate (delta t)` (retains all weights of t). -/
+  54: @[simp] lemma kappaM_int_delta (t : Trace) :
+  55:     kappaM (integrate (delta t)) = kappaM t := by
+  56:   simp [kappaM]
+  58: /-- κᴹ ties on `merge void t`. -/
+  59: @[simp] lemma kappaM_merge_void_left (t : Trace) :
+  60:     kappaM (merge void t) = kappaM t := by
+  61:   simp [kappaM]
+  63: @[simp] lemma kappaM_merge_void_right (t : Trace) :
+  64:     kappaM (merge t void) = kappaM t := by
+  65:   simp [kappaM]
+  67: -- κᴹ duplicates on merge cancel
+  68: @[simp] lemma kappaM_merge_cancel (t : Trace) :
+  69:     kappaM (merge t t) = kappaM t ∪ kappaM t := by
+  70:   simp [kappaM]
+  72: /-- κᴹ value for `recΔ b s void`. -/
+  73: @[simp] lemma kappaM_rec_zero (b s : Trace) :
+  74:     kappaM (recΔ b s void) = (1 ::ₘ kappaM s) + kappaM b := by
+  75:   simp [kappaM]
+  78: @[simp] lemma kappaM_eq_refl (a : Trace) :
+  79:     kappaM (eqW a a) = kappaM a ∪ kappaM a := by
+  80:   simp [kappaM]
+  82: @[simp] lemma kappaM_eq_diff (a b : Trace) :
+  83:     kappaM (integrate (merge a b)) = kappaM (eqW a b) := by
+  84:   simp [kappaM]
+ 107: -- kappaM b <ᵐ kappaM (recΔ b s void)
+ 108: lemma dm_drop_R_rec_zero (b s : Trace) :
+ 109:     kappaM b <ᵐ kappaM (recΔ b s void) := by
+ 111:   -- kappaM (recΔ b s void) = (1 ::ₘ kappaM s) + kappaM b, and + is commutative
+ 112:   have hdm : Multiset.IsDershowitzMannaLT (kappaM b) (kappaM b + (1 ::ₘ kappaM s)) :=
+ 113:     dm_lt_add_of_ne_zero' (kappaM b) (1 ::ₘ kappaM s) (by simp)
+ 115:   simpa [kappaM, add_comm, add_left_comm, add_assoc] using hdm
+ 117: -- update dm_drop_R_rec_succ lemma
+ 118: -- Note: κM does not strictly drop for rec_succ in DM in general when kappaM uses ∪.
+ 125: We use a δ-flag that is 1 exactly on `recΔ b s (delta n)` at the top, and 0 otherwise.
+ 133: @[simp] def deltaFlag : Trace → Nat
+ 134: | recΔ _ _ (delta _) => 1
+ 137: -- deltaFlag simplification lemmas for common constructors
+ 138: @[simp] lemma deltaFlag_void : deltaFlag void = 0 := rfl
+ 139: @[simp] lemma deltaFlag_integrate (t : Trace) : deltaFlag (integrate t) = 0 := rfl
+ 140: @[simp] lemma deltaFlag_merge (a b : Trace) : deltaFlag (merge a b) = 0 := rfl
+ 141: @[simp] lemma deltaFlag_eqW (a b : Trace) : deltaFlag (eqW a b) = 0 := rfl
+ 142: @[simp] lemma deltaFlag_app (a b : Trace) : deltaFlag (app a b) = 0 := rfl
+ 143: @[simp] lemma deltaFlag_rec_zero (b s : Trace) : deltaFlag (recΔ b s void) = 0 := by
+ 144:   simp [deltaFlag]
+ 145: @[simp] lemma deltaFlag_rec_delta (b s n : Trace) : deltaFlag (recΔ b s (delta n)) = 1 := by
+ 146:   simp [deltaFlag]
+ 149:   (deltaFlag t, (kappaM t, MetaSN.mu t))
+ 151: @[simp] def Lex3 : (Nat × (Multiset ℕ × Ordinal)) → (Nat × (Multiset ℕ × Ordinal)) → Prop :=
+ 152:   Prod.Lex (· < ·) MetaSN_DM.LexDM
+ 154: lemma wf_Lex3 : WellFounded Lex3 := by
+ 155:   exact WellFounded.prod_lex Nat.lt_wfRel.wf MetaSN_DM.wf_LexDM
+ 159: /-- merge void-left: restricted to δ-flag tie (deltaFlag t = 0). -/
+ 160: lemma drop_R_merge_void_left_zero (t : Trace)
+ 161:     (hδ : deltaFlag t = 0) :
+ 162:     Lex3 (μ3 t) (μ3 (merge void t)) := by
+ 164:   dsimp [μ3, Lex3, deltaFlag] at hδ
+ 166:   dsimp [μ3, Lex3, deltaFlag]
+ 170:   simpa using MetaSN.mu_lt_merge_void_left t
+ 172: /-- merge void-right: restricted to δ-flag tie (deltaFlag t = 0). -/
+ 173: lemma drop_R_merge_void_right_zero (t : Trace)
+ 174:     (hδ : deltaFlag t = 0) :
+ 175:     Lex3 (μ3 t) (μ3 (merge t void)) := by
+ 177:   dsimp [μ3, Lex3, deltaFlag] at hδ
+ 178:   dsimp [μ3, Lex3, deltaFlag]
+ 182:   simpa using MetaSN.mu_lt_merge_void_right t
+ 184: /-- eq_diff: `eqW a b → integrate (merge a b)` drops (outer tie + μ-right). -/
+ 185: lemma drop_R_eq_diff (a b : Trace) :
+ 186:     Lex3 (μ3 (integrate (merge a b))) (μ3 (eqW a b)) := by
+ 188:   dsimp [μ3, Lex3, deltaFlag]
+ 191:   simpa [MetaSN_DM.kappaM_eq_diff] using MetaSN.mu_lt_eq_diff a b
+ 198: -- until we resolve the general `merge_cancel` and `eq_refl` cases (κ duplicates).
+ 210: Lex3 drops for duplicating cases, using a DM drop when κM ≠ 0 and
+ 214: /-- int∘delta: `integrate (delta t) → void` drops (outer δ tie; inner by κ-DM or μ-right). -/
+ 215: lemma drop_R_int_delta (t : Trace) :
+ 216:     Lex3 (μ3 void) (μ3 (integrate (delta t))) := by
+ 219:   dsimp [μ3, Lex3, deltaFlag]
+ 221:   -- Inner LexDM on (κᴹ, μ)
+ 223:   by_cases h0 : kappaM t = 0
+ 227:     simpa using MetaSN.mu_void_lt_integrate_delta t
+ 228:   · -- κ strict: 0 <ᵐ κᴹ t, rewrite κ for integrate∘delta
+ 230:     have hcore := dm_lt_add_of_ne_zero' (0 : Multiset ℕ) (kappaM t) (by simp [h0])
+ 231:     simpa [kappaM_int_delta, zero_add] using hcore
+ 233: /-- rec_succ: `recΔ b s (delta n) → app s (recΔ b s n)` drops via δ-left (1 → 0). -/
+ 234: lemma drop_R_rec_succ (b s n : Trace) :
+ 235:   Lex3 (μ3 (app s (recΔ b s n))) (μ3 (recΔ b s (delta n))) := by
+ 237:   dsimp [μ3, Lex3, deltaFlag]
+ 242: /-- rec_zero: `recΔ b s void → b` drops (outer δ tie; inner κ-DM-left). -/
+ 243: lemma drop_R_rec_zero (b s : Trace)
+ 244:     (hδ : deltaFlag b = 0) :
+ 245:     Lex3 (μ3 b) (μ3 (recΔ b s void)) := by
+ 247:   -- Work at the expanded pair level but keep deltaFlag uninterpreted until after rewriting
+ 248:   dsimp [Lex3]
+ 251:   have hb0eq : (match b with | recΔ _ _ (delta _) => 1 | _ => 0) = 0 := by
+ 252:     simpa [deltaFlag] using hδ
+ 253:   have hr0eq : (match recΔ b s void with | recΔ _ _ (delta _) => 1 | _ => 0) = 0 := by
+ 259:   simpa using dm_drop_R_rec_zero b s
+ 267: @[simp] lemma delta_subst_drop_rec_succ (b s n : Trace) :
+ 268:   Lex3 (μ3 (app s (recΔ b s n))) (μ3 (recΔ b s (delta n))) :=
+ 269:   drop_R_rec_succ b s n
+ 271: @[simp] lemma delta_subst_drop_rec_zero (b s : Trace)
+ 272:     (hδ : deltaFlag b = 0) :
+ 273:     Lex3 (μ3 b) (μ3 (recΔ b s void)) :=
+ 274:   drop_R_rec_zero b s hδ
+ 284: -- Restricted merge-cancel: require δ-tie and κ=0 so we can take μ-right.
+ 285: lemma drop_R_merge_cancel_zero (t : Trace)
+ 286:     (hδ : deltaFlag t = 0) (h0 : kappaM t = 0) :
+ 287:     Lex3 (μ3 t) (μ3 (merge t t)) := by
+ 289:   dsimp [μ3, Lex3, deltaFlag] at hδ
+ 290:   dsimp [μ3, Lex3, deltaFlag]
+ 294:   -- Inner κ tie via h0; then μ-right using mu_lt_merge_cancel
+ 297:   exact MetaSN.mu_lt_merge_cancel t
+ 300: lemma drop_R_eq_refl_zero (a : Trace) (h0 : kappaM a = 0) :
+ 301:     Lex3 (μ3 void) (μ3 (eqW a a)) := by
+ 303:   dsimp [μ3, Lex3, deltaFlag]
+ 319: /-- If every kernel step strictly decreases the KO7 measure μ3 in Lex3,
+ 322:   (hdec : ∀ {a b : Trace}, OperatorKernelO6.Step a b → Lex3 (μ3 b) (μ3 a)) :
+ 324:   -- Pull back the well-founded Lex3 along μ3
+ 325:   have wf_measure : WellFounded (fun x y : Trace => Lex3 (μ3 x) (μ3 y)) :=
+ 326:     InvImage.wf (f := μ3) wf_Lex3
+ 328:   have hsub : Subrelation StepRev (fun x y : Trace => Lex3 (μ3 x) (μ3 y)) := by
+ 335: -- until we resolve the general `merge_cancel` and `eq_refl` cases (κ duplicates).
+ 345: inductive SafeStep : Trace → Trace → Prop
+ 346: | R_int_delta (t) : SafeStep (integrate (delta t)) void
+ 347: | R_merge_void_left (t) (hδ : deltaFlag t = 0) : SafeStep (merge void t) t
+ 348: | R_merge_void_right (t) (hδ : deltaFlag t = 0) : SafeStep (merge t void) t
+ 349: | R_merge_cancel (t) (hδ : deltaFlag t = 0) (h0 : kappaM t = 0) : SafeStep (merge t t) t
+ 350: | R_rec_zero (b s) (hδ : deltaFlag b = 0) : SafeStep (recΔ b s void) b
+ 351: | R_rec_succ (b s n) : SafeStep (recΔ b s (delta n)) (app s (recΔ b s n))
+ 352: | R_eq_refl (a) (h0 : kappaM a = 0) : SafeStep (eqW a a) void
+ 353: | R_eq_diff (a b) : SafeStep (eqW a b) (integrate (merge a b))
+ 355: /-- Each SafeStep strictly decreases the KO7 triple measure. -/
+ 356: lemma measure_decreases_safe : ∀ {a b}, SafeStep a b → Lex3 (μ3 b) (μ3 a)
+ 357: | _, _, SafeStep.R_int_delta t => by
+ 358:     simpa using drop_R_int_delta t
+ 359: | _, _, SafeStep.R_merge_void_left t hδ => by
+ 360:     simpa using drop_R_merge_void_left_zero t hδ
+ 361: | _, _, SafeStep.R_merge_void_right t hδ => by
+ 362:     simpa using drop_R_merge_void_right_zero t hδ
+ 363: | _, _, SafeStep.R_merge_cancel t hδ h0 => by
+ 364:     simpa using drop_R_merge_cancel_zero t hδ h0
+ 365: | _, _, SafeStep.R_rec_zero b s hδ => by
+ 366:     simpa using drop_R_rec_zero b s hδ
+ 367: | _, _, SafeStep.R_rec_succ b s n => by
+ 368:     simpa using drop_R_rec_succ b s n
+ 369: | _, _, SafeStep.R_eq_refl a h0 => by
+ 370:     simpa using drop_R_eq_refl_zero a h0
+ 371: | _, _, SafeStep.R_eq_diff a b => by
+ 372:     simpa using drop_R_eq_diff a b
+ 374: /-- Reverse of `SafeStep`. -/
+ 375: def SafeStepRev : Trace → Trace → Prop := fun a b => SafeStep b a
+ 377: /-- Generic wrapper: any relation that strictly decreases μ3 in Lex3 is well-founded in reverse. -/
+ 380:   (hdec : ∀ {a b : Trace}, R a b → Lex3 (μ3 b) (μ3 a)) :
+ 382:   -- Pull back the well-founded Lex3 along μ3
+ 383:   have wf_measure : WellFounded (fun x y : Trace => Lex3 (μ3 x) (μ3 y)) :=
+ 384:     InvImage.wf (f := μ3) wf_Lex3
+ 385:   -- Show Rᴗᵘ ⊆ InvImage μ3 Lex3
+ 386:   have hsub : Subrelation (fun a b => R b a) (fun x y : Trace => Lex3 (μ3 x) (μ3 y)) := by
+ 391: /-- Safe-step strong normalization: no infinite SafeStep reductions. -/
+ 392: theorem wf_SafeStepRev : WellFounded SafeStepRev :=
+ 393:   wellFounded_of_measure_decreases_R (R := SafeStep) (fun {_ _} h => measure_decreases_safe h)
+ 397: /-! ## Guarded lifting from Kernel.Step to SafeStep ----------------------- -/
+ 407: | R_int_delta (t) : StepGuarded (integrate (delta t)) void
+ 408: | R_merge_void_left (t) (hδ : deltaFlag t = 0) : StepGuarded (merge void t) t
+ 409: | R_merge_void_right (t) (hδ : deltaFlag t = 0) : StepGuarded (merge t void) t
+ 410: | R_merge_cancel (t) (hδ : deltaFlag t = 0) (h0 : MetaSN_DM.kappaM t = 0) : StepGuarded (merge t t) t
+ 411: | R_rec_zero (b s) (hδ : deltaFlag b = 0) : StepGuarded (recΔ b s void) b
+ 412: | R_rec_succ (b s n) : StepGuarded (recΔ b s (delta n)) (app s (recΔ b s n))
+ 413: | R_eq_refl (a) (h0 : MetaSN_DM.kappaM a = 0) : StepGuarded (eqW a a) void
+ 414: | R_eq_diff (a b) : StepGuarded (eqW a b) (integrate (merge a b))
+ 418: lemma measure_decreases_guarded : ∀ {a b}, StepGuarded a b → Lex3 (μ3 b) (μ3 a)
+ 419: | _, _, StepGuarded.R_int_delta t => by simpa using drop_R_int_delta t
+ 420: | _, _, StepGuarded.R_merge_void_left t hδ => by simpa using drop_R_merge_void_left_zero t hδ
+ 421: | _, _, StepGuarded.R_merge_void_right t hδ => by simpa using drop_R_merge_void_right_zero t hδ
+ 422: | _, _, StepGuarded.R_merge_cancel t hδ h0 => by simpa using drop_R_merge_cancel_zero t hδ h0
+ 423: | _, _, StepGuarded.R_rec_zero b s hδ => by simpa using drop_R_rec_zero b s hδ
+ 424: | _, _, StepGuarded.R_rec_succ b s n => by simpa using drop_R_rec_succ b s n
+ 425: | _, _, StepGuarded.R_eq_refl a h0 => by simpa using drop_R_eq_refl_zero a h0
+ 426: | _, _, StepGuarded.R_eq_diff a b => by simpa using drop_R_eq_diff a b
+ 468: | integrate t   => sizeMPO t + 1
+ 469: | merge a b     => sizeMPO a + sizeMPO b + 1
+ 471: | recΔ b s n    => sizeMPO b + sizeMPO s + sizeMPO n + 2
+ 472: | eqW a b       => sizeMPO a + sizeMPO b + 1
+ 478:   (MetaSN.mu t, (sizeMPO t, deltaFlag t))
+ 491: lemma mpo_drop_R_int_delta (t : Trace) :
+ 492:     LexNu3m (ν3m void) (ν3m (integrate (delta t))) := by
+ 496:   simpa using MetaSN.mu_void_lt_integrate_delta t
+ 498: /-- merge void-left: μ-right. -/
+ 499: lemma mpo_drop_R_merge_void_left (t : Trace) :
+ 500:     LexNu3m (ν3m t) (ν3m (merge void t)) := by
+ 504:   simpa using MetaSN.mu_lt_merge_void_left t
+ 506: /-- merge void-right: μ-right. -/
+ 507: lemma mpo_drop_R_merge_void_right (t : Trace) :
+ 508:     LexNu3m (ν3m t) (ν3m (merge t void)) := by
+ 512:   simpa using MetaSN.mu_lt_merge_void_right t
+ 514: /-- merge-cancel: μ-right (no κ or size tie needed). -/
+ 515: lemma mpo_drop_R_merge_cancel (t : Trace) :
+ 516:     LexNu3m (ν3m t) (ν3m (merge t t)) := by
+ 520:   simpa using MetaSN.mu_lt_merge_cancel t
+ 522: /-- eq_refl: μ-right (void μ < eqW μ). -/
+ 523: lemma mpo_drop_R_eq_refl (a : Trace) :
+ 524:     LexNu3m (ν3m void) (ν3m (eqW a a)) := by
+ 531: lemma mpo_drop_R_eq_diff (a b : Trace) :
+ 532:     LexNu3m (ν3m (integrate (merge a b))) (ν3m (eqW a b)) := by
+ 539: lemma mpo_drop_R_rec_zero (b s : Trace) :
+ 540:     LexNu3m (ν3m b) (ν3m (recΔ b s void)) := by
+ 545:   -- Show: mu b < mu (recΔ b s void) = ω^(μ s + 6) + ω*(μ b + 1) + 1
+ 566: inductive SafeStepMPO : Trace → Trace → Prop
+ 567: | R_int_delta (t) : SafeStepMPO (integrate (delta t)) void
+ 568: | R_merge_void_left (t) : SafeStepMPO (merge void t) t
+ 569: | R_merge_void_right (t) : SafeStepMPO (merge t void) t
+ 570: | R_merge_cancel (t) : SafeStepMPO (merge t t) t
+ 571: | R_eq_refl (a) : SafeStepMPO (eqW a a) void
+ 572: | R_eq_diff (a b) : SafeStepMPO (eqW a b) (integrate (merge a b))
+ 573: | R_rec_zero (b s) : SafeStepMPO (recΔ b s void) b
+ 575: def SafeStepMPORev : Trace → Trace → Prop := fun a b => SafeStepMPO b a
+ 577: lemma mpo_measure_decreases : ∀ {a b}, SafeStepMPO a b → LexNu3m (ν3m b) (ν3m a)
+ 578: | _, _, SafeStepMPO.R_int_delta t => by simpa using mpo_drop_R_int_delta t
+ 579: | _, _, SafeStepMPO.R_merge_void_left t => by simpa using mpo_drop_R_merge_void_left t
+ 580: | _, _, SafeStepMPO.R_merge_void_right t => by simpa using mpo_drop_R_merge_void_right t
+ 581: | _, _, SafeStepMPO.R_merge_cancel t => by simpa using mpo_drop_R_merge_cancel t
+ 582: | _, _, SafeStepMPO.R_eq_refl a => by simpa using mpo_drop_R_eq_refl a
+ 583: | _, _, SafeStepMPO.R_eq_diff a b => by simpa using mpo_drop_R_eq_diff a b
+ 584: | _, _, SafeStepMPO.R_rec_zero b s => by simpa using mpo_drop_R_rec_zero b s
+ 586: theorem wf_SafeStepMPORev : WellFounded SafeStepMPORev := by
+ 587:   -- pull back Lex3m via μ3m
+ 590:   have hsub : Subrelation SafeStepMPORev (fun x y : Trace => LexNu3m (ν3m x) (ν3m y)) := by
+ 605:   MetaSN_KO7.Lex3 (MetaSN_KO7.μ3 b) (MetaSN_KO7.μ3 a)
+ 608:     HybridDec (integrate (delta t)) void :=
+ 609:   Or.inr (by simpa using MetaSN_KO7.drop_R_int_delta t)
+ 611: lemma hybrid_R_merge_void_left (t : Trace) :
+ 612:     HybridDec (merge void t) t :=
+ 613:   Or.inl (by simpa using MetaSN_MPO.mpo_drop_R_merge_void_left t)
+ 615: lemma hybrid_R_merge_void_right (t : Trace) :
+ 616:     HybridDec (merge t void) t :=
+ 617:   Or.inl (by simpa using MetaSN_MPO.mpo_drop_R_merge_void_right t)
+ 619: lemma hybrid_R_merge_cancel (t : Trace) :
+ 620:     HybridDec (merge t t) t :=
+ 621:   Or.inl (by simpa using MetaSN_MPO.mpo_drop_R_merge_cancel t)
+ 624:     HybridDec (recΔ b s (delta n)) (app s (recΔ b s n)) :=
+ 625:   Or.inr (by simpa using MetaSN_KO7.drop_R_rec_succ b s n)
+ 628:     HybridDec (eqW a a) void :=
+ 629:   Or.inl (by simpa using MetaSN_MPO.mpo_drop_R_eq_refl a)
+ 632:     HybridDec (eqW a b) (integrate (merge a b)) :=
+ 633:   Or.inl (by simpa using MetaSN_MPO.mpo_drop_R_eq_diff a b)
+ 636: lemma hybrid_R_rec_zero_tie (b s : Trace) (hδ : MetaSN_KO7.deltaFlag b = 0) :
+ 637:     HybridDec (recΔ b s void) b :=
+ 638:   Or.inr (by simpa using MetaSN_KO7.drop_R_rec_zero b s hδ)
+ 642:     HybridDec (recΔ b s void) b :=
+ 643:   Or.inl (by simpa using MetaSN_MPO.mpo_drop_R_rec_zero b s)
+ 659:     HybridDec a b ∨ ∃ (b' s : Trace), a = recΔ b' s void ∧ b = b' ∧ MetaSN_KO7.deltaFlag b' = 1 :=
+ 662:   | Step.R_merge_void_left t => Or.inl (hybrid_R_merge_void_left t)
+ 663:   | Step.R_merge_void_right t => Or.inl (hybrid_R_merge_void_right t)
+ 664:   | Step.R_merge_cancel t => Or.inl (hybrid_R_merge_cancel t)
+ 679: lemma hybrid_drop_of_step {a b : Trace} (h : Step a b) : HybridDec a b :=
+ 682:   | Step.R_merge_void_left t => hybrid_R_merge_void_left t
+ 683:   | Step.R_merge_void_right t => hybrid_R_merge_void_right t
+ 684:   | Step.R_merge_cancel t => hybrid_R_merge_cancel t
+ 691: A tiny usage example showing that `hybrid_drop_of_step` yields a HybridDec certificate for a concrete kernel step. -/
+ 696:     MetaSN_Hybrid.HybridDec (OperatorKernelO6.Trace.eqW a a) OperatorKernelO6.Trace.void :=
+ 697:   MetaSN_Hybrid.hybrid_drop_of_step (OperatorKernelO6.Step.R_eq_refl a)
+ 701:     MetaSN_Hybrid.HybridDec (OperatorKernelO6.Trace.eqW a b)
+ 702:       (OperatorKernelO6.Trace.integrate (OperatorKernelO6.Trace.merge a b)) :=
+ 703:   MetaSN_Hybrid.hybrid_drop_of_step (OperatorKernelO6.Step.R_eq_diff h)
+ 705: -- merge-void (left)
+ 707:     MetaSN_Hybrid.HybridDec (OperatorKernelO6.Trace.merge OperatorKernelO6.Trace.void t) t :=
+ 708:   MetaSN_Hybrid.hybrid_drop_of_step (OperatorKernelO6.Step.R_merge_void_left t)
+ 710: -- merge-void (right)
+ 712:     MetaSN_Hybrid.HybridDec (OperatorKernelO6.Trace.merge t OperatorKernelO6.Trace.void) t :=
+ 713:   MetaSN_Hybrid.hybrid_drop_of_step (OperatorKernelO6.Step.R_merge_void_right t)
+ 715: -- merge-cancel
+ 717:     MetaSN_Hybrid.HybridDec (OperatorKernelO6.Trace.merge t t) t :=
+ 718:   MetaSN_Hybrid.hybrid_drop_of_step (OperatorKernelO6.Step.R_merge_cancel t)
+ 722:     MetaSN_Hybrid.HybridDec (OperatorKernelO6.Trace.recΔ b s OperatorKernelO6.Trace.void) b :=
+ 723:   MetaSN_Hybrid.hybrid_drop_of_step (OperatorKernelO6.Step.R_rec_zero b s)
+ 728:   (OperatorKernelO6.Trace.recΔ b s (OperatorKernelO6.Trace.delta n))
+ 729:   (OperatorKernelO6.Trace.app s (OperatorKernelO6.Trace.recΔ b s n)) :=
+ 730:   MetaSN_Hybrid.hybrid_drop_of_step (OperatorKernelO6.Step.R_rec_succ b s n)
+ 735:   (OperatorKernelO6.Trace.integrate (OperatorKernelO6.Trace.delta t))
+ 737:   MetaSN_Hybrid.hybrid_drop_of_step (OperatorKernelO6.Step.R_int_delta t)
+ 745: theorem wf_StepRev_KO7_Safe : WellFounded MetaSN_KO7.SafeStepRev := MetaSN_KO7.wf_SafeStepRev
+ 748: theorem wf_StepRev_MPO_Safe : WellFounded MetaSN_MPO.SafeStepMPORev := MetaSN_MPO.wf_SafeStepMPORev
+ 750: /-! ## Lex3 drop lemmas (KO7)
+ 751: These mirror the slim versions from `Termination_Lex3.lean`, but live here to reduce files. -/
+ 757: lemma lex3_drop_R_rec_zero_zero (b s : Trace)
+ 758:     (hδ : MetaSN_KO7.deltaFlag b = 0) :
+ 759:     MetaSN_KO7.Lex3 (MetaSN_KO7.μ3 b) (MetaSN_KO7.μ3 (recΔ b s void)) := by
+ 761:   -- Only expose the Lex3 structure; keep μ3 opaque to control unfolding of deltaFlag.
+ 762:   dsimp [MetaSN_KO7.Lex3]
+ 766:       (MetaSN_KO7.deltaFlag b, (MetaSN_DM.kappaM b, MetaSN.mu b))
+ 767:       (MetaSN_KO7.deltaFlag (recΔ b s void), (MetaSN_DM.kappaM (recΔ b s void), MetaSN.mu (recΔ b s void)))
+ 768:   have hr0 : MetaSN_KO7.deltaFlag (recΔ b s void) = 0 := by
+ 769:     simp [MetaSN_KO7.deltaFlag]
+ 773:   -- Inner LexDM drop via κᴹ strict decrease for rec_zero.
+ 775:   exact MetaSN_DM.dm_drop_R_rec_zero b s
+ 777: lemma lex3_drop_R_merge_void_left_zero (t : Trace)
+ 778:     (hδ : MetaSN_KO7.deltaFlag t = 0) :
+ 779:     MetaSN_KO7.Lex3 (MetaSN_KO7.μ3 t) (MetaSN_KO7.μ3 (merge void t)) := by
+ 781:   simpa [MetaSN_KO7.μ3, MetaSN_KO7.Lex3] using
+ 782:     MetaSN_KO7.drop_R_merge_void_left_zero t hδ
+ 784: lemma lex3_drop_R_merge_void_right_zero (t : Trace)
+ 785:     (hδ : MetaSN_KO7.deltaFlag t = 0) :
+ 786:     MetaSN_KO7.Lex3 (MetaSN_KO7.μ3 t) (MetaSN_KO7.μ3 (merge t void)) := by
+ 787:   simpa [MetaSN_KO7.μ3, MetaSN_KO7.Lex3] using
+ 788:     MetaSN_KO7.drop_R_merge_void_right_zero t hδ
+
+==== 04_Normalize_Safe.md ====
+  16: /-- Reflexive-transitive closure of `SafeStep`. -/
+  17: inductive SafeStepStar : Trace → Trace → Prop
+  18: | refl : ∀ t, SafeStepStar t t
+  19: | tail : ∀ {a b c}, SafeStep a b → SafeStepStar b c → SafeStepStar a c
+  22:   (h₁ : SafeStepStar a b) (h₂ : SafeStepStar b c) : SafeStepStar a c := by
+  25:   | tail hab _ ih => exact SafeStepStar.tail hab (ih h₂)
+  27: theorem safestar_of_step {a b : Trace} (h : SafeStep a b) : SafeStepStar a b :=
+  28:   SafeStepStar.tail h (SafeStepStar.refl b)
+  31: def NormalFormSafe (t : Trace) : Prop := ¬ ∃ u, SafeStep t u
+  34: theorem no_step_from_nf {t u : Trace} (h : NormalFormSafe t) : ¬ SafeStep t u := by
+  38:   (hnf : NormalFormSafe a) (h : SafeStepStar a b) : a = b :=
+  40:   | SafeStepStar.refl _ => rfl
+  41:   | SafeStepStar.tail hs _ => False.elim (hnf ⟨_, hs⟩)
+  45:   (h : NormalFormSafe t) : SafeStepStar t u ↔ u = t := by
+  50:   · intro hEq; cases hEq; exact SafeStepStar.refl t
+  54:   (h : NormalFormSafe t) (hne : u ≠ t) : ¬ SafeStepStar t u := by
+  61:   (ha : NormalFormSafe a) (hab : SafeStepStar a b) (hac : SafeStepStar a c) : b = c := by
+  68:   (ha : NormalFormSafe a) (hab : SafeStepStar a b) (_hba : SafeStepStar b a) : a = b :=
+  74: theorem safestar_destruct {a c : Trace} (h : SafeStepStar a c) :
+  75:   a = c ∨ ∃ b, SafeStep a b ∧ SafeStepStar b c := by
+  82:   (hab : SafeStepStar a b) (hbc : SafeStep b c) : SafeStepStar a c :=
+  88: theorem acc_SafeStepRev (t : Trace) : Acc SafeStepRev t :=
+  89:   wf_SafeStepRev.apply t
+  91: /-- A well-founded pullback of the KO7 Lex3 order along μ3. -/
+  92: def Rμ3 (x y : Trace) : Prop := Lex3 (μ3 x) (μ3 y)
+  95:   InvImage.wf (f := μ3) wf_Lex3
+ 100: noncomputable def normalizeSafePack (t : Trace) : Σ' n : Trace, SafeStepStar t n ∧ NormalFormSafe n :=
+ 101:   WellFounded.fix wf_Rμ3 (C := fun t => Σ' n : Trace, SafeStepStar t n ∧ NormalFormSafe n)
+ 104:       by_cases h : ∃ u, SafeStep t u
+ 108:         have hu : SafeStep t u := Classical.choose_spec h
+ 112:         exact ⟨n, And.intro (SafeStepStar.tail hu hstar) hnf⟩
+ 115:         exact ⟨t, And.intro (SafeStepStar.refl t) (by intro ex; exact h ex)⟩) t
+ 117: noncomputable def normalizeSafe (t : Trace) : Trace := (normalizeSafePack t).1
+ 119: theorem to_norm_safe (t : Trace) : SafeStepStar t (normalizeSafe t) := (normalizeSafePack t).2.left
+ 121: theorem norm_nf_safe (t : Trace) : NormalFormSafe (normalizeSafe t) := (normalizeSafePack t).2.right
+ 125: theorem normalizeSafe_eq_self_of_nf (t : Trace) (h : NormalFormSafe t) :
+ 126:   normalizeSafe t = t := by
+ 133:   ∃ n, SafeStepStar t n ∧ NormalFormSafe n :=
+ 134:   ⟨normalizeSafe t, to_norm_safe t, norm_nf_safe t⟩
+ 137: theorem progress_or_fixed (t : Trace) : (∃ u, SafeStep t u) ∨ normalizeSafe t = t := by
+ 140:   · right; exact normalizeSafe_eq_self_of_nf t hnf
+ 142:     have : ¬¬ ∃ u, SafeStep t u := by
+ 148:   normalizeSafe t = t ∨ ∃ u, SafeStep t u ∧ SafeStepStar u (normalizeSafe t) := by
+ 157: theorem exists_step_of_not_fixed (t : Trace) (h : normalizeSafe t ≠ t) : ∃ u, SafeStep t u := by
+ 163: theorem exists_drop_if_not_fixed (t : Trace) (h : normalizeSafe t ≠ t) :
+ 164:   ∃ u, SafeStep t u ∧ Rμ3 u t := by
+ 170: theorem not_fixed_of_exists_step (t : Trace) (hex : ∃ u, SafeStep t u) :
+ 171:   normalizeSafe t ≠ t := by
+ 179:   normalizeSafe t ≠ t ↔ ∃ u, SafeStep t u := by
+ 187:   NormalFormSafe t ↔ normalizeSafe t = t := by
+ 189:   · intro h; exact normalizeSafe_eq_self_of_nf t h
+ 196: theorem normalizeSafe_idempotent (t : Trace) :
+ 197:   normalizeSafe (normalizeSafe t) = normalizeSafe t := by
+ 199:   have hnf : NormalFormSafe (normalizeSafe t) := norm_nf_safe t
+ 200:   -- No outgoing safe step from `normalizeSafe t` and star to itself
+ 201:   have hstar : SafeStepStar (normalizeSafe t) (normalizeSafe (normalizeSafe t)) := to_norm_safe (normalizeSafe t)
+ 218: theorem normalizeSafe_sound (t : Trace) :
+ 219:   SafeStepStar t (normalizeSafe t) ∧ NormalFormSafe (normalizeSafe t) :=
+ 223: theorem normalizeSafe_total (t : Trace) :
+ 224:   ∃ n, SafeStepStar t n ∧ NormalFormSafe n :=
+ 225:   ⟨normalizeSafe t, to_norm_safe t, norm_nf_safe t⟩
+
+==== 05_SafeStep_Ctx.md ====
+   1: # OperatorKernelO6/Meta/SafeStep_Ctx.lean
+  16: inductive SafeStepCtx : Trace → Trace → Prop
+  17: | root {a b} : SafeStep a b → SafeStepCtx a b
+  18: | integrate {t u} : SafeStepCtx t u → SafeStepCtx (integrate t) (integrate u)
+  19: | mergeL {a a' b} : SafeStepCtx a a' → SafeStepCtx (merge a b) (merge a' b)
+  20: | mergeR {a b b'} : SafeStepCtx b b' → SafeStepCtx (merge a b) (merge a b')
+  21: | appL {a a' b} : SafeStepCtx a a' → SafeStepCtx (app a b) (app a' b)
+  22: | appR {a b b'} : SafeStepCtx b b' → SafeStepCtx (app a b) (app a b')
+  23: | recB {b b' s n} : SafeStepCtx b b' → SafeStepCtx (recΔ b s n) (recΔ b' s n)
+  24: | recS {b s s' n} : SafeStepCtx s s' → SafeStepCtx (recΔ b s n) (recΔ b s' n)
+  25: | recN {b s n n'} : SafeStepCtx n n' → SafeStepCtx (recΔ b s n) (recΔ b s n')
+  27: /-- Reflexive-transitive closure of `SafeStepCtx`. -/
+  28: inductive SafeStepCtxStar : Trace → Trace → Prop
+  29: | refl : ∀ t, SafeStepCtxStar t t
+  30: | tail : ∀ {a b c}, SafeStepCtx a b → SafeStepCtxStar b c → SafeStepCtxStar a c
+  33:   (h₁ : SafeStepCtxStar a b) (h₂ : SafeStepCtxStar b c) : SafeStepCtxStar a c := by
+  36:   | tail hab _ ih => exact SafeStepCtxStar.tail hab (ih h₂)
+  38: theorem ctxstar_of_root {a b : Trace} (h : SafeStep a b) : SafeStepCtxStar a b :=
+  39:   SafeStepCtxStar.tail (SafeStepCtx.root h) (SafeStepCtxStar.refl b)
+  41: theorem ctxstar_of_star {a b : Trace} (h : SafeStepStar a b) : SafeStepCtxStar a b := by
+  43:   | refl t => exact SafeStepCtxStar.refl t
+  44:   | tail hab _ ih => exact SafeStepCtxStar.tail (SafeStepCtx.root hab) ih
+  46: theorem ctxstar_integrate {t u : Trace}
+  47:   (h : SafeStepCtxStar t u) : SafeStepCtxStar (integrate t) (integrate u) := by
+  49:   | refl => exact SafeStepCtxStar.refl _
+  50:   | tail htu _ ih => exact SafeStepCtxStar.tail (SafeStepCtx.integrate htu) ih
+  52: theorem ctxstar_mergeL {a a' b : Trace}
+  53:   (h : SafeStepCtxStar a a') : SafeStepCtxStar (merge a b) (merge a' b) := by
+  55:   | refl => exact SafeStepCtxStar.refl _
+  56:   | tail hab _ ih => exact SafeStepCtxStar.tail (SafeStepCtx.mergeL hab) ih
+  58: theorem ctxstar_mergeR {a b b' : Trace}
+  59:   (h : SafeStepCtxStar b b') : SafeStepCtxStar (merge a b) (merge a b') := by
+  61:   | refl => exact SafeStepCtxStar.refl _
+  62:   | tail hbb _ ih => exact SafeStepCtxStar.tail (SafeStepCtx.mergeR hbb) ih
+  65:   (h : SafeStepCtxStar a a') : SafeStepCtxStar (app a b) (app a' b) := by
+  67:   | refl => exact SafeStepCtxStar.refl _
+  68:   | tail hab _ ih => exact SafeStepCtxStar.tail (SafeStepCtx.appL hab) ih
+  71:   (h : SafeStepCtxStar b b') : SafeStepCtxStar (app a b) (app a b') := by
+  73:   | refl => exact SafeStepCtxStar.refl _
+  74:   | tail hbb _ ih => exact SafeStepCtxStar.tail (SafeStepCtx.appR hbb) ih
+  77:   (h : SafeStepCtxStar b b') : SafeStepCtxStar (recΔ b s n) (recΔ b' s n) := by
+  79:   | refl => exact SafeStepCtxStar.refl _
+  80:   | tail hbb _ ih => exact SafeStepCtxStar.tail (SafeStepCtx.recB hbb) ih
+  83:   (h : SafeStepCtxStar s s') : SafeStepCtxStar (recΔ b s n) (recΔ b s' n) := by
+  85:   | refl => exact SafeStepCtxStar.refl _
+  86:   | tail hss _ ih => exact SafeStepCtxStar.tail (SafeStepCtx.recS hss) ih
+  89:   (h : SafeStepCtxStar n n') : SafeStepCtxStar (recΔ b s n) (recΔ b s n') := by
+  91:   | refl => exact SafeStepCtxStar.refl _
+  92:   | tail hnn _ ih => exact SafeStepCtxStar.tail (SafeStepCtx.recN hnn) ih
+  94: /-- Compose left and right ctx-star lifts under `merge`. -/
+  95: theorem ctxstar_mergeLR {a a' b b' : Trace}
+  96:   (ha : SafeStepCtxStar a a') (hb : SafeStepCtxStar b b') :
+  97:   SafeStepCtxStar (merge a b) (merge a' b') :=
+  98:   ctxstar_trans (ctxstar_mergeL ha) (ctxstar_mergeR hb)
+ 100: /-- Compose all three ctx-star lifts under `recΔ`. -/
+ 102:   (hb : SafeStepCtxStar b b') (hs : SafeStepCtxStar s s') (hn : SafeStepCtxStar n n') :
+ 103:   SafeStepCtxStar (recΔ b s n) (recΔ b' s' n') :=
+ 108:   (ha : SafeStepCtxStar a a') (hb : SafeStepCtxStar b b') :
+ 109:   SafeStepCtxStar (app a b) (app a' b') :=
+ 113: def LocalJoinSafe_ctx (a : Trace) : Prop :=
+ 114:   ∀ {b c}, SafeStep a b → SafeStep a c → ∃ d, SafeStepCtxStar b d ∧ SafeStepCtxStar c d
+ 118:     (h : ∀ {b}, SafeStep a b → False) : LocalJoinSafe_ctx a := by
+ 123: theorem localJoin_of_nf_ctx (a : Trace) (hnf : NormalFormSafe a) : LocalJoinSafe_ctx a := by
+ 128: theorem localJoin_if_normalize_fixed_ctx (a : Trace) (hfix : normalizeSafe a = a) :
+ 129:     LocalJoinSafe_ctx a := by
+ 136:     (h : ∀ {b}, SafeStep a b → b = d) : LocalJoinSafe_ctx a := by
+ 141:   · simpa [hb'] using (SafeStepCtxStar.refl d)
+ 142:   · simpa [hc'] using (SafeStepCtxStar.refl d)
+ 147: theorem localJoin_ctx_void : LocalJoinSafe_ctx void := by
+ 152: theorem localJoin_ctx_delta (t : Trace) : LocalJoinSafe_ctx (delta t) := by
+ 157: theorem localJoin_ctx_app (a b : Trace) : LocalJoinSafe_ctx (app a b) := by
+ 161: /-- At `integrate void`, no safe root rule; ctx-local join vacuously. -/
+ 162: theorem localJoin_ctx_integrate_void : LocalJoinSafe_ctx (integrate void) := by
+ 163:   refine localJoin_of_none_ctx (a := integrate void) ?h
+ 166: /-- At `integrate (merge a b)`, no safe root rule; ctx-local join vacuously. -/
+ 167: theorem localJoin_ctx_integrate_merge (a b : Trace) : LocalJoinSafe_ctx (integrate (merge a b)) := by
+ 168:   refine localJoin_of_none_ctx (a := integrate (merge a b)) ?h
+ 171: /-- At `integrate (app a b)`, no safe root rule; ctx-local join vacuously. -/
+ 172: theorem localJoin_ctx_integrate_app (a b : Trace) : LocalJoinSafe_ctx (integrate (app a b)) := by
+ 173:   refine localJoin_of_none_ctx (a := integrate (app a b)) ?h
+ 176: /-- At `integrate (eqW a b)`, no safe root rule; ctx-local join vacuously. -/
+ 177: theorem localJoin_ctx_integrate_eqW (a b : Trace) : LocalJoinSafe_ctx (integrate (eqW a b)) := by
+ 178:   refine localJoin_of_none_ctx (a := integrate (eqW a b)) ?h
+ 181: /-- At `integrate (integrate t)`, no safe root rule; ctx-local join vacuously. -/
+ 182: theorem localJoin_ctx_integrate_integrate (t : Trace) :
+ 183:     LocalJoinSafe_ctx (integrate (integrate t)) := by
+ 184:   refine localJoin_of_none_ctx (a := integrate (integrate t)) ?h
+ 187: /-- At `integrate (recΔ b s n)`, no safe root rule; ctx-local join vacuously. -/
+ 188: theorem localJoin_ctx_integrate_rec (b s n : Trace) :
+ 189:     LocalJoinSafe_ctx (integrate (recΔ b s n)) := by
+ 190:   refine localJoin_of_none_ctx (a := integrate (recΔ b s n)) ?h
+ 193: /-- At `recΔ b s (merge a c)`, no safe root rule; ctx-local join vacuously. -/
+ 194: theorem localJoin_ctx_rec_merge (b s a c : Trace) : LocalJoinSafe_ctx (recΔ b s (merge a c)) := by
+ 195:   refine localJoin_of_none_ctx (a := recΔ b s (merge a c)) ?h
+ 198: /-- At `recΔ b s (app a c)`, no safe root rule; ctx-local join vacuously. -/
+ 199: theorem localJoin_ctx_rec_app (b s a c : Trace) : LocalJoinSafe_ctx (recΔ b s (app a c)) := by
+ 200:   refine localJoin_of_none_ctx (a := recΔ b s (app a c)) ?h
+ 203: /-- At `recΔ b s (integrate t)`, no safe root rule; ctx-local join vacuously. -/
+ 204: theorem localJoin_ctx_rec_integrate (b s t : Trace) : LocalJoinSafe_ctx (recΔ b s (integrate t)) := by
+ 205:   refine localJoin_of_none_ctx (a := recΔ b s (integrate t)) ?h
+ 208: /-- At `recΔ b s (eqW a c)`, no safe root rule; ctx-local join vacuously. -/
+ 209: theorem localJoin_ctx_rec_eqW (b s a c : Trace) : LocalJoinSafe_ctx (recΔ b s (eqW a c)) := by
+ 210:   refine localJoin_of_none_ctx (a := recΔ b s (eqW a c)) ?h
+ 213: /-- At `recΔ b s void`, only one safe root rule; ctx-local join is trivial. -/
+ 214: theorem localJoin_ctx_rec_zero (b s : Trace) : LocalJoinSafe_ctx (recΔ b s void) := by
+ 215:   refine localJoin_of_unique_ctx (a := recΔ b s void) (d := b) ?h
+ 219: /-- At `recΔ b s (delta n)`, only one safe root rule; ctx-local join is trivial. -/
+ 220: theorem localJoin_ctx_rec_succ (b s n : Trace) : LocalJoinSafe_ctx (recΔ b s (delta n)) := by
+ 221:   refine localJoin_of_unique_ctx (a := recΔ b s (delta n)) (d := app s (recΔ b s n)) ?h
+ 225: /-- At `merge void t`, only the left-void rule can fire; ctx-local join is trivial. -/
+ 226: theorem localJoin_ctx_merge_void_left (t : Trace) : LocalJoinSafe_ctx (merge void t) := by
+ 227:   refine localJoin_of_unique_ctx (a := merge void t) (d := t) ?h
+ 229:   | R_merge_void_left _ _ => rfl
+ 230:   | R_merge_void_right _ _ => rfl
+ 231:   | R_merge_cancel _ _ _ => rfl
+ 233: /-- At `merge t void`, only the right-void rule can fire; ctx-local join is trivial. -/
+ 234: theorem localJoin_ctx_merge_void_right (t : Trace) : LocalJoinSafe_ctx (merge t void) := by
+ 235:   refine localJoin_of_unique_ctx (a := merge t void) (d := t) ?h
+ 237:   | R_merge_void_right _ _ => rfl
+ 238:   | R_merge_void_left _ _ => rfl
+ 239:   | R_merge_cancel _ _ _ => rfl
+ 241: /-- At `merge t t`, any applicable safe rule reduces to `t`; ctx-local join is trivial. -/
+ 242: theorem localJoin_ctx_merge_tt (t : Trace) : LocalJoinSafe_ctx (merge t t) := by
+ 243:   refine localJoin_of_unique_ctx (a := merge t t) (d := t) ?h
+ 245:   | R_merge_cancel _ _ _ => rfl
+ 246:   | R_merge_void_left _ _ => rfl
+ 247:   | R_merge_void_right _ _ => rfl
+ 249: /-- Convenience: `merge void void` reduces uniquely to `void` (ctx). -/
+ 250: theorem localJoin_ctx_merge_void_void : LocalJoinSafe_ctx (merge void void) :=
+ 251:   localJoin_ctx_merge_void_left void
+ 253: /-- Convenience: `merge void (delta n)` reduces uniquely to `delta n` (ctx). -/
+ 254: theorem localJoin_ctx_merge_void_delta (n : Trace) :
+ 255:     LocalJoinSafe_ctx (merge void (delta n)) :=
+ 256:   localJoin_ctx_merge_void_left (delta n)
+ 258: /-- Convenience: `merge (delta n) void` reduces uniquely to `delta n` (ctx). -/
+ 259: theorem localJoin_ctx_merge_delta_void (n : Trace) :
+ 260:     LocalJoinSafe_ctx (merge (delta n) void) :=
+ 261:   localJoin_ctx_merge_void_right (delta n)
+ 263: /-- Convenience: `merge (delta n) (delta n)` reduces (by cancel) to `delta n` (ctx). -/
+ 264: theorem localJoin_ctx_merge_delta_delta (n : Trace) :
+ 265:     LocalJoinSafe_ctx (merge (delta n) (delta n)) :=
+ 266:   localJoin_ctx_merge_tt (delta n)
+ 268: /-- At `integrate (delta t)`, only one safe root rule; ctx-local join is trivial. -/
+ 269: theorem localJoin_ctx_int_delta (t : Trace) : LocalJoinSafe_ctx (integrate (delta t)) := by
+ 270:   refine localJoin_of_unique_ctx (a := integrate (delta t)) (d := void) ?h
+ 274: /-- If `deltaFlag t ≠ 0`, the left-void merge rule cannot apply; no competing branch. -/
+ 275: theorem localJoin_ctx_merge_void_left_guard_ne (t : Trace)
+ 276:     (hδne : deltaFlag t ≠ 0) : LocalJoinSafe_ctx (merge void t) := by
+ 277:   refine localJoin_of_unique_ctx (a := merge void t) (d := t) ?h
+ 279:   | R_merge_void_left _ hδ => exact (False.elim (hδne hδ))
+ 280:   | R_merge_void_right _ _ => rfl
+ 281:   | R_merge_cancel _ _ _ => rfl
+ 283: /-- If `deltaFlag t ≠ 0`, the right-void merge rule cannot apply; no competing branch. -/
+ 284: theorem localJoin_ctx_merge_void_right_guard_ne (t : Trace)
+ 285:     (hδne : deltaFlag t ≠ 0) : LocalJoinSafe_ctx (merge t void) := by
+ 286:   refine localJoin_of_unique_ctx (a := merge t void) (d := t) ?h
+ 288:   | R_merge_void_right _ hδ => exact (False.elim (hδne hδ))
+ 289:   | R_merge_void_left _ _ => rfl
+ 290:   | R_merge_cancel _ _ _ => rfl
+ 292: /-- If `deltaFlag t ≠ 0`, merge-cancel is blocked at root; vacuous ctx-local join. -/
+ 293: theorem localJoin_ctx_merge_cancel_guard_delta_ne (t : Trace)
+ 294:     (hδne : deltaFlag t ≠ 0) : LocalJoinSafe_ctx (merge t t) := by
+ 295:   refine localJoin_of_unique_ctx (a := merge t t) (d := t) ?h
+ 297:   | R_merge_cancel _ hδ _ => exact (False.elim (hδne hδ))
+ 298:   | R_merge_void_left _ _ => rfl
+ 299:   | R_merge_void_right _ _ => rfl
+ 301: /-- If `kappaM t ≠ 0`, merge-cancel is blocked at root; vacuous ctx-local join. -/
+ 302: theorem localJoin_ctx_merge_cancel_guard_kappa_ne (t : Trace)
+ 303:     (h0ne : MetaSN_DM.kappaM t ≠ 0) : LocalJoinSafe_ctx (merge t t) := by
+ 304:   refine localJoin_of_unique_ctx (a := merge t t) (d := t) ?h
+ 306:   | R_merge_cancel _ _ h0 => exact (False.elim (h0ne h0))
+ 307:   | R_merge_void_left _ _ => rfl
+ 308:   | R_merge_void_right _ _ => rfl
+ 310: /-- At `recΔ b s void`, if `deltaFlag b ≠ 0` then the rec-zero rule is blocked. -/
+ 312:     (hδne : deltaFlag b ≠ 0) : LocalJoinSafe_ctx (recΔ b s void) := by
+ 313:   refine localJoin_of_none_ctx (a := recΔ b s void) ?h
+ 317: /-- At `integrate t`, if `t` is not a `delta _`, then there is no safe root step (ctx). -/
+ 318: theorem localJoin_ctx_integrate_non_delta (t : Trace)
+ 319:     (hnd : ∀ u, t ≠ delta u) : LocalJoinSafe_ctx (integrate t) := by
+ 320:   refine localJoin_of_none_ctx (a := integrate t) ?h
+ 324: /-- At `recΔ b s n`, if `n ≠ void` and `n` is not a `delta _`, then no safe root step (ctx). -/
+ 326:     (hn0 : n ≠ void) (hns : ∀ u, n ≠ delta u) : LocalJoinSafe_ctx (recΔ b s n) := by
+ 327:   refine localJoin_of_none_ctx (a := recΔ b s n) ?h
+ 334: /-- Conditional join for the eqW peak: if `merge a a` context-reduces to a `delta n`, then
+ 335:  the two root branches from `eqW a a` context-join at `void`. -/
+ 336: theorem localJoin_eqW_refl_ctx_if_merges_to_delta (a n : Trace)
+ 337:   (hmd : SafeStepCtxStar (merge a a) (delta n)) :
+ 338:   LocalJoinSafe_ctx (eqW a a) := by
+ 345:     | R_eq_refl _ _ => exact ⟨void, SafeStepCtxStar.refl _, SafeStepCtxStar.refl _⟩
+ 347:       -- c = integrate (merge a a) ⇒ctx* integrate (delta n) → void
+ 348:       have h_to_delta : SafeStepCtxStar (integrate (merge a a)) (integrate (delta n)) :=
+ 349:         ctxstar_integrate hmd
+ 350:       have h_to_void : SafeStepCtxStar (integrate (delta n)) void :=
+ 351:         ctxstar_of_root (SafeStep.R_int_delta n)
+ 352:       exact ⟨void, SafeStepCtxStar.refl _, ctxstar_trans h_to_delta h_to_void⟩
+ 354:     -- b = integrate (merge a a)
+ 357:       have h_to_delta : SafeStepCtxStar (integrate (merge a a)) (integrate (delta n)) :=
+ 358:         ctxstar_integrate hmd
+ 359:       have h_to_void : SafeStepCtxStar (integrate (delta n)) void :=
+ 360:         ctxstar_of_root (SafeStep.R_int_delta n)
+ 361:       exact ⟨void, ctxstar_trans h_to_delta h_to_void, SafeStepCtxStar.refl _⟩
+ 364:   exact ⟨integrate (merge a a), SafeStepCtxStar.refl _, SafeStepCtxStar.refl _⟩
+ 367: `merge a a ⇒ctx* delta n`. -/
+ 368: theorem ctxstar_merge_cancel_of_arg_to_delta
+ 370:   (ha : SafeStepCtxStar a (delta n))
+ 371:   (hδ : deltaFlag (delta n) = 0)
+ 372:   (h0 : MetaSN_DM.kappaM (delta n) = 0) :
+ 373:   SafeStepCtxStar (merge a a) (delta n) := by
+ 375:   have hL : SafeStepCtxStar (merge a a) (merge (delta n) a) := ctxstar_mergeL ha
+ 377:   have hR : SafeStepCtxStar (merge (delta n) a) (merge (delta n) (delta n)) := ctxstar_mergeR ha
+ 379:   have hC : SafeStepCtxStar (merge (delta n) (delta n)) (delta n) :=
+ 380:     ctxstar_of_root (SafeStep.R_merge_cancel (t := delta n) hδ h0)
+ 384: `merge a a ⇒ctx* delta n`. -/
+ 385: theorem ctxstar_merge_cancel_of_arg_star_to_delta
+ 387:   (ha : SafeStepStar a (delta n))
+ 388:   (hδ : deltaFlag (delta n) = 0)
+ 389:   (h0 : MetaSN_DM.kappaM (delta n) = 0) :
+ 390:   SafeStepCtxStar (merge a a) (delta n) := by
+ 391:   have ha_ctx : SafeStepCtxStar a (delta n) := ctxstar_of_star ha
+ 392:   exact ctxstar_merge_cancel_of_arg_to_delta a n ha_ctx hδ h0
+ 394: /-- Conditional local join for `eqW a a` from an argument-to-delta premise.
+ 397: theorem localJoin_eqW_refl_ctx_if_arg_merges_to_delta (a n : Trace)
+ 398:   (ha : SafeStepCtxStar a (delta n))
+ 399:   (hδ : deltaFlag (delta n) = 0)
+ 400:   (h0 : MetaSN_DM.kappaM (delta n) = 0) :
+ 401:   LocalJoinSafe_ctx (eqW a a) := by
+ 402:   -- derive the stronger merge→delta premise and reuse previous lemma
+ 403:   have hmd : SafeStepCtxStar (merge a a) (delta n) :=
+ 404:     ctxstar_merge_cancel_of_arg_to_delta a n ha hδ h0
+ 407:   exact (localJoin_eqW_refl_ctx_if_merges_to_delta a n hmd) hb hc
+ 410: theorem localJoin_eqW_refl_ctx_if_arg_star_to_delta (a n : Trace)
+ 411:   (ha : SafeStepStar a (delta n))
+ 412:   (hδ : deltaFlag (delta n) = 0)
+ 413:   (h0 : MetaSN_DM.kappaM (delta n) = 0) :
+ 414:   LocalJoinSafe_ctx (eqW a a) := by
+ 415:   -- embed SafeStepStar into SafeStepCtxStar
+ 416:   have ha_ctx : SafeStepCtxStar a (delta n) := ctxstar_of_star ha
+ 419:   exact (localJoin_eqW_refl_ctx_if_arg_merges_to_delta a n ha_ctx hδ h0) hb hc
+ 421: /-- Variant: if `normalizeSafe (merge a a) = delta n`, then we can reuse the
+ 422: merges-to-delta lemma directly to obtain a ctx-local join for `eqW a a`. -/
+ 423: theorem localJoin_eqW_refl_ctx_if_merge_normalizes_to_delta (a n : Trace)
+ 424:   (hn : normalizeSafe (merge a a) = delta n) :
+ 425:   LocalJoinSafe_ctx (eqW a a) := by
+ 427:   have hmd_star : SafeStepStar (merge a a) (normalizeSafe (merge a a)) :=
+ 428:     to_norm_safe (merge a a)
+ 429:   have hmd_ctx : SafeStepCtxStar (merge a a) (delta n) := by
+ 431:   -- apply the merges-to-delta variant to the given branches
+ 433:   exact (localJoin_eqW_refl_ctx_if_merges_to_delta a n hmd_ctx) hb hc
+ 435: /-- If `merge a a ⇒ctx* delta n` then `integrate (merge a a) ⇒ctx* void`. -/
+ 436: theorem ctxstar_integrate_merge_to_void_of_mergeToDelta (a n : Trace)
+ 437:   (hmd : SafeStepCtxStar (merge a a) (delta n)) :
+ 438:   SafeStepCtxStar (integrate (merge a a)) void := by
+ 439:   have h_to_delta : SafeStepCtxStar (integrate (merge a a)) (integrate (delta n)) :=
+ 440:     ctxstar_integrate hmd
+ 441:   have h_to_void : SafeStepCtxStar (integrate (delta n)) void :=
+ 442:     ctxstar_of_root (SafeStep.R_int_delta n)
+ 445: /-- If `normalizeSafe (merge a a) = delta n` then `integrate (merge a a) ⇒ctx* void`. -/
+ 446: theorem ctxstar_integrate_merge_to_void_of_merge_normalizes_to_delta (a n : Trace)
+ 447:   (hn : normalizeSafe (merge a a) = delta n) :
+ 448:   SafeStepCtxStar (integrate (merge a a)) void := by
+ 449:   have hmd_star : SafeStepStar (merge a a) (normalizeSafe (merge a a)) :=
+ 450:     to_norm_safe (merge a a)
+ 451:   have hmd_ctx : SafeStepCtxStar (merge a a) (delta n) := by
+ 453:   exact ctxstar_integrate_merge_to_void_of_mergeToDelta a n hmd_ctx
+ 455: /-- If `integrate (merge a a) ⇒ctx* void`, then `eqW a a` has a ctx-local join at `void`. -/
+ 456: theorem localJoin_eqW_refl_ctx_if_integrate_merge_to_void (a : Trace)
+ 457:   (hiv : SafeStepCtxStar (integrate (merge a a)) void) :
+ 458:   LocalJoinSafe_ctx (eqW a a) := by
+ 464:       exact ⟨void, SafeStepCtxStar.refl _, SafeStepCtxStar.refl _⟩
+ 466:       exact ⟨void, SafeStepCtxStar.refl _, hiv⟩
+ 470:       exact ⟨void, hiv, SafeStepCtxStar.refl _⟩
+ 472:       exact ⟨integrate (merge a a), SafeStepCtxStar.refl _, SafeStepCtxStar.refl _⟩
+ 474: /-- At `eqW a b` with `a ≠ b`, only the diff rule applies; ctx-local join is trivial. -/
+ 475: theorem localJoin_eqW_ne_ctx (a b : Trace) (hne : a ≠ b) : LocalJoinSafe_ctx (eqW a b) := by
+ 476:   refine localJoin_of_unique_ctx (a := eqW a b) (d := integrate (merge a b)) ?h
+ 482: /-- At `eqW a a`, if `kappaM a ≠ 0`, the reflexive rule is blocked; only diff applies. -/
+ 483: theorem localJoin_eqW_refl_ctx_guard_ne (a : Trace)
+ 484:   (h0ne : MetaSN_DM.kappaM a ≠ 0) : LocalJoinSafe_ctx (eqW a a) := by
+ 485:   refine localJoin_of_unique_ctx (a := eqW a a) (d := integrate (merge a a)) ?h
+ 496: `eqW a a` has a context-closed local join at `void`. -/
+ 497: theorem localJoin_eqW_refl_ctx_when_a_is_delta (n : Trace)
+ 498:   (hδ : deltaFlag (delta n) = 0)
+ 499:   (h0 : MetaSN_DM.kappaM (delta n) = 0) :
+ 500:   LocalJoinSafe_ctx (eqW (delta n) (delta n)) := by
+ 503:   -- build the LocalJoinSafe_ctx witness once, then apply to the given branches
+ 504:   have ha : SafeStepCtxStar (delta n) (delta n) := SafeStepCtxStar.refl _
+ 505:   have hj : LocalJoinSafe_ctx (eqW (delta n) (delta n)) :=
+ 506:     localJoin_eqW_refl_ctx_if_arg_merges_to_delta (a := delta n) (n := n) ha hδ h0
+ 510: `eqW a a` has a context-closed local join at `void`. -/
+ 511: theorem localJoin_eqW_refl_ctx_if_normalizes_to_delta (a n : Trace)
+ 512:   (hn : normalizeSafe a = delta n)
+ 513:   (hδ : deltaFlag (delta n) = 0)
+ 514:   (h0 : MetaSN_DM.kappaM (delta n) = 0) :
+ 515:   LocalJoinSafe_ctx (eqW a a) := by
+ 518:   have ha_star : SafeStepStar a (normalizeSafe a) := to_norm_safe a
+ 519:   have ha_ctx : SafeStepCtxStar a (normalizeSafe a) := ctxstar_of_star ha_star
+ 520:   -- build the LocalJoinSafe_ctx witness using the arg→delta bridge
+ 521:   have hj : LocalJoinSafe_ctx (eqW a a) :=
+ 522:     localJoin_eqW_refl_ctx_if_arg_merges_to_delta (a := a) (n := n)
+
+==== 06_Confluence_Safe.md ====
+   9: import OperatorKernelO6.Meta.SafeStep_Ctx
+  17: def LocalJoinSafe (a : Trace) : Prop :=
+  18:   ∀ {b c}, SafeStep a b → SafeStep a c → ∃ d, SafeStepStar b d ∧ SafeStepStar c d
+  22:     (h : ∀ {b}, SafeStep a b → False) : LocalJoinSafe a := by
+  28:     (h : ∀ {b}, SafeStep a b → b = d) : LocalJoinSafe a := by
+  33:   · simpa [hb'] using (SafeStepStar.refl d)
+  34:   · simpa [hc'] using (SafeStepStar.refl d)
+  36: /-- If there are no safe root steps from `a`, any `SafeStepStar a d` must be reflexive. -/
+  38:     (h : ∀ {b}, SafeStep a b → False) : SafeStepStar a d → d = a := by
+  46: theorem localJoin_of_nf (a : Trace) (hnf : NormalFormSafe a) : LocalJoinSafe a := by
+  50: /-- Root critical peak at `merge void void` is trivially joinable:
+  52: theorem localJoin_merge_void_void : LocalJoinSafe (merge void void) := by
+  55:   have hb_refl : SafeStepStar b void := by
+  57:     | R_merge_void_left t hδ =>
+  58:         -- Here a = merge void t unifies with merge void void, so t = void and b = void.
+  59:         exact SafeStepStar.refl _
+  60:     | R_merge_void_right t hδ =>
+  61:         exact SafeStepStar.refl _
+  62:     | R_merge_cancel t hδ h0 =>
+  63:         exact SafeStepStar.refl _
+  64:   have hc_refl : SafeStepStar c void := by
+  66:     | R_merge_void_left t hδ =>
+  67:         exact SafeStepStar.refl _
+  68:     | R_merge_void_right t hδ =>
+  69:         exact SafeStepStar.refl _
+  70:     | R_merge_cancel t hδ h0 =>
+  71:         exact SafeStepStar.refl _
+  74: /-- At `integrate (delta t)` there is only one safe root rule; local join is trivial. -/
+  75: theorem localJoin_int_delta (t : Trace) : LocalJoinSafe (integrate (delta t)) := by
+  77:   have hb_refl : SafeStepStar b void := by
+  79:     | R_int_delta _ => exact SafeStepStar.refl _
+  80:   have hc_refl : SafeStepStar c void := by
+  82:     | R_int_delta _ => exact SafeStepStar.refl _
+  85: /-- At `integrate void`, no safe root rule applies (not a `delta _`); vacuous. -/
+  86: theorem localJoin_integrate_void : LocalJoinSafe (integrate void) := by
+  87:   refine localJoin_of_none (a := integrate void) ?h
+  91: /-- At `integrate (merge a b)`, there is no safe root rule; join vacuously. -/
+  92: theorem localJoin_integrate_merge (a b : Trace) : LocalJoinSafe (integrate (merge a b)) := by
+  93:   refine localJoin_of_none (a := integrate (merge a b)) ?h
+  96: /-- At `integrate (app a b)`, there is no safe root rule; join vacuously. -/
+  97: theorem localJoin_integrate_app (a b : Trace) : LocalJoinSafe (integrate (app a b)) := by
+  98:   refine localJoin_of_none (a := integrate (app a b)) ?h
+ 101: /-- At `integrate (eqW a b)`, there is no safe root rule; join vacuously. -/
+ 102: theorem localJoin_integrate_eqW (a b : Trace) : LocalJoinSafe (integrate (eqW a b)) := by
+ 103:   refine localJoin_of_none (a := integrate (eqW a b)) ?h
+ 106: /-- At `integrate (integrate t)`, there is no safe root rule; join vacuously. -/
+ 107: theorem localJoin_integrate_integrate (t : Trace) : LocalJoinSafe (integrate (integrate t)) := by
+ 108:   refine localJoin_of_none (a := integrate (integrate t)) ?h
+ 111: /-- At `integrate (recΔ b s n)`, there is no safe root rule; join vacuously. -/
+ 112: theorem localJoin_integrate_rec (b s n : Trace) : LocalJoinSafe (integrate (recΔ b s n)) := by
+ 113:   refine localJoin_of_none (a := integrate (recΔ b s n)) ?h
+ 116: /-- At `merge void t` there is only one safe root rule; local join is trivial. -/
+ 117: theorem localJoin_merge_void_left (t : Trace) : LocalJoinSafe (merge void t) := by
+ 119:   have hb_refl : SafeStepStar b t := by
+ 121:     | R_merge_void_left _ _ => exact SafeStepStar.refl _
+ 122:     | R_merge_void_right _ _ => exact SafeStepStar.refl _
+ 123:     | R_merge_cancel _ _ _ => exact SafeStepStar.refl _
+ 124:   have hc_refl : SafeStepStar c t := by
+ 126:     | R_merge_void_left _ _ => exact SafeStepStar.refl _
+ 127:     | R_merge_void_right _ _ => exact SafeStepStar.refl _
+ 128:     | R_merge_cancel _ _ _ => exact SafeStepStar.refl _
+ 131: /-- At `merge t void` there is only one safe root rule; local join is trivial. -/
+ 132: theorem localJoin_merge_void_right (t : Trace) : LocalJoinSafe (merge t void) := by
+ 134:   have hb_refl : SafeStepStar b t := by
+ 136:     | R_merge_void_right _ _ => exact SafeStepStar.refl _
+ 137:     | R_merge_void_left _ _ => exact SafeStepStar.refl _
+ 138:     | R_merge_cancel _ _ _ => exact SafeStepStar.refl _
+ 139:   have hc_refl : SafeStepStar c t := by
+ 141:     | R_merge_void_right _ _ => exact SafeStepStar.refl _
+ 142:     | R_merge_void_left _ _ => exact SafeStepStar.refl _
+ 143:     | R_merge_cancel _ _ _ => exact SafeStepStar.refl _
+ 146: /-- At `recΔ b s void` there is only one safe root rule; local join is trivial. -/
+ 147: theorem localJoin_rec_zero (b s : Trace) : LocalJoinSafe (recΔ b s void) := by
+ 149:   have hx_refl : SafeStepStar x b := by
+ 151:     | R_rec_zero _ _ _ => exact SafeStepStar.refl _
+ 152:   have hy_refl : SafeStepStar y b := by
+ 154:     | R_rec_zero _ _ _ => exact SafeStepStar.refl _
+ 157: /-- At `recΔ b s (delta n)` there is only one safe root rule; local join is trivial. -/
+ 158: theorem localJoin_rec_succ (b s n : Trace) : LocalJoinSafe (recΔ b s (delta n)) := by
+ 160:   have hx_refl : SafeStepStar x (app s (recΔ b s n)) := by
+ 162:     | R_rec_succ _ _ _ => exact SafeStepStar.refl _
+ 163:   have hy_refl : SafeStepStar y (app s (recΔ b s n)) := by
+ 165:     | R_rec_succ _ _ _ => exact SafeStepStar.refl _
+ 166:   exact ⟨app s (recΔ b s n), hx_refl, hy_refl⟩
+ 168: /-- At `merge t t`, any applicable safe rule reduces to `t`; local join is trivial. -/
+ 169: theorem localJoin_merge_tt (t : Trace) : LocalJoinSafe (merge t t) := by
+ 171:   have hb_refl : SafeStepStar b t := by
+ 173:     | R_merge_cancel _ _ _ => exact SafeStepStar.refl _
+ 174:     | R_merge_void_left _ _ => exact SafeStepStar.refl _
+ 175:     | R_merge_void_right _ _ => exact SafeStepStar.refl _
+ 176:   have hc_refl : SafeStepStar c t := by
+ 178:     | R_merge_cancel _ _ _ => exact SafeStepStar.refl _
+ 179:     | R_merge_void_left _ _ => exact SafeStepStar.refl _
+ 180:     | R_merge_void_right _ _ => exact SafeStepStar.refl _
+ 184: theorem localJoin_void : LocalJoinSafe void := by
+ 189: theorem localJoin_delta (t : Trace) : LocalJoinSafe (delta t) := by
+ 194: /-- Convenience: `merge void (delta n)` reduces uniquely to `delta n`. -/
+ 195: theorem localJoin_merge_void_delta (n : Trace) : LocalJoinSafe (merge void (delta n)) :=
+ 196:   localJoin_merge_void_left (delta n)
+ 198: /-- Convenience: `merge (delta n) void` reduces uniquely to `delta n`. -/
+ 199: theorem localJoin_merge_delta_void (n : Trace) : LocalJoinSafe (merge (delta n) void) :=
+ 200:   localJoin_merge_void_right (delta n)
+ 202: /-- Convenience: `merge (delta n) (delta n)` reduces (by cancel) to `delta n`. -/
+ 203: theorem localJoin_merge_delta_delta (n : Trace) : LocalJoinSafe (merge (delta n) (delta n)) :=
+ 204:   localJoin_merge_tt (delta n)
+ 206: /-- At `eqW a b` with `a ≠ b`, only `R_eq_diff` applies at the root; local join is trivial. -/
+ 207: theorem localJoin_eqW_ne (a b : Trace) (hne : a ≠ b) : LocalJoinSafe (eqW a b) := by
+ 208:   -- Unique target is `integrate (merge a b)`.
+ 209:   refine localJoin_of_unique (a := eqW a b) (d := integrate (merge a b)) ?h
+ 215: /-- At `eqW a a`, if `kappaM a ≠ 0`, `R_eq_refl` cannot fire; only `R_eq_diff` applies. -/
+ 216: theorem localJoin_eqW_refl_guard_ne (a : Trace) (h0ne : MetaSN_DM.kappaM a ≠ 0) :
+ 217:     LocalJoinSafe (eqW a a) := by
+ 218:   refine localJoin_of_unique (a := eqW a a) (d := integrate (merge a a)) ?h
+ 224: /-- The `eqW a a` root peak is not locally joinable when `kappaM a = 0`:
+ 225: one branch steps to `void` (refl) while the other steps to `integrate (merge a a)` (diff),
+ 226: and these targets cannot be joined by `SafeStepStar` (both are stuck). -/
+ 227: theorem not_localJoin_eqW_refl_when_kappa_zero (a : Trace)
+ 228:     (h0 : MetaSN_DM.kappaM a = 0) : ¬ LocalJoinSafe (eqW a a) := by
+ 231:   have hb : SafeStep (eqW a a) void := SafeStep.R_eq_refl a h0
+ 232:   have hc : SafeStep (eqW a a) (integrate (merge a a)) := SafeStep.R_eq_diff a a
+ 235:   have hnone_void : ∀ {x}, SafeStep void x → False := by intro x hx; cases hx
+ 237:   -- From `integrate (merge a a)` there are no outgoing steps; the star must be reflexive.
+ 238:   have hnone_int_merge : ∀ {x}, SafeStep (integrate (merge a a)) x → False := by
+ 240:   have hd_eq_int : d = integrate (merge a a) :=
+ 241:     star_only_refl_of_none (a := integrate (merge a a)) (d := d) hnone_int_merge hcStar
+ 242:   -- Contradiction: `integrate (merge a a) ≠ void`.
+ 243:   have hneq : integrate (merge a a) ≠ void := by intro h; cases h
+ 244:   have : integrate (merge a a) = void := by
+ 245:     -- d = integrate (merge a a) and d = void
+ 249: /-- Packaged blocker predicate for the eqW a a root peak. -/
+ 251:   MetaSN_DM.kappaM a = 0 ∧ ¬ LocalJoinSafe (eqW a a)
+ 253: /-- If `kappaM a = 0`, the eqW a a root peak is blocked (not locally joinable). -/
+ 254: theorem eqWReflRootPeakBlocked_of_kappa_zero (a : Trace)
+ 255:     (h0 : MetaSN_DM.kappaM a = 0) : EqWReflRootPeakBlocked a := by
+ 256:   exact And.intro h0 (not_localJoin_eqW_refl_when_kappa_zero a h0)
+ 258: /-- If `deltaFlag t ≠ 0`, the left-void merge rule cannot apply; no competing branch. -/
+ 259: theorem localJoin_merge_void_left_guard_ne (t : Trace)
+ 260:     (hδne : deltaFlag t ≠ 0) : LocalJoinSafe (merge void t) := by
+ 261:   refine localJoin_of_unique (a := merge void t) (d := t) ?h
+ 264:   | R_merge_void_left _ hδ => exact (False.elim (hδne hδ))
+ 265:   | R_merge_void_right _ _ => rfl
+ 266:   | R_merge_cancel _ _ _ => rfl
+ 268: /-- If `deltaFlag t ≠ 0`, the right-void merge rule cannot apply; no competing branch. -/
+ 269: theorem localJoin_merge_void_right_guard_ne (t : Trace)
+ 270:     (hδne : deltaFlag t ≠ 0) : LocalJoinSafe (merge t void) := by
+ 271:   refine localJoin_of_unique (a := merge t void) (d := t) ?h
+ 274:   | R_merge_void_right _ hδ => exact (False.elim (hδne hδ))
+ 275:   | R_merge_void_left _ _ => rfl
+ 276:   | R_merge_cancel _ _ _ => rfl
+ 278: /-- If `deltaFlag t ≠ 0`, merge-cancel is blocked at root; vacuous local join. -/
+ 279: theorem localJoin_merge_cancel_guard_delta_ne (t : Trace)
+ 280:     (hδne : deltaFlag t ≠ 0) : LocalJoinSafe (merge t t) := by
+ 281:   refine localJoin_of_unique (a := merge t t) (d := t) ?h
+ 284:   | R_merge_cancel _ hδ _ => exact (False.elim (hδne hδ))
+ 285:   | R_merge_void_left _ _ => rfl
+ 286:   | R_merge_void_right _ _ => rfl
+ 288: /-- If `kappaM t ≠ 0`, merge-cancel is blocked at root; vacuous local join. -/
+ 289: theorem localJoin_merge_cancel_guard_kappa_ne (t : Trace)
+ 290:     (h0ne : MetaSN_DM.kappaM t ≠ 0) : LocalJoinSafe (merge t t) := by
+ 291:   refine localJoin_of_unique (a := merge t t) (d := t) ?h
+ 294:   | R_merge_cancel _ _ h0 => exact (False.elim (h0ne h0))
+ 295:   | R_merge_void_left _ _ => rfl
+ 296:   | R_merge_void_right _ _ => rfl
+ 298: /-- At `recΔ b s void`, if `deltaFlag b ≠ 0` then the rec-zero rule is blocked. -/
+ 300:     (hδne : deltaFlag b ≠ 0) : LocalJoinSafe (recΔ b s void) := by
+ 301:   refine localJoin_of_none (a := recΔ b s void) ?h
+ 306: /-- At `integrate t`, if `t` is not a `delta _`, then there is no safe root step. -/
+ 307: theorem localJoin_integrate_non_delta (t : Trace)
+ 308:     (hnd : ∀ u, t ≠ delta u) : LocalJoinSafe (integrate t) := by
+ 309:   refine localJoin_of_none (a := integrate t) ?h
+ 314: /-- At `recΔ b s n`, if `n ≠ void` and `n` is not a `delta _`, then no safe root step. -/
+ 316:     (hn0 : n ≠ void) (hns : ∀ u, n ≠ delta u) : LocalJoinSafe (recΔ b s n) := by
+ 317:   refine localJoin_of_none (a := recΔ b s n) ?h
+ 324: theorem localJoin_app (a b : Trace) : LocalJoinSafe (app a b) := by
+ 329: /-- At `recΔ b s (merge a c)`, no safe root rule (scrutinee not void/delta). -/
+ 330: theorem localJoin_rec_merge (b s a c : Trace) : LocalJoinSafe (recΔ b s (merge a c)) := by
+ 331:   refine localJoin_of_none (a := recΔ b s (merge a c)) ?h
+ 334: /-- At `recΔ b s (app a c)`, no safe root rule (scrutinee not void/delta). -/
+ 335: theorem localJoin_rec_app (b s a c : Trace) : LocalJoinSafe (recΔ b s (app a c)) := by
+ 336:   refine localJoin_of_none (a := recΔ b s (app a c)) ?h
+ 339: /-- At `recΔ b s (integrate t)`, no safe root rule (scrutinee not void/delta). -/
+ 340: theorem localJoin_rec_integrate (b s t : Trace) : LocalJoinSafe (recΔ b s (integrate t)) := by
+ 341:   refine localJoin_of_none (a := recΔ b s (integrate t)) ?h
+ 344: /-- At `recΔ b s (eqW a c)`, no safe root rule (scrutinee not void/delta). -/
+ 345: theorem localJoin_rec_eqW (b s a c : Trace) : LocalJoinSafe (recΔ b s (eqW a c)) := by
+ 346:   refine localJoin_of_none (a := recΔ b s (eqW a c)) ?h
+ 349: /-- At `merge a b`, if neither side is `void` and `a ≠ b`, then no safe root step. -/
+ 350: theorem localJoin_merge_no_void_neq (a b : Trace)
+ 351:     (hav : a ≠ void) (hbv : b ≠ void) (hneq : a ≠ b) : LocalJoinSafe (merge a b) := by
+ 352:   refine localJoin_of_none (a := merge a b) ?h
+ 355:   | R_merge_void_left _ _ => exact (hav rfl)
+ 356:   | R_merge_void_right _ _ => exact (hbv rfl)
+ 357:   | R_merge_cancel _ _ _ => exact (hneq rfl)
+ 360: theorem localJoin_if_normalize_fixed (a : Trace) (hfix : normalizeSafe a = a) :
+ 361:     LocalJoinSafe a := by
+ 371: This embeds the root `SafeStepStar` witnesses into `SafeStepCtxStar`. -/
+ 373:     (h : LocalJoinSafe a) : LocalJoinSafe_ctx a := by
+ 382: /-- Ctx wrapper: if neither side is void and `a ≠ b`, then ctx-local join holds at `merge a b`. -/
+ 383: theorem localJoin_ctx_merge_no_void_neq (a b : Trace)
+ 385:     LocalJoinSafe_ctx (merge a b) :=
+ 386:   localJoin_ctx_of_localJoin (a := merge a b)
+ 387:     (h := localJoin_merge_no_void_neq a b hav hbv hneq)
+ 393: /-- Ctx wrapper: eqW distinct arguments have ctx-local join (only diff rule applies). -/
+ 394: theorem localJoin_ctx_eqW_ne (a b : Trace) (hne : a ≠ b) :
+ 395:     LocalJoinSafe_ctx (eqW a b) :=
+ 396:   localJoin_ctx_of_localJoin (a := eqW a b)
+ 397:     (h := localJoin_eqW_ne a b hne)
+ 399: /-- Ctx wrapper: at eqW a a with kappaM a ≠ 0, only diff applies; ctx-local join holds. -/
+ 400: theorem localJoin_ctx_eqW_refl_guard_ne (a : Trace)
+ 401:     (h0ne : MetaSN_DM.kappaM a ≠ 0) :
+ 402:     LocalJoinSafe_ctx (eqW a a) :=
+ 403:   localJoin_ctx_of_localJoin (a := eqW a a)
+ 404:     (h := localJoin_eqW_refl_guard_ne a h0ne)
+ 410: /-- Ctx wrapper: if `normalizeSafe (merge a a) = delta n`, eqW a a ctx-joins. -/
+ 411: theorem localJoin_ctx_eqW_refl_if_merge_normalizes_to_delta (a n : Trace)
+ 412:     (hn : normalizeSafe (merge a a) = delta n) :
+ 413:     LocalJoinSafe_ctx (eqW a a) :=
+ 414:   localJoin_eqW_refl_ctx_if_merge_normalizes_to_delta a n hn
+ 416: /-- Ctx wrapper: if `integrate (merge a a) ⇒ctx* void`, eqW a a ctx-joins at void. -/
+ 417: theorem localJoin_ctx_eqW_refl_if_integrate_merge_to_void (a : Trace)
+ 418:     (hiv : SafeStepCtxStar (integrate (merge a a)) void) :
+ 419:     LocalJoinSafe_ctx (eqW a a) :=
+ 420:   localJoin_eqW_refl_ctx_if_integrate_merge_to_void a hiv
+ 422: /-- Ctx wrapper: if `a ⇒* delta n` and guards hold on `delta n`, eqW a a ctx-joins. -/
+ 423: theorem localJoin_ctx_eqW_refl_if_arg_star_to_delta (a n : Trace)
+ 424:     (ha : SafeStepStar a (delta n))
+ 425:     (hδ : deltaFlag (delta n) = 0)
+ 426:     (h0 : MetaSN_DM.kappaM (delta n) = 0) :
+ 427:     LocalJoinSafe_ctx (eqW a a) :=
+ 428:   localJoin_eqW_refl_ctx_if_arg_star_to_delta a n ha hδ h0
+ 430: /-- Ctx wrapper: if `normalizeSafe a = delta n` and guards hold, eqW a a ctx-joins. -/
+ 431: theorem localJoin_ctx_eqW_refl_if_normalizes_to_delta (a n : Trace)
+ 432:     (hn : normalizeSafe a = delta n)
+ 433:     (hδ : deltaFlag (delta n) = 0)
+ 434:     (h0 : MetaSN_DM.kappaM (delta n) = 0) :
+ 435:     LocalJoinSafe_ctx (eqW a a) :=
+ 436:   localJoin_eqW_refl_ctx_if_normalizes_to_delta a n hn hδ h0
+ 442: /-- Ctx wrapper: when `a` is literally `delta n` and guards hold, eqW (delta n) (delta n) ctx-joins. -/
+ 443: theorem localJoin_ctx_eqW_refl_when_a_is_delta (n : Trace)
+ 444:     (hδ : deltaFlag (delta n) = 0)
+ 445:     (h0 : MetaSN_DM.kappaM (delta n) = 0) :
+ 446:     LocalJoinSafe_ctx (eqW (delta n) (delta n)) :=
+ 447:   localJoin_eqW_refl_ctx_when_a_is_delta n hδ h0
+
+==== 07_Newman_Safe.md ====
+  15: def LocalJoinAt (a : Trace) : Prop :=
+  16:   ∀ {b c}, SafeStep a b → SafeStep a c → ∃ d, SafeStepStar b d ∧ SafeStepStar c d
+  19: def ConfluentSafe : Prop :=
+  20:   ∀ a b c, SafeStepStar a b → SafeStepStar a c → ∃ d, SafeStepStar b d ∧ SafeStepStar c d
+  26:   (hab : SafeStep a b) : ∃ d, SafeStepStar b d ∧ SafeStepStar a d := by
+  28:   · exact SafeStepStar.refl b
+  35:   (loc : LocalJoinAt a)
+  36:   (joinSS : ∀ {x y z}, SafeStepStar x y → SafeStepStar x z → ∃ d, SafeStepStar y d ∧ SafeStepStar z d)
+  37:   (hab : SafeStep a b) (hac₁ : SafeStep a c₁) (hct : SafeStepStar c₁ c)
+  38:   : ∃ d, SafeStepStar b d ∧ SafeStepStar c d := by
+  49:   (locAll : ∀ a, LocalJoinAt a)
+  50:   (joinSS : ∀ {x y z}, SafeStepStar x y → SafeStepStar x z → ∃ d, SafeStepStar y d ∧ SafeStepStar z d)
+  52:   (hab : SafeStep a b) (hac : SafeStepStar a c)
+  53:   : ∃ d, SafeStepStar b d ∧ SafeStepStar c d := by
+  65: -- Main engine: star–star join at a fixed source, by Acc recursion on SafeStepRev at the source.
+  67:   (locAll : ∀ a, LocalJoinAt a)
+  68:   : ∀ x, Acc SafeStepRev x → ∀ {y z : Trace}, SafeStepStar x y → SafeStepStar x z → ∃ d, SafeStepStar y d ∧ SafeStepStar z d := by
+  80:     exact ⟨z, hxz, SafeStepStar.refl z⟩
+  87:       exact ⟨y, SafeStepStar.refl y, SafeStepStar.tail hxb1 hb1y⟩
+  95:       have hb1d₁ : SafeStepStar b1 d₁ := safestar_trans hb1e hed₁
+ 102:   (locAll : ∀ a, LocalJoinAt a)
+ 104:   (hab : SafeStepStar a b) (hac : SafeStepStar a c)
+ 105:   : ∃ d, SafeStepStar b d ∧ SafeStepStar c d := by
+ 106:   exact join_star_star_at locAll a (acc_SafeStepRev a) hab hac
+ 109: theorem newman_safe (locAll : ∀ a, LocalJoinAt a) : ConfluentSafe := by
+ 119: /-- Global confluence from local join everywhere (alias of `newman_safe`). -/
+ 121:     (locAll : ∀ a, LocalJoinAt a) : ConfluentSafe :=
+ 122:   newman_safe locAll
+ 126:     (locAll : ∀ a, LocalJoinAt a)
+ 128:     (h₁ : SafeStepStar a n₁) (h₂ : SafeStepStar a n₂)
+ 131:   have conf : ConfluentSafe := newman_safe locAll
+ 138: theorem normalizeSafe_unique_of_loc
+ 139:     (locAll : ∀ a, LocalJoinAt a)
+ 141:     (h : SafeStepStar t n) (hnf : NormalFormSafe n) :
+ 142:     n = normalizeSafe t := by
+ 146: theorem normalizeSafe_eq_of_star_of_loc
+ 147:     (locAll : ∀ a, LocalJoinAt a)
+ 148:     {a b : Trace} (h : SafeStepStar a b) :
+ 149:     normalizeSafe a = normalizeSafe b := by
+ 152:   have conf : ConfluentSafe := newman_safe locAll
+ 153:   obtain ⟨d, had, hbd⟩ := conf a (normalizeSafe a) (normalizeSafe b) ha (safestar_trans h hb)
+
+==== 10_Operational_Incompleteness.md ====
+ 241: lemma r4_no_strict_drop_additive (x y : Term) :
+ 359: -- /-- Unknown identifier probe: `kappa` is not in this environment. -/
+ 360: -- -- CONSTRAINT BLOCKER (NameGate): `kappa` unknown.
+ 368: -- -- CONSTRAINT BLOCKER (NameGate): `kappa` unknown.
+ 416:     reuse `r4_no_strict_drop_additive` below. -/
+ 417:   dup_additive_nodrop_r4 : ∀ x y, ¬ size (R4_after x y) < size (R4_before x y)
+ 910:   dup_additive_nodrop_r4 := by
+ 911:     intro x y; exact r4_no_strict_drop_additive x y
+
+==== 11_Impossibility_Lemmas.md ====
+  69: /-- A simple depth-based counter for `recΔ` nodes. This was one of the first
+  72: def kappa : Trace → Nat
+  73:   | recΔ _ _ n => kappa n + 1
+  74:   | delta t    => kappa t
+  75:   | integrate t=> kappa t
+  76:   | merge a b  => max (kappa a) (kappa b)
+  77:   | app a b    => max (kappa a) (kappa b)
+  78:   | eqW a b    => max (kappa a) (kappa b)
+  85: /-! ### Theorem 1: Failure of `kappa + k`
+  90: theorem kappa_plus_k_fails (k : Nat) :
+  92:       kappa (app s (recΔ b s n)) + k < kappa (recΔ b s (delta n)) + k) := by
+  96:   -- the outer `delta` is cancelled by the `+1` from the inner `recΔ`.
+ 100:   simp [kappa]
+ 111:         (kappa (app s (recΔ b s n)), mu (app s (recΔ b s n)))
+ 112:         (kappa (recΔ b s (delta n)), mu (recΔ b s (delta n)))) := by
+ 114:   -- The counterexample is `n := void`, which becomes the base case for `recΔ`
+ 116:   use void, recΔ void void void, void
+ 119:   simp [kappa, mu]; decide
+ 132: @[simp] def deltaFlagTop : Trace → Nat
+ 136: /-- Concrete increase: `merge void (delta void) → delta void` raises `deltaFlagTop`
+ 139: theorem merge_void_raises_flag :
+ 141:     OperatorKernelO6.Step (Trace.merge Trace.void t) t ∧
+ 142:     deltaFlagTop (Trace.merge Trace.void t) < deltaFlagTop t := by
+ 144:   · -- The step exists by R_merge_void_left
+ 145:     exact OperatorKernelO6.Step.R_merge_void_left t
+ 146:   · -- Compute flags: top of `merge void (delta void)` is not `delta`.
+ 150:     simp [deltaFlagTop, ht]
+ 217: - `Meta/Termination_KO7.lean`: `drop_R_rec_succ` (outer δ‑flag drop),
+ 218:   `measure_decreases_safe`, `wf_SafeStepRev`, plus MPO variants.
+ 222: -- which use `MetaSN_Hybrid.hybrid_drop_of_step` to witness per-step decreases.
+ 224: /-! ## KO7 safe Lex3 — tiny cross-link examples (the “fix path”) -/
+ 230:    MetaSN_KO7.Lex3 (MetaSN_KO7.μ3 (app s (recΔ b s n)))
+ 231:                    (MetaSN_KO7.μ3 (recΔ b s (delta n))) := by
+ 232:    simpa using MetaSN_KO7.drop_R_rec_succ b s n
+ 236:    MetaSN_KO7.Lex3 (MetaSN_KO7.μ3 (app s (recΔ b s n)))
+ 237:                    (MetaSN_KO7.μ3 (recΔ b s (delta n))) := by
+ 240:        (MetaSN_KO7.SafeStep.R_rec_succ b s n))
+ 243: theorem wf_safe : WellFounded MetaSN_KO7.SafeStepRev := MetaSN_KO7.wf_SafeStepRev
+ 247: /-! ## HybridDec — one-liners via `hybrid_drop_of_step` (cross-link) -/
+ 252:   MetaSN_Hybrid.HybridDec (recΔ b s (delta n)) (app s (recΔ b s n)) := by
+ 254:     MetaSN_Hybrid.hybrid_drop_of_step
+ 257: lemma hybrid_merge_void_left (t : Trace) :
+ 258:   MetaSN_Hybrid.HybridDec (merge void t) t := by
+ 260:     MetaSN_Hybrid.hybrid_drop_of_step
+ 261:       (OperatorKernelO6.Step.R_merge_void_left t)
+ 264:   MetaSN_Hybrid.HybridDec (eqW a b) (integrate (merge a b)) := by
+ 266:     MetaSN_Hybrid.hybrid_drop_of_step
+

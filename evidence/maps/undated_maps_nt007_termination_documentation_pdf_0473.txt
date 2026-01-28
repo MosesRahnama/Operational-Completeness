@@ -1,0 +1,58 @@
+Termination Analysis - OperatorKernelO6
+File:
+ 
+OperatorKernelO6/Meta\Termination.lean
+Author:
+ Moses
+Generated:
+ 2025-08-05 01:07:41
+File Size:
+ 51890 characters
+Overview
+Complete termination proof with ordinal measures and mu_decreases theorem
+Source Code
+import OperatorKernelO6.Kernel
+import Init.WF
+import Mathlib.Algebra.Order.SuccPred
+import Mathlib.Data.Nat.Cast.Order.Basic
+import Mathlib.SetTheory.Ordinal.Basic
+import Mathlib.SetTheory.Ordinal.Arithmetic
+import Mathlib.SetTheory.Ordinal.Exponential
+import Mathlib.Algebra.Order.Monoid.Defs
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
+import Mathlib.Algebra.Order.GroupWithZero.Unbundled.Defs
+import Mathlib.Algebra.Order.Monoid.Unbundled.Basic
+import Mathlib.Tactic.Ring
+import Mathlib.Algebra.Order.Group.Defs
+import Mathlib.SetTheory.Ordinal.Principal
+import Mathlib.Tactic
+set_option linter.unnecessarySimpa false
+universe u
+open Ordinal
+open OperatorKernelO6
+open Trace
+namespace MetaSN
+noncomputable def mu : Trace  Ordinal.{0}
+| .void        => 0
+| .delta t     => (omega0 ^ (5 : Ordinal)) * (mu t + 1) + 1
+| .integrate t => (omega0 ^ (4 : Ordinal)) * (mu t + 1) + 1
+| .merge a b   =>
+    (omega0 ^ (3 : Ordinal)) * (mu a + 1) +
+    (omega0 ^ (2 : Ordinal)) * (mu b + 1) + 1
+| .rec b s n  =>
+    omega0 ^ (mu n + mu s + (6 : Ordinal))
+  + omega0 * (mu b + 1) + 1
+| .eqW a b     =>
+    omega0 ^ (mu a + mu b + (9 : Ordinal)) + 1
+theorem lt_add_one_of_le {x y : Ordinal} (h : x  y) : x < y + 1 :=
+  (Order.lt_add_one_iff (x := x) (y := y)).2 h
+theorem le_of_lt_add_one {x y : Ordinal} (h : x < y + 1) : x  y :=
+  (Order.lt_add_one_iff (x := x) (y := y)).1 h
+theorem mu_lt_delta (t : Trace) : mu t < mu (.delta t) := by
+  have h0 : mu t  mu t + 1 :=
+    le_of_lt ((Order.lt_add_one_iff (x := mu t) (y := mu t)).2 le_rfl)
+  have hb : 0 < (omega0 ^ (5 : Ordinal)) :=
+    (Ordinal.opow_pos (b := (5 : Ordinal)) (a0 := omega0_pos))
+    (Ordinal.opow_pos (b := (5 : Ordinal)) (a0 := omega0_pos))
+  have h1 : mu t + 1  (omeg

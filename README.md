@@ -17,14 +17,21 @@ We call this missing capability *Operational Completeness*: the computational Bo
 ```
 Operational-Completeness/
 ├── README.md                      # This file
-├── paper/                         # LaTeX source
-│   └── Operational_Completeness.tex
-├── evidence/                      # Curated evidence archive
-│   ├── EVIDENCE_MAP.md           # Claims → Files mapping
-│   ├── AI_FAILURES_DOCKET.md     # Comprehensive failure documentation
-│   ├── transcripts/              # Raw AI conversation logs
-│   ├── lean_graveyard/           # Failed termination proof attempts
-│   └── analysis/                 # Cognitive autopsies
+├── EVIDENCE_MAP.md               # How to find evidence after rename pass
+├── Paper/                         # PDF only
+│   └── OpComp_new.pdf
+├── evidence/                      # Evidence archive
+│   ├── maps/                      # Claims, coverage, and review maps
+│   ├── docket/                    # Failure docket and methods
+│   ├── extracts/                  # Short evidence extracts
+│   ├── tests/                     # Model test artifacts
+│   ├── transcripts/               # Raw chat logs
+│   ├── lean_graveyard/            # Failed termination proof attempts
+│   ├── analysis/                  # Diagnostics and autopsies
+│   ├── archive/                   # Legacy or uncategorized files
+│   ├── CROSSWALK.md               # Source path to repo path guidance
+│   ├── INDEX.md                   # Counts by category
+│   └── INDEX.csv                  # Source path, size, hash, time
 └── LICENSE
 ```
 

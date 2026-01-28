@@ -1,0 +1,66 @@
+GPT-5.1-Params_1.md 2025-12-09
+1 / 7
+Moses: give me model configurations for you, GPT-5.1, to be used in my IDE via API. with maximum reasoning
+powers.
+GPT-5.1-Extended Thinking:
+High level first:
+For maximum reasoning powers you want:
+The flagship model: gpt-5.1 (OpenAI Platform)
+Via OpenAI-compatible API (your local router or direct).
+With reasoning turned up: reasoning_effort: "high" (highest setting; lower values are none |
+low | medium). (OpenAI)
+With plenty of completion tokens and low temperature for reliability.
+Optional: 24h prompt caching for long-running agent/IDE sessions. (OpenAI)
+1. Target config at a glance
+Layer Setting Value (recommended) Purpose
+Transport Base URL
+http://localhost:8000/v1
+or
+https://api.openai.com/v1
+Where your IDE sends
+OpenAI-style requests
+Endpoint Path /chat/completions
+Safest, most widely
+supported in IDEs
+(Responses API is better
+but less common yet)
+(OpenAI Platform)
+Model model "gpt-5.1" Flagship GPT-5.1 model in
+API (OpenAI Platform)
+Reasoningreasoning_effort "high"
+Max reasoning depth;
+prioritize intelligence over
+latency (OpenAI)
+Tokens max_completion_tokens8192
+Big headroom for thinking
++ answer; below hard limits
+(OpenAI)
+Style temperature 0.2 Stable, low-noise reasoning
+Sampling top_p 1 Standard full support
+sampling
+System
+msg
+messages[0].role /
+content Strong, single system promptSteers behavior consistently
+GPT-5.1-Params_1.md 2025-12-09
+2 / 7
+Layer Setting Value (recommended) Purpose
+Caching prompt_cache_retention
+(optional) "24h" Keep long IDE sessions
+cheap/fast (OpenAI)
+2. Drop-in JSON body (for IDE custom model / router)
+Use this as your canonical config any time your IDE asks for the OpenAI chat/completions body or a default
+request template.
+{ 
+  "model": "gpt-5.1", 
+  "reasoning_effort": "high", 
+  "max_completion_tokens": 8192, 
+  "temperature": 0.2, 
+  "top_p": 1, 
+  "frequency_penalty": 0, 
+  "presence_penalty": 0, 
+  "prompt_cache_retention": "24h", 
+  "messages": [ 
+    { 
+      "role": "system", 
+    

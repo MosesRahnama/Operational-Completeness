@@ -1,0 +1,124 @@
+Complete_Core_Documentation
+File:
+ 
+Combined Document
+Type:
+ markdown
+Generated:
+ 2025-08-05 01:08:33
+Size:
+ 81041 characters
+Overview
+Complete documentation of all core documentation files in the OperatorKernelO6 project.
+Document Content
+Complete_Core_Documentation
+Complete documentation of all core documentation files in the OperatorKernelO6 project.
+Table of Contents
+- 
+Complete_Guide
+Operator_Centric_Foundations
+Termination_Companion
+Agent
+Complete_Guide
+Description:
+ Comprehensive guide to OperatorKernelO6
+File:
+ 
+C:\Users\Moses\math_ops\OperatorKernelO6\core_docs\OperatorKernelO6_COMPLETE_GUIDE.md
+AGENT.md  All
+
+in
+
+One AI Guide for OperatorKernelO6 /
+ 
+OperatorMath
+> 
+Audience:
+ LLMs/agents working on this repo.
+  
+> 
+Prime Directive:
+ Don't touch the kernel. Don't hallucinate lemmas/imports. Don't add axioms. 
+> 
+If unsure:
+raise a 
+CONSTRAINT BLOCKER
+.
+---
+0. TL;DR
+1. 
+Kernel is sacred.
+ 6 constructors, 8 rules. No edits unless explicitly approved. 2. 
+Inside kernel:
+ no 
+Nat
+,
+Bool
+, numerals, 
+simp
+, 
+rfl
+, pattern
+
+matches on non
+
+kernel stuff. Only 
+Prop
+ + recursors. 3. 
+Meta land:
+ You may
+use Nat/Bool, classical, tactics, WF recursion, and mostly the imports/lemmas listed in 8. 4. 
+Main jobs:
+ SN,
+normalize
+
+join confluence, arithmetic via 
+rec
+, internal equality via 
+eqW
+, provability & Gdel. 5. 
+Allowed
+outputs:
+ 
+PLAN
+, 
+CODE
+, 
+SEARCH
+, 
+CONSTRAINT BLOCKER
+ (formats in 6). 6. 
+Never drop, rename, or "simplify" rules
+or imports without approval.
+---
+1. Project
+Repo:
+ OperatorKernelO6 / OperatorMath 
+What it is:
+ A 
+procedural
+, 
+axiom
+
+free, numeral
+
+free, boolean
+
+free
+ foundation
+where 
+everything
+ (logic, arithmetic, provability, Gdel) is built from one inductive 
+Trace
+ type + a
+deterministic normalizer. No Peano axioms, no truth tables, no imported equality axioms.
+Core claims to protect:
+- 
+Axiom freedom
+ (no external logical/arithmetic schemes).
+Procedural truth:
+ propositions hold iff their trace normalizes to 
+void
+.
+Emergence:
+ numeral

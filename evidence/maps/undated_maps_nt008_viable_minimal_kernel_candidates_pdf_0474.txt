@@ -1,0 +1,24 @@
+VIABLE MINIMAL-KERNEL CANDIDATES (all assume  /
+ann / id / void rules already fixed)
+VIABLE MINIMAL-KERNEL CANDIDATES (all assume  / ann / id / void rules already fixed)
+ All options preserve cancellation negation provided complement-uniqueness lemma is proved.
+IMMEDIATE HIGH-RISK PROOFS (uncertain even in O-6) P1 Complement-Uniqueness:  x y z, merge x z * void   merge y z * void   x
+= y. Needed for sound negation, Boolean laws.
+P2 Global Confluence with eqW + rec: Must enumerate and join every peak (, ann, rec, rec, eq rules). Failure breaks Truth predicate
+(nf unique).
+P3 Internal Derivability Conditions D1D3: Formalise substitution inside Trace, show Prov encodes modus-ponens and -reflection.
+Mandatory for Gdel II. No prior literature in a terminating TRS; feasibility open.
+(if any of these three collapse, Gdel II collapses with them.)
+TIMELINE ESTIMATE Optimistic 23 weeks is plausible only if:  you automate critical-pair generation,  re-use existing Lean termination
+packages,  and keep proof objects highly mechanical.
+Otherwise typical completion times remain months.
+NEXT ACTION Pick O-6, focus sequentially:
+O-4 (4 OPERATORS) Core: void, delta, integrate, merge Extra rewrites: none How to get arithmetic: Church-style -chains, iteration
+via self-applied integrate/merge gadgets (no dedicated recursor). Equality: encode by exhaustive -unrolling inside a merge loop.
+Risks:  Strong-normalisation doubtful once self-application is allowed.  No clean internal equality   diagonal construction
+becomes meta only. Status: adequate for Robinson-Q-level arithmetic; Gdel I achievable meta-theoretically, Gdel II unlikely
+without extra operator.
+1.
+O-5A (5 OPERATORS: recursion) Core: void, delta, integrate, merge, rec New rules: Rrec rec b s void    b Rrec rec b s
+(delta n)  s (rec b s n) Arithmetic & bounded search become primitive-recursive inside the system. Equality: still needs meta
+traversal  diagonal inside still blocked. SN proof: by -height measure. Confluence: trivial 

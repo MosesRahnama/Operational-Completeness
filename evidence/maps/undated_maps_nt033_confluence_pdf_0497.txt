@@ -1,0 +1,29 @@
+Confluence
+File:
+ 
+C:\Users\Moses\math_ops\OperatorKernelO6\OperatorKernelO6\Meta\Confluence.lean
+Type:
+ lean
+Generated:
+ 2025-08-05 03:41:05
+Size:
+ 347 characters
+Overview
+Confluence properties and proofs
+Source Code
+import OperatorKernelO6.Kernel
+import Init.WF
+import OperatorKernelO6.Meta.Normalize
+open OperatorKernelO6 Trace Step
+namespace OperatorKernelO6.Meta
+def Confluent : Prop :=
+  
+
+ {a b c}, StepStar a b  StepStar a c  
+
+ d, StepStar b d 
+
+ StepStar c d
+theorem global_confluence : Confluent :=
+  confluent_via_normalize
+end OperatorKernelO6.Meta

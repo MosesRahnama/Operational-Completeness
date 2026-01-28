@@ -1,0 +1,118 @@
+ordinal-toolkit.md  OperatorKernelO6
+M
+OSES
+ R
+AHNAMA
+Mina Analytics
+G
+ENERATED
+:
+ 2025-08-05 05:20:24
+Overview
+ordinal-op-toolkit
+DOCUMENT CONTENT
+Version 20250729  authoritative, no placeholders; aligns with AGENT.md (same date)
+---
+0  SCOPE
+This toolkit consolidates 
+all ordinal facts, imports, nameprefix rules, and 
+
+measure patterns
+ required by the OperatorKernelO6 meta proofs
+(SN, confluence, arithmetic). It is the single source of truth for ordinal API usage and module locations. If a symbol is not listed here (or in
+AGENT.md 8), carefully evaluate the guidelines for using 
+out of documents
+ lemmas and tactics.
+---
+1  IMPORT & LIBRARY AUDIT (AUTHORITATIVE)
+> Use exactly these modules; the righthand column clarifies 
+what is found where
+. Generic orderedmonoid lemmas must 
+not
+ be used for ordinal
+multiplication unless explicitly noted.
+Area 
+| Correct import 
+| Contains / Notes 
+----------------------------- | ------------------------------------------------ | ----------------------------
+------------------------------------------------------------------------------------------------------------------------------------ 
+WF/Acc 
+Init.WF
+ 
+| 
+WellFounded
+, 
+Acc
+, 
+InvImage.wf
+, 
+Subrelation.wf
+ 
+Prod lex orders 
+| 
+Mathlib.Data.Prod.Lex
+ 
+| 
+Prod.Lex
+ for
+lexicographic measures 
+Ordinal basics 
+| 
+Mathlib.SetTheory.Ordinal.Basic
+ 
+| 
+omega0_pos
+, 
+one_lt_omega0
+, 
+lt_omega0
+nat_lt_omega0
+ 
+Ordinal arithmetic 
+| 
+Mathlib.SetTheory.Ordinal.Arithmetic
+ 
+| 
+Ordinal.add_
+, 
+Ordinal.mul_
+Ordinal.mul_lt_mul_of_pos_left
+, 
+Ordinal.mul_le_mul_iff_left
+, primed 
+mul_le_mul_left'
+/
+mul_le_mul_right'
+le_mul_right
+ 
+Ordinal exponentiation 
+| 
+Mathlib.SetTheory.Ordinal.Exponential
+ 
+| 
+opow
+, 
+opow_add
+Ordinal.opow_le_opow_right
+, 
+isNormal_opow
+ 
+Successor helpers 
+| 
+Mathlib.Algebra.Order.SuccPred
+ 
+Order.lt_add_one_iff
+, 
+Order.add_one_le_of_lt
+ 
+casts (order bridges) 
+| 
+Mathlib.Data.Nat.Cast.Order.Basic
+ 
+Nat.cast_le
+, 
+Nat.cast_lt
+ 
+Tactics 
+| 
+Mathlib.Tactic.Linarith

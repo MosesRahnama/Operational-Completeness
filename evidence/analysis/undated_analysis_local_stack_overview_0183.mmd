@@ -1,0 +1,31 @@
+flowchart TD
+  user[You in Open WebUI] --> webui[Open WebUI\n(container: open-webui-fresh)\nHost 3001 → Ctnr 8080]
+
+  subgraph Port8000[Port 8000 (choose one)]
+    tools[Local Tool Server\n(python my_assistant_tools.py)\nHost 8000]
+    fsMCP[Filesystem MCP\n(container: server-1)\nHost 8000 → Ctnr 8000]
+  end
+
+  litellm[LiteLLM Vertex Proxy\n(container: litellm-vertex)\nHost 4001 → Ctnr 4001]
+  db[(Postgres\n(container: litellm-db))]
+  vertex[(Google Vertex AI APIs)]
+  web[(External Web Sites)]
+  hostfs[(Host Filesystem C:\\Users\\Moses\\…)]
+
+  webui -- Tools Base URL → tools
+  tools -- Web Search → web
+  webui -- OpenAI Provider Base URL → litellm
+  litellm --> db
+  litellm --> vertex
+
+  %% Optional alternative: if you run the Filesystem MCP demo instead of the Python tools
+  webui -. alternative tools .-> fsMCP
+  fsMCP -. reads/writes .- hostfs
+
+  classDef container fill:#e6f3ff,stroke:#0a66c2,stroke-width:1px;
+  classDef external fill:#fff5d6,stroke:#d99000,stroke-width:1px;
+  classDef db fill:#e9fbe9,stroke:#198754,stroke-width:1px;
+
+  class webui,tools,fsMCP,litellm container;
+  class vertex,web external;
+  class db db;
